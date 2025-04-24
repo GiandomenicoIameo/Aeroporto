@@ -5,7 +5,7 @@ Ogni utente che utilizza il sistema riveste un ruolo specifico e ben distinto: u
 
 Sia le istanze di Generico che quelle di Amministratore utilizzano gli stessi metodi per accedere alla piattaforma, come ad esempio il metodo responsabile dell'autenticazione degli utenti. Di conseguenza, la relazione è stata introdotta per prevenire la ridondanza di metodi tra le classi.
 
-## La classe Prenotazione come modello associativo.
+## La classe Prenotazione come modello associativo
 
 Dal diagramma delle classi si può vedere chiaramente che la classe Prenotazione è una classe associativa che collega le classi Volo e Generico. La scelta di considerare classe Prenotazione come classe associativa si basa sulle seguenti due asserzioni:
   1) Se non esiste alcuna istanza della classe Volo, allora non possono essere effettuate prenotazioni;
