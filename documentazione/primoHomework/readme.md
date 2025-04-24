@@ -17,4 +17,4 @@ In conclusione, non esiste alcuna istanza della classe Prenotazione se e solo se
 
 La gestione dei voli è affidata agli amministrtori di sistema. Ogni amministratore di sistema può gestire in un dato momento più voli. Considerato che in un qualsiasi istante possono esserci 0 o più voli programmati, un amministratore potrebbe non essere asseganto a nessun volo. Ad esempio, un amministratore appena inserito nel sistema potrebbe non avere nessun volo da gestire oppure se tutti i voli sono cancellati.
 
-Repository: https://github.com/GiandomenicoIameo/Aeroporto
+Repository del codice realizzato: https://github.com/GiandomenicoIameo/Aeroporto
