@@ -14,3 +14,7 @@ Dal diagramma delle classi si può vedere chiaramente che la classe Prenotazione
   2) Se non esiste alcuna istanza della classe Generico, allora sicuramente il sistema non riceverà nessuna prenotazione.
 
 In conclusione, non esiste alcuna istanza della classe Prenotazione se e solo se non esiste alcuna istanza della classe Volo oppure non esiste alcuna istanza della classe Generico. In altre parole, prima di creare una istanza della classe Prenotazione devono esistere le istanze delle classi Volo e Generico.
+
+## Gestione dei voli
+
+La gestione dei voli è affidata agli amministrtori di sistema. Ogni amministratore di sistema può gestire in un dato momento più voli. Considerato che in un qualsiasi momento possono esserci 0 o più voli programmati, un amministratore potrebbe non essere asseganto a nessun volo.
