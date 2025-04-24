@@ -10,5 +10,5 @@ Inserire in questa cartella il class diagram di dominio, un eventuale documento 
 ## La classe Prenotazione come modello associativo.
 
 * Dal diagramma delle classi si può vedere chiaramente che la classe Prenotazione è una classe associativa, che collega le classi Volo e Generico. Tale scelta si base sulle seguenti due asserzioni:
-  1) Se non esiste acluna istanza della classe volo, allora non possono essere effettuate prenotazioni;
+  1) Se non esiste acluna istanza della classe Volo, allora non possono essere effettuate prenotazioni;
   2) Se non esiste alcuna istanza della classe Generico, allora sicuramente il sistema non riceverà nessuna prenotazione;
