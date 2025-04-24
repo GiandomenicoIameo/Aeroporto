@@ -11,4 +11,6 @@ Sia le istanze di Generico che quelle di Amministratore utilizzano gli stessi me
 
 Dal diagramma delle classi si può vedere chiaramente che la classe Prenotazione è una classe associativa, che collega le classi Volo e Generico. La scelta di considerare classe Prenotazione come classe associativa si basa sulle seguenti due asserzioni:
   1) Se non esiste alcuna istanza della classe Volo, allora non possono essere effettuate prenotazioni;
-  2) Se non esiste alcuna istanza della classe Generico, allora sicuramente il sistema non riceverà nessuna prenotazione;
+  2) Se non esiste alcuna istanza della classe Generico, allora sicuramente il sistema non riceverà nessuna prenotazione.
+
+In conclusione, non esiste alcuna istanza della classe Prenotazione se e solo se non esiste alcuna istanza della classe Volo oppure non esiste alcuna istanza della classe Generico.
