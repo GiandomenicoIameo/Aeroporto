@@ -13,4 +13,4 @@ Dal diagramma delle classi si può vedere chiaramente che la classe Prenotazione
   1) Se non esiste alcuna istanza della classe Volo, allora non possono essere effettuate prenotazioni;
   2) Se non esiste alcuna istanza della classe Generico, allora sicuramente il sistema non riceverà nessuna prenotazione.
 
-In conclusione, non esiste alcuna istanza della classe Prenotazione se e solo se non esiste alcuna istanza della classe Volo oppure non esiste alcuna istanza della classe Generico.
+In conclusione, non esiste alcuna istanza della classe Prenotazione se e solo se non esiste alcuna istanza della classe Volo oppure non esiste alcuna istanza della classe Generico. In altre parole, prima di creare una istanza della classe Prenotazione devono esistere le istanze delle classi Volo e Generico.
