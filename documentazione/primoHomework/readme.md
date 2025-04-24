@@ -17,4 +17,4 @@ In conclusione, non esiste alcuna istanza della classe Prenotazione se e solo se
 
 ## Gestione dei voli
 
-La gestione dei voli è affidata agli amministrtori di sistema. Ogni amministratore di sistema può gestire in un dato momento più voli. Considerato che in un qualsiasi momento possono esserci 0 o più voli programmati, un amministratore potrebbe non essere asseganto a nessun volo.
+La gestione dei voli è affidata agli amministrtori di sistema. Ogni amministratore di sistema può gestire in un dato momento più voli. Considerato che in un qualsiasi istante possono esserci 0 o più voli programmati, un amministratore potrebbe non essere asseganto a nessun volo. Ad esempio, un amministratore appena inserito nel sistema potrebbe non avere nessun volo da gestire oppure se tutti i voli sono cancellati.
