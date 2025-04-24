@@ -6,3 +6,9 @@ Inserire in questa cartella il class diagram di dominio, un eventuale documento 
 *Ogni utente che utilizza il sistema riveste un ruolo specifico e ben distinto: utente generico e amministratore di sistema. In tale contesto, sia utente generico che amministratore di sistema sono utenti, pertanto risulta naturale collegare queste classi attraverso una relazione di ereditarietà. Sono state così definite una classe Utente come superclasse, e le classi Generico e Amministratore come sottoclassi della superclasse Utente.*
 
 *Sia le istanze di Generico che quelle di Amministratore utilizzano gli stessi metodi per accedere alla piattaforma, come ad esempio il metodo responsabile dell'autenticazione degli utenti. Di conseguenza, la relazione è stata introdotta per prevenire la ridondanza di metodi tra le classi.*
+
+## La classe Prenotazione come modello associativo.
+
+* Dal diagramma delle classi si può vedere chiaramente che la classe Prenotazione è una classe associativa, che collega le classi Volo e Generico. Tale scelta si base suelle seguenti due asserzioni:
+  1) Se non esiste acluna istanza della classe volo, allora non possono essere effettuate prenotazioni;
+  2) Se non esiste alcuna istanza della classe Generico, allora sicuramente il sistema non riceverà nessuna prenotazione;
