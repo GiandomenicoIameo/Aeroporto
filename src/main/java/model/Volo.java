@@ -1,4 +1,23 @@
-package model.utenti;
+package model;
+import java.util.ArrayList;
+
+enum StatoVolo {
+	Programmato( "Volo programmato" ),
+	Decollato( "Volo decollato" ),
+	InRitardo( "Volo in ritardo" ),
+	Atterrato( "Volo atterrato" ),
+	Cancellato( "Volo cancellato" );
+
+	private String descrizione;
+
+	 StatoVolo( String descrizione ) {
+        this.descrizione = descrizione;
+    }
+
+	public String getDescrizione() {
+		return descrizione;
+	}
+}
 
 public class Volo {
 
@@ -12,7 +31,9 @@ public class Volo {
 	private String durata;
 
 	private int numeroGate;
+
 	private Amministratore admin;
+	private ArrayList<Prenotazione> prenotazioni;
 
 	public Volo( String codice, Amministratore admin, String compagniaAerea, String partenza,
 	             String destinazione, String data, String durata ) {
@@ -26,6 +47,8 @@ public class Volo {
 
 		this.data   = data;
 		this.durata = durata;
+
+		this.prenotazioni = new ArrayList<>();
 	}
 
 	public String visualizzaCodice() {
