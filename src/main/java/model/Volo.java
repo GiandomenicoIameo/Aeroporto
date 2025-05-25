@@ -2,21 +2,8 @@ package model;
 import java.util.ArrayList;
 
 enum StatoVolo {
-	Programmato( "Volo programmato" ),
-	Decollato( "Volo decollato" ),
-	InRitardo( "Volo in ritardo" ),
-	Atterrato( "Volo atterrato" ),
-	Cancellato( "Volo cancellato" );
-
-	private String descrizione;
-
-	 StatoVolo( String descrizione ) {
-        this.descrizione = descrizione;
-    }
-
-	public String getDescrizione() {
-		return descrizione;
-	}
+	Programmato, Decollato, InRitardo,
+	Atterrato, Cancellato
 }
 
 public class Volo {
@@ -24,7 +11,7 @@ public class Volo {
 	private String codice;
 
 	private String compagniaAerea;
-	private String partenza;
+	private final String partenza = "Napoli";
 	private String destinazione;
 
 	private String data;
@@ -32,30 +19,106 @@ public class Volo {
 
 	private int numeroGate;
 
+	private String stato;
+
+	// Tale classe non deve possedere il metodo setAdmin(). Se lo possedesse
+	// ciò contraddirebbe il fatto che un volo è assegnato esattamente a un
+	// amministratore perché tale metodo potrebbe modificarlo.
+	//
+	// La variabile di istanza deve essere modificata solo nel costruttore.
 	private Amministratore admin;
-	private ArrayList<Prenotazione> prenotazioni;
 
-	public Volo( String codice, Amministratore admin, String compagniaAerea, String partenza,
-	             String destinazione, String data, String durata ) {
+	// Un volo può non essere stato prenotato da nessun utente quindi
+	// prenotazioniAssociateAlVolo potrebbe essere anche vuoto.
+	private ArrayList<Prenotazione> prenotazioniAssociateAlVolo = new ArrayList<>();
 
-		this.codice 		= codice;
-		this.admin 			= admin;
-		this.compagniaAerea = compagniaAerea;
+	// Se un esemplare di Volo viene creato allora necessariamente
+	// un esemplare di Amministratore deve essere istanziato per
+	// poterlo gestire. Un esemplare di Volo non può esistere
+	// senza un esemplare di Amministratore che lo gestisce.
 
-		this.partenza     = partenza;
-		this.destinazione = destinazione;
-
-		this.data   = data;
-		this.durata = durata;
-
-		this.prenotazioni = new ArrayList<>();
+	public Volo() {
+		this.stato = StatoVolo.Programmato.name();
+		this.admin = new Amministratore( this );
 	}
 
-	public String visualizzaCodice() {
+	public Volo( Amministratore admin ) {
+		admin.inserisciVolo( this );
+
+		this.stato = StatoVolo.Programmato.name();
+		this.admin = admin;
+	}
+
+	public void setStato( String stato ) {
+
+		for( StatoVolo elemento : StatoVolo.values() ) {
+			if( stato.equals( elemento.name() ) ) {
+				this.stato = stato; break;
+			}
+		}
+	}
+
+	public void setCodice( String codice ) {
+		this.codice = codice;
+	}
+
+	public void setCompagnia( String compagnia ) {
+		compagniaAerea = compagnia;
+	}
+
+	public void setDestinazione( String destinazione ) {
+		this.destinazione = destinazione;
+	}
+
+	public void setData( String data ) {
+		this.data = data;
+	}
+
+	public void setDurata( String durata ) {
+		this.durata = durata;
+	}
+
+	public void setGate( int gate ) {
+		this.numeroGate = gate;
+	}
+
+	public Amministratore getAdmin() {
+		return admin;
+	}
+
+	public String getCodice() {
 		return codice;
 	}
 
-	public String visualizzaCompagniaAerea() {
+	public String getStato() {
+		return stato;
+	}
+
+	public String getCompagniaAerea() {
 		return compagniaAerea;
+	}
+
+	public void aggiungiPrenotazione( Prenotazione prenotazione ) {
+		prenotazioniAssociateAlVolo.add( prenotazione );
+	}
+
+	public void rimuoviPrenotazione( Prenotazione prenotazione ) {
+		prenotazioniAssociateAlVolo.remove( prenotazione );
+	}
+
+	public int contaPrenotazioni() {
+		return prenotazioniAssociateAlVolo.size();
+	}
+
+	public String toString() {
+		return String.format( "%s: %s\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n%s: %d\n%s: %s\n",
+					"Codice volo", 	  	     	 codice,
+					"Compagnia aerea", 	     	 compagniaAerea,
+					"Aeroporto di partenza",     partenza,
+					"Aeroporto di destinazione", destinazione,
+					"Data di partenza", 		 data,
+					"Duarata del volo",			 durata,
+					"Numero gate",				 numeroGate,
+					"Stato del volo",			 stato );
 	}
 }

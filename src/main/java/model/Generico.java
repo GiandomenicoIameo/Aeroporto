@@ -3,49 +3,63 @@ import java.util.ArrayList;
 
 public class Generico extends Utente {
 
-	private String nome;
-	private ArrayList<Prenotazione> prenotazioni;
-	private boolean utenteAutenticato = false;
+	private ArrayList<Prenotazione> prenotazioniDiGenerico = new ArrayList<>();
 
-	public Generico( String nome, String username, String password ) {
-		super( username, password );
+	// protected Generico( String username, String password ) {
+	// 	super( username, password );
+	// }
 
-		if( login( username, password ) )
-			utenteAutenticato = true;
-
-		this.nome = nome;
-		this.prenotazioni = new ArrayList<>();
-
+	// Un utente generico potrebbe non avere effettuato nessuna prenotazione
+	// quindi la creazione di un esemplare di Generico non richiede la
+	// creazione di un esemplare di Prenotazione.
+	public Generico( String nome ) {
+		super.nome = nome;
 	}
 
-	public boolean setPrenotazione( Prenotazione prenotazione ) {
-		if( utenteAutenticato )
-			return prenotazioni.add( prenotazione );
-		return false;
+	// public Generico() {
+	// 	prenotazioniDiGenerico.add( new Prenotazione( this ) );
+	// }
+
+	public String getNome() {
+		return nome;
 	}
 
-	public boolean rimuoviPrenotazione( Prenotazione prenotazione ) {
-		if( utenteAutenticato )
-			return prenotazioni.remove( prenotazione );
-		return false;
+	public void effettuaPrenotazione( Prenotazione prenotazione ) {
+		prenotazioniDiGenerico.add( prenotazione );
+		prenotazione.getVoloAssociato().aggiungiPrenotazione( prenotazione );
+	}
+
+	public Prenotazione rimuoviPrenotazione( Prenotazione prenotazione ) {
+		prenotazioniDiGenerico.remove( prenotazione );
+		prenotazione.getVoloAssociato().rimuoviPrenotazione( prenotazione );
+		return null;
 	}
 
 	public String visualizzaStatoPrenotazione( Prenotazione prenotazione ) {
-		if( utenteAutenticato ) {
-			if( prenotazioni.contains( prenotazione ) )
-				return prenotazione.visualizzaStato();
-			return "Prenotazione inesistente";
-		}
-		return "Utente non autenticato";
+		if( prenotazioniDiGenerico.contains( prenotazione ) )
+			return prenotazione.visualizzaStato();
+		return "Prenotazione non esistente!";
 	}
 
 	public int contaPrenotazioni() {
-		return prenotazioni.size();
+		return prenotazioniDiGenerico.size();
+	}
+
+	public boolean cercaPrenotazione( String codice ) {
+		for( Prenotazione prenotazione : prenotazioniDiGenerico ) {
+			if( prenotazione.getVoloAssociato().getCodice().equals( codice ) )
+				return true;
+		}
+		return false;
 	}
 
 	public boolean cercaPrenotazione( Prenotazione prenotazione ) {
-		if( utenteAutenticato )
-			return prenotazioni.contains( prenotazione );
-		return false;
+		return prenotazioniDiGenerico.contains( prenotazione );
+	}
+
+	public String visualizzaPrenotazione( Prenotazione prenotazione ) {
+		if( prenotazioniDiGenerico.contains( prenotazione ) )
+			return prenotazione.toString();
+		return "Prenotazione non esistente!";
 	}
 }
