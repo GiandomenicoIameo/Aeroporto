@@ -106,7 +106,7 @@ public class Volo {
 		prenotazioniAssociateAlVolo.remove( prenotazione );
 	}
 
-	public int contaPrenotazioni() {
+	public int contaPrenotazioniAssociate() {
 		return prenotazioniAssociateAlVolo.size();
 	}
 
