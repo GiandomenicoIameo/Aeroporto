@@ -1,0 +1,47 @@
+package dao;
+import java.util.ArrayList;
+import java.sql.*;
+
+/**
+* Lo scopo della seguente interfaccia è
+* quella di presentare all'utilizzatore un
+* insieme di metodi per interagire con
+* la base di dati.
+*/
+
+/*
+* La struttura non deve "forzare" un tipo
+* specifico: non si sa come verrà usata tale struttura.
+*
+* La struttura non deve "forzare" una
+* specifica implementazione: se ne occpuerà
+* un altro team di sviluppo.
+*/
+
+public interface Dao<S,T> {
+
+	/**
+	* Il seguente metodo ha come obiettivo quello di
+	* recuperare un record da una tabella in base
+	* alla chiave primaria.
+	*/
+	T get( S key ) throws SQLException;
+
+	/**
+	* Il seguente metodo fornisce all'utilizzatore
+	* una lista di record proveniente da una tabella.
+	*/
+	ArrayList<T> getAll() throws SQLException;
+
+	/**
+	* Il metodo add() aggiunge un record a
+	* una tabella.
+	*/
+	boolean add( T record ) throws SQLException;
+
+	/**
+	* delete() elimina un record da
+	* una tabella.
+	*/
+	boolean delete( T record ) throws SQLException;
+}
