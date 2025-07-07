@@ -2,18 +2,19 @@ package model;
 import java.util.ArrayList;
 
 enum StatoVolo {
-	Programmato, Decollato, InRitardo,
-	Atterrato, Cancellato
+	PROGRAMMATO, DECOLLATO, IN_RITARDO,
+	ATTERRATO, CANCELLATO
 }
 
 public class Volo {
 
+	// Variabili di istanza
 	protected String codice;
 	protected String compagniaAerea;
-
 	protected String data;
-	protected String orarioArrivo;
-	protected String orarioPartenza;
+
+	protected Orario orarioArrivo;
+	protected Orario orarioPartenza;
 
 	protected String stato;
 	protected Gate gate;
@@ -23,7 +24,10 @@ public class Volo {
 	// amministratore perché tale metodo potrebbe modificarlo.
 	//
 	// La variabile di istanza deve essere modificata solo nel costruttore.
+
+	// Riferimenti a oggetti associati.
 	private Amministratore admin;
+	private ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
 
 	// Un volo può non essere stato prenotato da nessun utente quindi
 	// prenotazioniAssociateAlVolo potrebbe essere anche vuoto.
@@ -33,27 +37,57 @@ public class Volo {
 	// poterlo gestire. Un esemplare di Volo non può esistere
 	// senza un esemplare di Amministratore che lo gestisce.
 
-	public Volo() {
-
+	public Volo( Amministratore admin ) {
+		this.admin = admin;
 	}
 
 	public Volo( Amministratore admin, Gate gate ) {
 
 		admin.inserisciVolo( this );
-		gate.aggiungiVolo( this );
 
-		this.stato = StatoVolo.Programmato.name();
+		this.stato = StatoVolo.PROGRAMMATO.name();
 		this.admin = admin;
-		this.gate = gate;
+		this.gate  = gate;
+	}
+
+	public Volo( Amministratore admin, String codice,
+				 String compagniaAerea, String data, Orario orarioPartenza,
+				 Orario orarioArrivo, String stato, Gate gate ) {
+
+		this( admin );
+
+		this.codice 		= codice;
+		this.compagniaAerea = compagniaAerea;
+		this.data 			= data;
+		this.orarioPartenza = orarioPartenza;
+		this.orarioArrivo 	= orarioArrivo;
+		this.gate 			= gate;
+
+		setStato( stato );
+	}
+
+	public Volo() {
+
 	}
 
 	public void setStato( String stato ) {
 
+		boolean status = false;
+
 		for( StatoVolo elemento : StatoVolo.values() ) {
 			if( stato.equals( elemento.name() ) ) {
-				this.stato = stato; break;
+				this.stato = stato; status = true;
+				break;
 			}
 		}
+
+		// Valore di default per lo stato del volo.
+		if( !status )
+			this.stato = StatoVolo.PROGRAMMATO.name();
+	}
+
+	public void addPrenotazione( Prenotazione p ) {
+		prenotazioni.add( p );
 	}
 
 	public void setCodice( String codice ) {
@@ -68,16 +102,23 @@ public class Volo {
 		this.data = data;
 	}
 
-	public void setOrarioPartenza( String orarioPartenza ) {
+	public void setOrarioPartenza( Orario orarioPartenza ) {
 		this.orarioPartenza = orarioPartenza;
 	}
 
-	public void setOrarioArrivo( String orarioArrivo ) {
+	public void setOrarioArrivo( Orario orarioArrivo ) {
 		this.orarioArrivo = orarioArrivo;
 	}
 
-	public void setGate( Gate gate ) {
-		this.gate = gate;
+	public void setGate( String gate ) {
+
+		if( this.gate != null ) {
+			this.gate.setNumeroGate( gate );
+		}
+	}
+
+	public void rimuoviAdmin() {
+		this.admin = null;
 	}
 
 	public Amministratore getAdmin() {
@@ -96,11 +137,11 @@ public class Volo {
 		return compagniaAerea;
 	}
 
-	public String getOrarioPartenza() {
+	public Orario getOrarioPartenza() {
 		return orarioPartenza;
 	}
 
-	public String getOrarioArrivo() {
+	public Orario getOrarioArrivo() {
 		return orarioArrivo;
 	}
 
@@ -110,5 +151,46 @@ public class Volo {
 
 	public String getGate() {
 		return gate.getNumeroGate();
+	}
+
+	public void rimuoviGate() {
+		gate.rimuoviVolo( this );
+		gate = null;
+	}
+
+	// Metodi per gestire le prenotazioni.
+	public void rimuoviPrenotazione( Prenotazione p ) {
+		prenotazioni.remove( p );
+
+	}
+
+	public ArrayList<Prenotazione> getPrenotazioni() {
+		return prenotazioni;
+	}
+
+	/**
+	 * Due esemplari di Volo sono considerati equivalenti se e solo se
+	 * si riferiscono allo stesso oggetto, hanno lo stesso codice oppure
+	 * le date, gli orari di arrivo, di partenza, il numero di gate e lo
+	 * stato coincidono.
+	 *
+	 *
+	 * @param obj
+	 * @return
+	 */
+	@Override
+	public boolean equals( Object obj ) {
+
+		if( this == obj ) {
+			return true;
+		}
+
+		if( obj == null ) {
+			return false;
+		}
+
+		Volo volo = ( Volo ) obj;
+
+		return volo.getCodice().equals( codice );
 	}
 }

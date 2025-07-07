@@ -3,52 +3,46 @@ import java.util.ArrayList;
 
 public class Amministratore extends Utente {
 
-	private ArrayList<Volo> voliGestiti;
-
-	/*
-	protected Amministratore( String username, String password ) {
-		super( username, password );
-	}*/
+	// riferimenti a oggetti associati.
+	private ArrayList<Volo> voliGestiti = new ArrayList<>();
 
 	// L'amministratore esiste solo se c'è almeno un volo
 	// predisposto dal sistema. Il seguente costruttore
 	// presuppone l'esistenza di un esemplare di Volo.
 
-	public Amministratore( String username, String password ) {
-		voliGestiti = new ArrayList<>();
-
-		this.username = username;
-		this.password = password;
-	}
-
-	public Amministratore( Volo volo ) {
-		voliGestiti = new ArrayList<>();
+	public Amministratore( String username, String password, Volo volo ) {
+		super( username, password );
 		voliGestiti.add( volo );
 	}
 
-	public Amministratore() {
-
+	public Amministratore( String username, String password ) {
+		super( username, password );
 	}
 
+	public Amministratore( String username, String password, ArrayList<Volo> list ) {
+		super( username, password );
+		voliGestiti = list;
+	}
+
+	@Override
 	public void setUsername( String username ) {
 		super.setUsername( username );
 	}
 
+	@Override
 	public void setPassword( String password ) {
 		super.setPassword( password );
 	}
 
+	@Override
 	public String getUsername() {
 		return super.getUsername();
 	}
 
+	@Override
 	public String getPassword() {
 		return super.getPassword();
 	}
-
-	/* public Amministratore() {
-		voliGestiti.add( new Volo( this ) );
-	} */
 
 	public void inserisciVolo( Volo volo ) {
 		voliGestiti.add( volo );
@@ -58,23 +52,11 @@ public class Amministratore extends Utente {
 		return voliGestiti.remove( volo );
 	}
 
-	public void visualizzaVolo( Volo volo ) {
-		if ( voliGestiti.contains( volo ) )
-			System.out.print( volo.toString() );
-		else
-			System.out.println( "Volo non esistente!" );
-	}
-
 	public Volo trovaVolo( String codice ) {
 		for( Volo elemento : voliGestiti ) {
 			if( elemento.getCodice().equals( codice ) )
 				return elemento;
 		} return null;
-	}
-
-	public void visualizzaVoliAssociati() {
-		for( Volo elemento : voliGestiti )
-			System.out.println( elemento );
 	}
 
 	public void modificaStatoVolo( Volo volo, String stato ) {
@@ -90,7 +72,22 @@ public class Amministratore extends Utente {
 		return voliGestiti;
 	}
 
-	// public boolean modificaAssegnazioneGate( Volo volo ) {
- //
-	// }
+	public boolean checkVolo( Volo volo ) {
+
+		for( Volo element : voliGestiti ) {
+
+			if( element instanceof VoloInPartenza &&
+				volo instanceof VoloInPartenza ) {
+				return ( ( VoloInPartenza ) element).equals( volo );
+			}
+			if( element instanceof VoloInArrivo &&
+					volo instanceof VoloInArrivo ) {
+				return ( ( VoloInArrivo ) element ).equals( volo );
+			}
+
+			if( element.equals( volo ) )
+				return true;
+		}
+		return false;
+	}
 }

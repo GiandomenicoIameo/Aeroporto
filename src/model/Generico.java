@@ -1,31 +1,68 @@
 package model;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Generico extends Utente {
 
-	private ArrayList<Prenotazione> prenotazioni;
-
+	// variabili di istanza.
 	private String nome;
 	private String cognome;
 	private String telefono;
 	private int anni;
 
-	// protected Generico( String username, String password ) {
-	// 	super( username, password );
-	// }
+	// riferimenti a oggetti associati.
+	private ArrayList<Prenotazione> prenotazioni = new ArrayList<>();
 
-	// Un utente generico potrebbe non avere effettuato nessuna prenotazione
-	// quindi la creazione di un esemplare di Generico non richiede la
-	// creazione di un esemplare di Prenotazione.
-
-	public Generico() {
-		prenotazioni = new ArrayList<>();
+	/**
+	 * La creazione di un esemplare di generico richiede di specificare
+	 * le credenziali di accesso all'account, ovvero username e password.
+	 *
+	 * E' bene notare che un utente generico, secondo l'associazione gestisce
+	 * che la collega alla classe prenotazione, potrebbe in un determinato momento
+	 * non avere effettuato nessuna prenotazione.
+	 * Ciò significa che la creazione di un esemplare di Generico non richiede la
+	 * creazione di un esemplare di Prenotazione.
+	 *
+	 *
+	 * @param username
+	 * @param password
+	 */
+	public Generico( String username, String password ) {
+		super( username, password );
 	}
 
+	public Generico( String username, String password, Prenotazione prenotazione,
+					 String nome, String cognome, String telefono, int anni ) {
+
+		super( username,password );
+
+		this.nome 	  = nome;
+		this.cognome  = cognome;
+		this.telefono = telefono;
+
+		this.prenotazioni.add( prenotazione );
+		setAnni( anni );
+	}
+
+	public Generico( String username, String password, ArrayList<Prenotazione> p,
+					 String nome, String cognome, String telefono, int anni ) {
+
+		super( username,password );
+
+		this.nome 	  = nome;
+		this.cognome  = cognome;
+		this.telefono = telefono;
+		this.prenotazioni = p;
+
+		setAnni( anni );
+	}
+
+	@Override
 	public void setUsername( String username ) {
 		super.setUsername( username );
 	}
 
+	@Override
 	public void setPassword( String password ) {
 		super.setPassword( password );
 	}
@@ -43,15 +80,20 @@ public class Generico extends Utente {
 	}
 
 	public void setAnni( int anni ) {
-		this.anni = anni;
+		if( anni < 0 )
+			this.anni = 25;
+		else
+			this.anni = anni;
 	}
 
+	@Override
 	public String getUsername() {
-		return super.getUsername();
+		return username;
 	}
 
+	@Override
 	public String getPassword() {
-		return super.getPassword();
+		return password;
 	}
 
 	public String getNome() {
@@ -74,14 +116,24 @@ public class Generico extends Utente {
 		return prenotazioni;
 	}
 
-	public void effettuaPrenotazione( Prenotazione prenotazione ) {
-			prenotazioni.add( prenotazione );
+	/**
+	 * Il metodo, banalmente, aggiunge la prenotazione all'insieme delle
+	 * prenotazioni effettuate dall'utente.
+	 *
+	 * @param prenotazione corrisponde alla prenotazione da aggiungere all'arrayList.
+	 */
+	public void aggiungiPrenotazione( Prenotazione prenotazione ) {
+		prenotazioni.add( prenotazione );
+
+		if( prenotazione.getGenerico() == null )
+			prenotazione.setGenerico( this );
 	}
 
-	public Prenotazione rimuoviPrenotazione( Prenotazione prenotazione ) {
+	public void rimuoviPrenotazione( Prenotazione prenotazione ) {
 		prenotazioni.remove( prenotazione );
-		prenotazione.getVoloAssociato().rimuoviPrenotazione( prenotazione );
-		return null;
+
+		if( prenotazione.getGenerico() != null )
+			prenotazione.setGenerico( null );
 	}
 
 	public String visualizzaStatoPrenotazione( Prenotazione prenotazione ) {
@@ -102,42 +154,33 @@ public class Generico extends Utente {
 		return false;
 	}
 
-	public Prenotazione cercaPrenotazione( String codice, String nome, String cognome, String bagagli ) {
+	public Prenotazione cercaPrenotazione( String codice, String nome,
+										   String cognome, String bagagli ) {
 		for( Prenotazione p : prenotazioni ) {
-			if( p.getVoloAssociato().getCodice().equals( codice ) && nome.equals( p.getNomePasseggero() ) &&
-				cognome.equals( p.getCognomePasseggero() ) && p.getNumeroBagagli().equals( bagagli ) )
+			if( p.getVoloAssociato().getCodice().equals( codice ) &&
+							 nome.equals( p.getNomePasseggero() ) &&
+					   cognome.equals( p.getCognomePasseggero() ) &&
+					p.getNumeroBagagli().equals( bagagli ) )
 				return p;
 		}
 		return null;
 	}
 
-	public boolean confrontaPrenotazione( Prenotazione prenotazione ) {
+	/**
+	 * Il metodo ha il compito di verificare se esistono due prenotazioni uguali
+	 * effettuate da uno stesso utente Generico.
+	 *
+	 * Il confronto si basa sul metodo equals() definito nella classe Prenotazione.
+	 *
+	 * @param prenotazione
+	 * @return se esistono due prenotazioni uguali, allora viene restituito true;
+	 * in caso negativo, viene restituito false.
+	 */
+	public boolean esistePrenotazione( Prenotazione prenotazione ) {
 
 		for( Prenotazione p : prenotazioni ) {
 			if( p.equals( prenotazione ) ) return true;
 		}
 		return false;
 	}
-
-	public String[] visualizzaPrenotazione( Prenotazione prenotazione ) {
-		if( prenotazioni.contains( prenotazione ) )
-			return prenotazione.toStringa();
-		return null;
-	}
-
-//	public String[][] getPrenotazioni() {
-//
-//		if ( prenotazioni.size() == 0 ) {
-//			System.out.println( "dimensione 0" );
-//			return null;
-//		}
-//		else {
-//			String[][] matrice = new String[ prenotazioni.size() ][];
-//
-//			int passo = 0;
-//			for( Prenotazione p : prenotazioni )
-//				matrice[ passo++ ] = p.toStringa();
-//			return matrice;
-//		}
-//	}
 }
