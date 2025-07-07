@@ -37,11 +37,22 @@ public interface Dao<S,T> {
 	* Il metodo add() aggiunge un record a
 	* una tabella.
 	*/
-	boolean add( T record ) throws SQLException;
+	boolean add( T mioRecord ) throws SQLException;
+
+	/**
+	 * Il metodo update() modifica una record
+	 * di una tabella.
+	 *
+	 * @param vecchio
+	 * @param nuovo
+	 * @return
+	 * @throws SQLException
+	 */
+	boolean update( T vecchio, T nuovo ) throws SQLException;
 
 	/**
 	* delete() elimina un record da
 	* una tabella.
 	*/
-	boolean delete( T record ) throws SQLException;
+	boolean delete( T mioRecord ) throws SQLException;
 }

@@ -2,7 +2,6 @@ package dao;
 
 import model.Utente;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -30,6 +29,18 @@ public interface UtenteDao<T extends Utente> extends Dao<String,T> {
 	* degli utenti.
 	*/
 	boolean add( T user ) throws SQLException;
+
+
+	/**
+	 *  Il metodo update() modifica una record
+	 * 	della tabella degli utenti.
+	 *
+	 * @param vechio
+	 * @param nuovo
+	 * @return
+	 * @throws SQLException
+	 */
+	boolean update( T vechio, T nuovo ) throws SQLException;
 
 	/**
 	* Elimina un record dalla tabella
