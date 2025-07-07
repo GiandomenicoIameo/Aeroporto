@@ -6,7 +6,6 @@ package gui;
 import controller.*;
 import model.Amministratore;
 
-import javax.smartcardio.Card;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -67,6 +66,55 @@ public class Login extends javax.swing.JFrame {
         pannelloSuperutenteDestroHome = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pannelloScorrevole = new javax.swing.JPanel();
+        pannelloSuperutenteDestroGestisciVoli = new javax.swing.JPanel();
+        pannelloCardVolo = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        cardVoloAeroportoOrigineLabel = new javax.swing.JLabel();
+        cardVoloAeroportoDestinazioneLabel = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        cardVoloStatoVoloLabel = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        pannelloCardVoloPulsanteCancellaVolo = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        cardVoloOrarioPartenzaLabel = new javax.swing.JLabel();
+        cardVoloCompagniaAereaLabel = new javax.swing.JLabel();
+        cardVoloDataLabel = new javax.swing.JLabel();
+        cardVoloGateLabel = new javax.swing.JLabel();
+        cardVoloOrarioArrivoLabel = new javax.swing.JLabel();
+        cardVoloCodiceVoloLabel = new javax.swing.JLabel();
+        pannelloCardVoloPulsanteModificaVolo = new javax.swing.JButton();
+        pannelloCardPrenotazione = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        cardPrenotazioneAeroportoOrigineLabel = new javax.swing.JLabel();
+        cardPrenotazioneAeroportoDestinazioneLabel = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        cardPrenotazionePulsanteCancellaPrenotazione = new javax.swing.JButton();
+        jLabel69 = new javax.swing.JLabel();
+        cardPrenotazioneNomePasseggeroInput = new javax.swing.JLabel();
+        cardPrenotazioneNumeroBagagliInput = new javax.swing.JLabel();
+        cardPrenotazioneCodiceVoloInput = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        cardPrenotazionePostoAssegnatoInput = new javax.swing.JLabel();
+        cardPrenotazioneNumeroBiglietto = new javax.swing.JLabel();
+        cardPrenotazioneCognomePasseggeroInput = new javax.swing.JLabel();
+        cardPrenotazioneStatoVoloInput = new javax.swing.JLabel();
+        pannelloCardAmministratore1 = new javax.swing.JPanel();
+        jLabel72 = new javax.swing.JLabel();
+        voliGestitiAmministratore1 = new javax.swing.JLabel();
+        usernameAmministratore1 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        pulsanteToggle1 = new javax.swing.JToggleButton();
         pannelloSuperutenteDestroAggiungiVoloScorrevole = new javax.swing.JScrollPane();
         pannelloSuperutenteDestroAggiungiVolo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -105,27 +153,6 @@ public class Login extends javax.swing.JFrame {
         sottoPannelloSuperutenteDestroAggiungiVoloListaAmministratori = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
         pannelloSuperutenteAggiungiVoloNumeroPostiAereoComboBox = new javax.swing.JComboBox<>();
-        pannelloSuperutenteDestroGestisciVoli = new javax.swing.JPanel();
-        pannelloSuperutenteCardVolo = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        cardVoloAeroportoOrigineLabel = new javax.swing.JLabel();
-        cardVoloAeroportoDestinazioneLabel = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        pannelloSuperutentePulsanteCancellaVolo = new javax.swing.JButton();
-        jLabel24 = new javax.swing.JLabel();
-        cardVoloOrarioPartenzaLabel = new javax.swing.JLabel();
-        cardVoloCompagniaAereaLabel = new javax.swing.JLabel();
-        cardVoloDataLabel = new javax.swing.JLabel();
-        cardVoloGateLabel = new javax.swing.JLabel();
-        cardVoloOrarioArrivoLabel = new javax.swing.JLabel();
-        cardVoloStatoVoloLabel = new javax.swing.JLabel();
-        cardVoloCodiceVoloLabel = new javax.swing.JLabel();
         pannelloSuperutenteDestroAreaModifica = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         pannelloSuperutenteModificaVoloNumerogateComboBox = new javax.swing.JComboBox<>();
@@ -151,26 +178,79 @@ public class Login extends javax.swing.JFrame {
         pannelloAmministratoreSinistro = new javax.swing.JPanel();
         pannelloSinistroAmministratorePulsanteHome = new javax.swing.JButton();
         pannelloSinistroAmministratorePulsanteEsci = new javax.swing.JButton();
-        pannelloSinistroAmministratorePulsanteModificaVolo = new javax.swing.JButton();
         pannelloSinistroAmministratorePulsanteImpostazioniVolo = new javax.swing.JButton();
+        pannelloSinistroAmministratorePulsanteAggiungiVolo = new javax.swing.JButton();
         pannelloAmministratoreDestro = new javax.swing.JPanel();
         pannelloAmministratoreDestroHome = new javax.swing.JPanel();
         pannelloAmministratoreDestroHomeScorrevole = new javax.swing.JScrollPane();
         sottoPannelloAmministratoreDestroHomeScorrevole = new javax.swing.JPanel();
-        pannelloAmministratoreDestroModificaVoli = new javax.swing.JPanel();
+        pannelloAmministratoreDestroAggiungiVoloScorrevole = new javax.swing.JScrollPane();
+        pannelloAmministratoreDestroAggiungiVolo = new javax.swing.JPanel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        pannelloAmministratoreAggiungiVoloNumerogateComboBox = new javax.swing.JComboBox<>();
+        jLabel77 = new javax.swing.JLabel();
+        pannelloAmministratoreAggiungiVoloCompagniaAereaInput = new javax.swing.JTextField();
+        jLabel78 = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        jSeparator12 = new javax.swing.JSeparator();
+        jSeparator13 = new javax.swing.JSeparator();
+        jLabel84 = new javax.swing.JLabel();
+        pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox = new javax.swing.JComboBox<>();
+        pannelloAmministratoreAggiungiVoloCodiceVoloInput = new javax.swing.JTextField();
+        pannelloAmministratoreAggiungiVoloTipoVoloComboBox = new javax.swing.JComboBox<>();
+        pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox = new javax.swing.JComboBox<>();
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInput = new javax.swing.JTextField();
+        pannelloAmministratoreAggiungiVoloDataInput = new javax.swing.JTextField();
+        pannelloAmministratoreAggiungiVoloOrarioArrivoOraInput = new javax.swing.JTextField();
+        jLabel89 = new javax.swing.JLabel();
+        jLabel91 = new javax.swing.JLabel();
+        pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox = new javax.swing.JComboBox<>();
+        jLabel85 = new javax.swing.JLabel();
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInput = new javax.swing.JTextField();
+        jLabel86 = new javax.swing.JLabel();
+        pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInput = new javax.swing.JTextField();
+        pannelloAmministratoreAggiungiVoloPulsanteSalva = new javax.swing.JButton();
+        pannelloAmministratoreDestroModificaVolo = new javax.swing.JPanel();
+        jLabel53 = new javax.swing.JLabel();
+        pannelloAmministratoreModificaVoloNumerogateComboBox = new javax.swing.JComboBox<>();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        pannelloAmministratoreModificaVoloCompagniaAereaInput = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        pannelloAmministratoreModificaVoloStatoComboBox = new javax.swing.JComboBox<>();
+        jLabel58 = new javax.swing.JLabel();
+        pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox = new javax.swing.JComboBox<>();
+        jLabel59 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
+        jLabel60 = new javax.swing.JLabel();
+        pannelloAmministratoreModificaVoloAeroportoOrigineComboBox = new javax.swing.JComboBox<>();
+        pannelloAmministratoreDestroModificaVoloPulsanteSalva = new javax.swing.JButton();
+        jLabel61 = new javax.swing.JLabel();
+        pannelloAmministratoreModificaVoloCodiceVoloInput = new javax.swing.JTextField();
         pannelloAmministratoreDestroImpostazioni = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         pannelloAmministratoreDestroImpostazioniUsernameLabel = new javax.swing.JTextField();
-        pannelloAmministratoreDestroImpostazioniPasswordLabel = new javax.swing.JTextField();
         pannelloAmministratoreDestroImpostazioniPulsanteConferma = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
+        pannelloAmministratoreDestroImpostazioniPasswordLabel = new javax.swing.JPasswordField();
+        pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount = new javax.swing.JButton();
         pannelloGenerico = new javax.swing.JPanel();
         pannelloGenericoDestro = new javax.swing.JPanel();
         pannelloGenericoDestroHome = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         sottoPannelloGenericoDestroHomeScorrevole = new javax.swing.JPanel();
+        pannelloGenericoDestroModificaPrenotazione = new javax.swing.JPanel();
         pannelloGenericoDestroAggiungiPrenotazione = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -197,16 +277,15 @@ public class Login extends javax.swing.JFrame {
         pannelloGenericoSinistroPulsanteHome = new javax.swing.JButton();
         pannelloGenericoSinistroPulsanteAggiungiPrenotazione = new javax.swing.JButton();
         pannelloGenericoSinistroPulsanteVisualizzaPrenotazioni = new javax.swing.JButton();
-        pannelloGenericoSinistroPulsanteModificaVolo = new javax.swing.JButton();
         pannelloGenericoSinistroPulsanteEsci = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1 = new javax.swing.JTextField();
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2 = new javax.swing.JTextField();
+        pannelloSinistroGenericoRicercheRapideNomePasseggeroLabel = new javax.swing.JTextField();
+        pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabel = new javax.swing.JTextField();
         jLabel47 = new javax.swing.JLabel();
-        pannelloGenericoSinistroPulsanteModificaVolo1 = new javax.swing.JButton();
+        pannelloSinistroGenericoRicercheRapidePulsanteCerca = new javax.swing.JButton();
         jLabel49 = new javax.swing.JLabel();
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3 = new javax.swing.JTextField();
+        pannelloSinistroGenericoRicercheRapideCodiceLabel = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel52 = new javax.swing.JLabel();
@@ -214,7 +293,6 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pannelloGenerale.setPreferredSize(new java.awt.Dimension(1400, 1800));
         pannelloGenerale.setLayout(new java.awt.CardLayout());
 
         pannelloSignin.setBackground(new java.awt.Color(255, 255, 255));
@@ -236,8 +314,8 @@ public class Login extends javax.swing.JFrame {
         signinUsernameInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         signinUsernameInput.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 2, true), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Z003", 0, 24), new java.awt.Color(51, 51, 51))); // NOI18N
 
-        signinPulsante.setBackground(new java.awt.Color(51, 102, 255));
-        signinPulsante.setFont(new java.awt.Font("DialogInput", 0, 24)); // NOI18N
+        signinPulsante.setBackground(new java.awt.Color(102, 102, 255));
+        signinPulsante.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
         signinPulsante.setForeground(new java.awt.Color(255, 255, 255));
         signinPulsante.setText("Accedi");
         signinPulsante.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
@@ -266,8 +344,9 @@ public class Login extends javax.swing.JFrame {
         signinPannelloErroreLayout.setVerticalGroup(
             signinPannelloErroreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signinPannelloErroreLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(signinPannelloErroreTesto))
+                .addContainerGap()
+                .addComponent(signinPannelloErroreTesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout signinLayout = new javax.swing.GroupLayout(signin);
@@ -292,15 +371,15 @@ public class Login extends javax.swing.JFrame {
             .addGroup(signinLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(signinTitolo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(18, 18, 18)
                 .addComponent(signinUsernameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(signinPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(signinPannelloErrore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(signinPulsante, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         pannelloSignin.add(signin, new java.awt.GridBagConstraints());
@@ -405,17 +484,576 @@ public class Login extends javax.swing.JFrame {
 
         pannelloScorrevole.setBackground(new java.awt.Color(255, 255, 255));
         pannelloScorrevole.setLayout(new javax.swing.BoxLayout(pannelloScorrevole, javax.swing.BoxLayout.LINE_AXIS));
+
+        pannelloCardVolo.setBackground(new java.awt.Color(255, 255, 255));
+        pannelloCardVolo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        pannelloCardVolo.setMaximumSize(new java.awt.Dimension(32767, 250));
+        pannelloCardVolo.setPreferredSize(new java.awt.Dimension(949, 888));
+
+        jPanel1.setBackground(new java.awt.Color(255, 51, 102));
+
+        cardVoloAeroportoOrigineLabel.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
+        cardVoloAeroportoOrigineLabel.setForeground(new java.awt.Color(255, 255, 255));
+        cardVoloAeroportoOrigineLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardVoloAeroportoOrigineLabel.setText("Napoli");
+
+        cardVoloAeroportoDestinazioneLabel.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
+        cardVoloAeroportoDestinazioneLabel.setForeground(new java.awt.Color(255, 255, 255));
+        cardVoloAeroportoDestinazioneLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardVoloAeroportoDestinazioneLabel.setText("Zurigo");
+
+        jLabel43.setFont(new java.awt.Font("Z003", 1, 20)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setText("Partenza");
+
+        jLabel44.setFont(new java.awt.Font("Z003", 1, 20)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setText("Destinazione");
+
+        cardVoloStatoVoloLabel.setBackground(new java.awt.Color(255, 255, 255));
+        cardVoloStatoVoloLabel.setFont(new java.awt.Font("Z003", 1, 36)); // NOI18N
+        cardVoloStatoVoloLabel.setForeground(new java.awt.Color(204, 255, 0));
+        cardVoloStatoVoloLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardVoloStatoVoloLabel.setText("Confermato");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel43)
+                    .addComponent(cardVoloAeroportoOrigineLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(cardVoloAeroportoDestinazioneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cardVoloStatoVoloLabel)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cardVoloAeroportoOrigineLabel)
+                    .addComponent(cardVoloAeroportoDestinazioneLabel)
+                    .addComponent(cardVoloStatoVoloLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel44))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel19.setText("Orario partenza:");
+
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel20.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel20.setText("Codice:");
+
+        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel21.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel21.setText("Compagnia aerea:");
+
+        jLabel22.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel22.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel22.setText("Data:");
+
+        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel23.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel23.setText("Gate:");
+
+        pannelloCardVoloPulsanteCancellaVolo.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
+        pannelloCardVoloPulsanteCancellaVolo.setForeground(new java.awt.Color(255, 51, 102));
+        pannelloCardVoloPulsanteCancellaVolo.setText("Cancella");
+        pannelloCardVoloPulsanteCancellaVolo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 102), 2, true));
+        pannelloCardVoloPulsanteCancellaVolo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               // pannelloCardVoloPulsanteCancellaVoloActionPerformed(evt);
+            }
+        });
+
+        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel24.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel24.setText("Orario arrivo:");
+
+        cardVoloOrarioPartenzaLabel.setBackground(new java.awt.Color(255, 255, 255));
+        cardVoloOrarioPartenzaLabel.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        cardVoloOrarioPartenzaLabel.setForeground(new java.awt.Color(102, 102, 255));
+        cardVoloOrarioPartenzaLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardVoloOrarioPartenzaLabel.setText("11.00 am");
+
+        cardVoloCompagniaAereaLabel.setBackground(new java.awt.Color(255, 255, 255));
+        cardVoloCompagniaAereaLabel.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        cardVoloCompagniaAereaLabel.setForeground(new java.awt.Color(102, 102, 255));
+        cardVoloCompagniaAereaLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardVoloCompagniaAereaLabel.setText("Lufthansa");
+
+        cardVoloDataLabel.setBackground(new java.awt.Color(255, 255, 255));
+        cardVoloDataLabel.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        cardVoloDataLabel.setForeground(new java.awt.Color(102, 102, 255));
+        cardVoloDataLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardVoloDataLabel.setText("22.03.2026");
+
+        cardVoloGateLabel.setBackground(new java.awt.Color(255, 255, 255));
+        cardVoloGateLabel.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        cardVoloGateLabel.setForeground(new java.awt.Color(102, 102, 255));
+        cardVoloGateLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardVoloGateLabel.setText("6");
+
+        cardVoloOrarioArrivoLabel.setBackground(new java.awt.Color(255, 255, 255));
+        cardVoloOrarioArrivoLabel.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        cardVoloOrarioArrivoLabel.setForeground(new java.awt.Color(102, 102, 255));
+        cardVoloOrarioArrivoLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardVoloOrarioArrivoLabel.setText("12.00 pm");
+
+        cardVoloCodiceVoloLabel.setBackground(new java.awt.Color(255, 255, 255));
+        cardVoloCodiceVoloLabel.setFont(new java.awt.Font("DejaVu Math TeX Gyre", 1, 18)); // NOI18N
+        cardVoloCodiceVoloLabel.setForeground(new java.awt.Color(102, 102, 255));
+        cardVoloCodiceVoloLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardVoloCodiceVoloLabel.setText("U0001");
+
+        pannelloCardVoloPulsanteModificaVolo.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
+        pannelloCardVoloPulsanteModificaVolo.setForeground(new java.awt.Color(255, 51, 102));
+        pannelloCardVoloPulsanteModificaVolo.setText("Modifica");
+        pannelloCardVoloPulsanteModificaVolo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 102), 2, true));
+        pannelloCardVoloPulsanteModificaVolo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloCardVoloPulsanteModificaVoloActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pannelloCardVoloLayout = new javax.swing.GroupLayout(pannelloCardVolo);
+        pannelloCardVolo.setLayout(pannelloCardVoloLayout);
+        pannelloCardVoloLayout.setHorizontalGroup(
+            pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pannelloCardVoloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pannelloCardVoloLayout.createSequentialGroup()
+                        .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pannelloCardVoloLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cardVoloDataLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(139, 139, 139))
+                            .addGroup(pannelloCardVoloLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cardVoloOrarioPartenzaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pannelloCardVoloLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cardVoloGateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel24)))
+                    .addGroup(pannelloCardVoloLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cardVoloCompagniaAereaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloCardVoloLayout.createSequentialGroup()
+                        .addComponent(cardVoloOrarioArrivoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cardVoloCodiceVoloLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(232, 232, 232))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloCardVoloLayout.createSequentialGroup()
+                        .addComponent(pannelloCardVoloPulsanteModificaVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pannelloCardVoloPulsanteCancellaVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        pannelloCardVoloLayout.setVerticalGroup(
+            pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloCardVoloLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pannelloCardVoloLayout.createSequentialGroup()
+                        .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(cardVoloOrarioPartenzaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24)
+                            .addComponent(cardVoloOrarioArrivoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(cardVoloCompagniaAereaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cardVoloDataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel22))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cardVoloGateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel23))))
+                    .addGroup(pannelloCardVoloLayout.createSequentialGroup()
+                        .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(cardVoloCodiceVoloLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addGroup(pannelloCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pannelloCardVoloPulsanteCancellaVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pannelloCardVoloPulsanteModificaVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+
+        pannelloCardPrenotazione.setBackground(new java.awt.Color(255, 255, 255));
+        pannelloCardPrenotazione.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        pannelloCardPrenotazione.setMaximumSize(new java.awt.Dimension(32767, 250));
+        pannelloCardPrenotazione.setPreferredSize(new java.awt.Dimension(949, 888));
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+
+        cardPrenotazioneAeroportoOrigineLabel.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
+        cardPrenotazioneAeroportoOrigineLabel.setForeground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneAeroportoOrigineLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneAeroportoOrigineLabel.setText("Napoli");
+
+        cardPrenotazioneAeroportoDestinazioneLabel.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
+        cardPrenotazioneAeroportoDestinazioneLabel.setForeground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneAeroportoDestinazioneLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneAeroportoDestinazioneLabel.setText("Zurigo");
+
+        jLabel62.setFont(new java.awt.Font("Z003", 1, 20)); // NOI18N
+        jLabel62.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel62.setText("Partenza");
+
+        jLabel63.setFont(new java.awt.Font("Z003", 1, 20)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel63.setText("Destinazione");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel62)
+                    .addComponent(cardPrenotazioneAeroportoOrigineLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel63)
+                    .addComponent(cardPrenotazioneAeroportoDestinazioneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cardPrenotazioneAeroportoOrigineLabel)
+                    .addComponent(cardPrenotazioneAeroportoDestinazioneLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel62)
+                    .addComponent(jLabel63))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        jLabel64.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel64.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel64.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel64.setText("Nome passeggero");
+
+        jLabel66.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel66.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel66.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel66.setText("Numero bagagli");
+
+        jLabel67.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel67.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel67.setText("Codice volo");
+
+        jLabel68.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel68.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel68.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel68.setText("Stato prenotazione");
+
+        cardPrenotazionePulsanteCancellaPrenotazione.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
+        cardPrenotazionePulsanteCancellaPrenotazione.setForeground(new java.awt.Color(0, 153, 153));
+        cardPrenotazionePulsanteCancellaPrenotazione.setText("Cancella");
+        cardPrenotazionePulsanteCancellaPrenotazione.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
+        cardPrenotazionePulsanteCancellaPrenotazione.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cardPrenotazionePulsanteCancellaPrenotazioneActionPerformed(evt);
+            }
+        });
+
+        jLabel69.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel69.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel69.setText("Cognome passeggero");
+
+        cardPrenotazioneNomePasseggeroInput.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneNomePasseggeroInput.setFont(new java.awt.Font("Z003", 1, 18)); // NOI18N
+        cardPrenotazioneNomePasseggeroInput.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazioneNomePasseggeroInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneNomePasseggeroInput.setText("Mario");
+
+        cardPrenotazioneNumeroBagagliInput.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneNumeroBagagliInput.setFont(new java.awt.Font("Z003", 1, 18)); // NOI18N
+        cardPrenotazioneNumeroBagagliInput.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazioneNumeroBagagliInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneNumeroBagagliInput.setText("4");
+
+        cardPrenotazioneCodiceVoloInput.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneCodiceVoloInput.setFont(new java.awt.Font("Z003", 1, 18)); // NOI18N
+        cardPrenotazioneCodiceVoloInput.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazioneCodiceVoloInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneCodiceVoloInput.setText("A003");
+
+        jLabel70.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel70.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel70.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel70.setText("Numero biglietto");
+
+        jLabel71.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel71.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel71.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel71.setText("Posto assegnato:");
+
+        cardPrenotazionePostoAssegnatoInput.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazionePostoAssegnatoInput.setFont(new java.awt.Font("Z003", 1, 18)); // NOI18N
+        cardPrenotazionePostoAssegnatoInput.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazionePostoAssegnatoInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazionePostoAssegnatoInput.setText("U003");
+
+        cardPrenotazioneNumeroBiglietto.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneNumeroBiglietto.setFont(new java.awt.Font("Z003", 1, 18)); // NOI18N
+        cardPrenotazioneNumeroBiglietto.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazioneNumeroBiglietto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneNumeroBiglietto.setText("A23");
+
+        cardPrenotazioneCognomePasseggeroInput.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneCognomePasseggeroInput.setFont(new java.awt.Font("Z003", 1, 18)); // NOI18N
+        cardPrenotazioneCognomePasseggeroInput.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazioneCognomePasseggeroInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneCognomePasseggeroInput.setText("Caruso");
+
+        cardPrenotazioneStatoVoloInput.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneStatoVoloInput.setFont(new java.awt.Font("Z003", 1, 18)); // NOI18N
+        cardPrenotazioneStatoVoloInput.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazioneStatoVoloInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneStatoVoloInput.setText("Confermato");
+
+        javax.swing.GroupLayout pannelloCardPrenotazioneLayout = new javax.swing.GroupLayout(pannelloCardPrenotazione);
+        pannelloCardPrenotazione.setLayout(pannelloCardPrenotazioneLayout);
+        pannelloCardPrenotazioneLayout.setHorizontalGroup(
+            pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                        .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                .addComponent(jLabel67)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cardPrenotazioneCodiceVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(jLabel68))
+                            .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                .addComponent(jLabel64)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cardPrenotazioneNomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                .addComponent(jLabel66)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cardPrenotazioneNumeroBagagliInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(cardPrenotazioneStatoVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cardPrenotazionePulsanteCancellaPrenotazione, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                        .addComponent(jLabel70)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cardPrenotazioneNumeroBiglietto, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                        .addComponent(jLabel69)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cardPrenotazioneCognomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                        .addComponent(jLabel71)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cardPrenotazionePostoAssegnatoInput, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pannelloCardPrenotazioneLayout.setVerticalGroup(
+            pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                        .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel64)
+                            .addComponent(cardPrenotazioneNomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel69)
+                            .addComponent(cardPrenotazioneCognomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel66)
+                            .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cardPrenotazioneNumeroBagagliInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel70)
+                                .addComponent(cardPrenotazioneNumeroBiglietto, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel71)
+                            .addComponent(cardPrenotazionePostoAssegnatoInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel68)
+                                .addComponent(cardPrenotazioneStatoVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cardPrenotazioneCodiceVoloInput)
+                                .addComponent(jLabel67, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cardPrenotazionePulsanteCancellaPrenotazione, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        pannelloCardAmministratore1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        pannelloCardAmministratore1.setMaximumSize(new java.awt.Dimension(620, 107));
+        pannelloCardAmministratore1.setPreferredSize(new java.awt.Dimension(620, 107));
+
+        jLabel72.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel72.setText("Voli gestiti:");
+
+        voliGestitiAmministratore1.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        voliGestitiAmministratore1.setForeground(new java.awt.Color(102, 102, 255));
+        voliGestitiAmministratore1.setText("6");
+
+        usernameAmministratore1.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        usernameAmministratore1.setForeground(new java.awt.Color(102, 102, 255));
+        usernameAmministratore1.setText("Carlo");
+
+        jLabel76.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel76.setText("Amministratore:");
+
+        pulsanteToggle1.setBackground(new java.awt.Color(102, 102, 255));
+        pulsanteToggle1.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        pulsanteToggle1.setForeground(new java.awt.Color(255, 255, 255));
+        pulsanteToggle1.setText("Seleziona");
+        pulsanteToggle1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pulsanteToggle1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pannelloCardAmministratore1Layout = new javax.swing.GroupLayout(pannelloCardAmministratore1);
+        pannelloCardAmministratore1.setLayout(pannelloCardAmministratore1Layout);
+        pannelloCardAmministratore1Layout.setHorizontalGroup(
+            pannelloCardAmministratore1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloCardAmministratore1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pannelloCardAmministratore1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel76)
+                    .addComponent(jLabel72))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pannelloCardAmministratore1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(usernameAmministratore1)
+                    .addComponent(voliGestitiAmministratore1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addComponent(pulsanteToggle1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        pannelloCardAmministratore1Layout.setVerticalGroup(
+            pannelloCardAmministratore1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloCardAmministratore1Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(pannelloCardAmministratore1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloCardAmministratore1Layout.createSequentialGroup()
+                        .addGroup(pannelloCardAmministratore1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(usernameAmministratore1)
+                            .addComponent(jLabel76))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pannelloCardAmministratore1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel72)
+                            .addComponent(voliGestitiAmministratore1)))
+                    .addComponent(pulsanteToggle1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout pannelloSuperutenteDestroGestisciVoliLayout = new javax.swing.GroupLayout(pannelloSuperutenteDestroGestisciVoli);
+        pannelloSuperutenteDestroGestisciVoli.setLayout(pannelloSuperutenteDestroGestisciVoliLayout);
+        pannelloSuperutenteDestroGestisciVoliLayout.setHorizontalGroup(
+            pannelloSuperutenteDestroGestisciVoliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloSuperutenteDestroGestisciVoliLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pannelloSuperutenteDestroGestisciVoliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pannelloSuperutenteDestroGestisciVoliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pannelloCardVolo, javax.swing.GroupLayout.DEFAULT_SIZE, 1001, Short.MAX_VALUE)
+                        .addComponent(pannelloCardPrenotazione, javax.swing.GroupLayout.DEFAULT_SIZE, 1001, Short.MAX_VALUE))
+                    .addComponent(pannelloCardAmministratore1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(1575, Short.MAX_VALUE))
+        );
+        pannelloSuperutenteDestroGestisciVoliLayout.setVerticalGroup(
+            pannelloSuperutenteDestroGestisciVoliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloSuperutenteDestroGestisciVoliLayout.createSequentialGroup()
+                .addGap(0, 214, Short.MAX_VALUE)
+                .addComponent(pannelloCardVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109)
+                .addComponent(pannelloCardPrenotazione, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(pannelloCardAmministratore1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 144, Short.MAX_VALUE))
+        );
+
+        pannelloScorrevole.add(pannelloSuperutenteDestroGestisciVoli);
+
         jScrollPane1.setViewportView(pannelloScorrevole);
 
         javax.swing.GroupLayout pannelloSuperutenteDestroHomeLayout = new javax.swing.GroupLayout(pannelloSuperutenteDestroHome);
         pannelloSuperutenteDestroHome.setLayout(pannelloSuperutenteDestroHomeLayout);
         pannelloSuperutenteDestroHomeLayout.setHorizontalGroup(
             pannelloSuperutenteDestroHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1091, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1472, Short.MAX_VALUE)
         );
         pannelloSuperutenteDestroHomeLayout.setVerticalGroup(
             pannelloSuperutenteDestroHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1135, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1165, Short.MAX_VALUE)
         );
 
         pannelloSuperutenteDestro.add(pannelloSuperutenteDestroHome, "card2");
@@ -687,32 +1325,32 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(72, 72, 72))
                     .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createSequentialGroup()
-                        .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloSuperutenteDestroAggiungiVoloLayout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(417, 417, 417))
-                            .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createSequentialGroup()
-                                .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createSequentialGroup()
-                                        .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel15)
-                                            .addComponent(jLabel14))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(pannelloSuperutenteAggiungiVoloUsernameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(pannelloSuperutenteAggiungiVoloPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(pannelloSuperutenteAggiungiVoloPulsanteSalva, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel41))
-                        .addGap(65, 65, 65))
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel41)
+                        .addGap(146, 146, 146))
                     .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createSequentialGroup()
                         .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createSequentialGroup()
+                        .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createSequentialGroup()
+                                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(276, 276, 276))
+                            .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createSequentialGroup()
+                                .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel14))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pannelloSuperutenteDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pannelloSuperutenteAggiungiVoloUsernameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pannelloSuperutenteAggiungiVoloPasswordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pannelloSuperutenteAggiungiVoloPulsanteSalva, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)))
                 .addContainerGap())
         );
         pannelloSuperutenteDestroAggiungiVoloLayout.setVerticalGroup(
@@ -797,250 +1435,6 @@ public class Login extends javax.swing.JFrame {
         pannelloSuperutenteDestroAggiungiVoloScorrevole.setViewportView(pannelloSuperutenteDestroAggiungiVolo);
 
         pannelloSuperutenteDestro.add(pannelloSuperutenteDestroAggiungiVoloScorrevole, "card6");
-
-        pannelloSuperutenteCardVolo.setBackground(new java.awt.Color(255, 255, 255));
-        pannelloSuperutenteCardVolo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        pannelloSuperutenteCardVolo.setMaximumSize(new java.awt.Dimension(32767, 250));
-        pannelloSuperutenteCardVolo.setPreferredSize(new java.awt.Dimension(949, 888));
-
-        jPanel1.setBackground(new java.awt.Color(255, 51, 102));
-
-        cardVoloAeroportoOrigineLabel.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
-        cardVoloAeroportoOrigineLabel.setForeground(new java.awt.Color(255, 255, 255));
-        cardVoloAeroportoOrigineLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloAeroportoOrigineLabel.setText("Napoli");
-
-        cardVoloAeroportoDestinazioneLabel.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
-        cardVoloAeroportoDestinazioneLabel.setForeground(new java.awt.Color(255, 255, 255));
-        cardVoloAeroportoDestinazioneLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloAeroportoDestinazioneLabel.setText("Zurigo");
-
-        jLabel43.setFont(new java.awt.Font("Z003", 1, 20)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel43.setText("Partenza");
-
-        jLabel44.setFont(new java.awt.Font("Z003", 1, 20)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel44.setText("Destinazione");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel43)
-                    .addComponent(cardVoloAeroportoOrigineLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel44)
-                    .addComponent(cardVoloAeroportoDestinazioneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cardVoloAeroportoOrigineLabel)
-                    .addComponent(cardVoloAeroportoDestinazioneLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel43)
-                    .addComponent(jLabel44))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-
-        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel19.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel19.setText("Orario partenza:");
-
-        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel20.setText("Codice:");
-
-        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel21.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel21.setText("Compagnia aerea:");
-
-        jLabel22.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel22.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel22.setText("Data:");
-
-        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel23.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel23.setText("Gate:");
-
-        pannelloSuperutentePulsanteCancellaVolo.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
-        pannelloSuperutentePulsanteCancellaVolo.setForeground(new java.awt.Color(51, 102, 255));
-        pannelloSuperutentePulsanteCancellaVolo.setText("Cancella");
-        pannelloSuperutentePulsanteCancellaVolo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
-        pannelloSuperutentePulsanteCancellaVolo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pannelloSuperutentePulsanteCancellaVoloActionPerformed(evt);
-            }
-        });
-
-        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel24.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel24.setText("Orario arrivo:");
-
-        cardVoloOrarioPartenzaLabel.setBackground(new java.awt.Color(255, 255, 255));
-        cardVoloOrarioPartenzaLabel.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        cardVoloOrarioPartenzaLabel.setForeground(new java.awt.Color(102, 102, 255));
-        cardVoloOrarioPartenzaLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloOrarioPartenzaLabel.setText("11.00 am");
-
-        cardVoloCompagniaAereaLabel.setBackground(new java.awt.Color(255, 255, 255));
-        cardVoloCompagniaAereaLabel.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        cardVoloCompagniaAereaLabel.setForeground(new java.awt.Color(102, 102, 255));
-        cardVoloCompagniaAereaLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloCompagniaAereaLabel.setText("Lufthansa");
-
-        cardVoloDataLabel.setBackground(new java.awt.Color(255, 255, 255));
-        cardVoloDataLabel.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        cardVoloDataLabel.setForeground(new java.awt.Color(102, 102, 255));
-        cardVoloDataLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloDataLabel.setText("22.03.2026");
-
-        cardVoloGateLabel.setBackground(new java.awt.Color(255, 255, 255));
-        cardVoloGateLabel.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        cardVoloGateLabel.setForeground(new java.awt.Color(102, 102, 255));
-        cardVoloGateLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloGateLabel.setText("6");
-
-        cardVoloOrarioArrivoLabel.setBackground(new java.awt.Color(255, 255, 255));
-        cardVoloOrarioArrivoLabel.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        cardVoloOrarioArrivoLabel.setForeground(new java.awt.Color(102, 102, 255));
-        cardVoloOrarioArrivoLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloOrarioArrivoLabel.setText("12.00 pm");
-
-        cardVoloStatoVoloLabel.setBackground(new java.awt.Color(255, 255, 255));
-        cardVoloStatoVoloLabel.setFont(new java.awt.Font("Bitstream Charter", 1, 36)); // NOI18N
-        cardVoloStatoVoloLabel.setForeground(new java.awt.Color(0, 204, 102));
-        cardVoloStatoVoloLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloStatoVoloLabel.setText("Confermato");
-
-        cardVoloCodiceVoloLabel.setBackground(new java.awt.Color(255, 255, 255));
-        cardVoloCodiceVoloLabel.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
-        cardVoloCodiceVoloLabel.setForeground(new java.awt.Color(102, 102, 255));
-        cardVoloCodiceVoloLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloCodiceVoloLabel.setText("U0001");
-
-        javax.swing.GroupLayout pannelloSuperutenteCardVoloLayout = new javax.swing.GroupLayout(pannelloSuperutenteCardVolo);
-        pannelloSuperutenteCardVolo.setLayout(pannelloSuperutenteCardVoloLayout);
-        pannelloSuperutenteCardVoloLayout.setHorizontalGroup(
-            pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                        .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cardVoloDataLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(139, 139, 139))
-                            .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cardVoloOrarioPartenzaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                                .addComponent(jLabel23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cardVoloGateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel24)))
-                    .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cardVoloCompagniaAereaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                        .addComponent(cardVoloOrarioArrivoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cardVoloCodiceVoloLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(cardVoloStatoVoloLabel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(pannelloSuperutentePulsanteCancellaVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        pannelloSuperutenteCardVoloLayout.setVerticalGroup(
-            pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                        .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel19)
-                                .addComponent(cardVoloOrarioPartenzaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel24))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21)
-                            .addComponent(cardVoloCompagniaAereaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel22)
-                                .addComponent(jLabel23))
-                            .addComponent(cardVoloDataLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cardVoloGateLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                        .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(cardVoloStatoVoloLabel))
-                            .addGroup(pannelloSuperutenteCardVoloLayout.createSequentialGroup()
-                                .addGroup(pannelloSuperutenteCardVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cardVoloOrarioArrivoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel20)
-                                    .addComponent(cardVoloCodiceVoloLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pannelloSuperutentePulsanteCancellaVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout pannelloSuperutenteDestroGestisciVoliLayout = new javax.swing.GroupLayout(pannelloSuperutenteDestroGestisciVoli);
-        pannelloSuperutenteDestroGestisciVoli.setLayout(pannelloSuperutenteDestroGestisciVoliLayout);
-        pannelloSuperutenteDestroGestisciVoliLayout.setHorizontalGroup(
-            pannelloSuperutenteDestroGestisciVoliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pannelloSuperutenteDestroGestisciVoliLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pannelloSuperutenteCardVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 982, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
-        pannelloSuperutenteDestroGestisciVoliLayout.setVerticalGroup(
-            pannelloSuperutenteDestroGestisciVoliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pannelloSuperutenteDestroGestisciVoliLayout.createSequentialGroup()
-                .addGap(0, 442, Short.MAX_VALUE)
-                .addComponent(pannelloSuperutenteCardVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 443, Short.MAX_VALUE))
-        );
-
-        pannelloSuperutenteDestro.add(pannelloSuperutenteDestroGestisciVoli, "card4");
 
         pannelloSuperutenteDestroAreaModifica.setBackground(new java.awt.Color(255, 255, 255));
         pannelloSuperutenteDestroAreaModifica.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true), "Modifica volo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Z003", 0, 48), new java.awt.Color(51, 102, 255))); // NOI18N
@@ -1128,7 +1522,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        pannelloSuperutenteDestroModificaVoloPulsanteSalva.setBackground(new java.awt.Color(51, 102, 255));
+        pannelloSuperutenteDestroModificaVoloPulsanteSalva.setBackground(new java.awt.Color(102, 102, 255));
         pannelloSuperutenteDestroModificaVoloPulsanteSalva.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
         pannelloSuperutenteDestroModificaVoloPulsanteSalva.setForeground(new java.awt.Color(255, 255, 255));
         pannelloSuperutenteDestroModificaVoloPulsanteSalva.setText("Salva");
@@ -1246,7 +1640,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(pannelloSuperutenteDestroAreaModificaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pannelloSuperutenteModificaVoloStatoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
                 .addComponent(pannelloSuperutenteDestroModificaVoloPulsanteSalva, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1261,7 +1655,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(pannelloSuperutenteLayout.createSequentialGroup()
                 .addComponent(pannelloSuperutenteSinistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(pannelloSuperutenteDestro, javax.swing.GroupLayout.DEFAULT_SIZE, 1091, Short.MAX_VALUE))
+                .addComponent(pannelloSuperutenteDestro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pannelloSuperutenteLayout.setVerticalGroup(
             pannelloSuperutenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1323,16 +1717,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        pannelloSinistroAmministratorePulsanteModificaVolo.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
-        pannelloSinistroAmministratorePulsanteModificaVolo.setForeground(new java.awt.Color(102, 102, 255));
-        pannelloSinistroAmministratorePulsanteModificaVolo.setText("Modifica volo");
-        pannelloSinistroAmministratorePulsanteModificaVolo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
-        pannelloSinistroAmministratorePulsanteModificaVolo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pannelloSinistroAmministratorePulsanteModificaVoloActionPerformed(evt);
-            }
-        });
-
         pannelloSinistroAmministratorePulsanteImpostazioniVolo.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
         pannelloSinistroAmministratorePulsanteImpostazioniVolo.setForeground(new java.awt.Color(102, 102, 255));
         pannelloSinistroAmministratorePulsanteImpostazioniVolo.setText("Impostazioni");
@@ -1340,6 +1724,16 @@ public class Login extends javax.swing.JFrame {
         pannelloSinistroAmministratorePulsanteImpostazioniVolo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pannelloSinistroAmministratorePulsanteImpostazioniVoloActionPerformed(evt);
+            }
+        });
+
+        pannelloSinistroAmministratorePulsanteAggiungiVolo.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
+        pannelloSinistroAmministratorePulsanteAggiungiVolo.setForeground(new java.awt.Color(102, 102, 255));
+        pannelloSinistroAmministratorePulsanteAggiungiVolo.setText("Aggiungi volo");
+        pannelloSinistroAmministratorePulsanteAggiungiVolo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        pannelloSinistroAmministratorePulsanteAggiungiVolo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloSinistroAmministratorePulsanteAggiungiVoloActionPerformed(evt);
             }
         });
 
@@ -1354,8 +1748,8 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloAmministratoreSinistroLayout.createSequentialGroup()
                         .addGroup(pannelloAmministratoreSinistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pannelloSinistroAmministratorePulsanteImpostazioniVolo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pannelloSinistroAmministratorePulsanteModificaVolo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                            .addComponent(pannelloSinistroAmministratorePulsanteHome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(pannelloSinistroAmministratorePulsanteHome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pannelloSinistroAmministratorePulsanteAggiungiVolo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         pannelloAmministratoreSinistroLayout.setVerticalGroup(
@@ -1364,7 +1758,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pannelloSinistroAmministratorePulsanteHome, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pannelloSinistroAmministratorePulsanteModificaVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pannelloSinistroAmministratorePulsanteAggiungiVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pannelloSinistroAmministratorePulsanteImpostazioniVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1390,18 +1784,549 @@ public class Login extends javax.swing.JFrame {
 
         pannelloAmministratoreDestro.add(pannelloAmministratoreDestroHome, "card3");
 
-        javax.swing.GroupLayout pannelloAmministratoreDestroModificaVoliLayout = new javax.swing.GroupLayout(pannelloAmministratoreDestroModificaVoli);
-        pannelloAmministratoreDestroModificaVoli.setLayout(pannelloAmministratoreDestroModificaVoliLayout);
-        pannelloAmministratoreDestroModificaVoliLayout.setHorizontalGroup(
-            pannelloAmministratoreDestroModificaVoliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1083, Short.MAX_VALUE)
+        pannelloAmministratoreDestroAggiungiVoloScorrevole.setPreferredSize(new java.awt.Dimension(1107, 1000));
+
+        pannelloAmministratoreDestroAggiungiVolo.setBackground(new java.awt.Color(255, 255, 255));
+        pannelloAmministratoreDestroAggiungiVolo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true), "Aggiungi volo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Z003", 0, 48), new java.awt.Color(102, 102, 255))); // NOI18N
+        pannelloAmministratoreDestroAggiungiVolo.setPreferredSize(new java.awt.Dimension(1105, 1000));
+
+        jLabel65.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
+        jLabel65.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel65.setText("Dettagli percorso");
+
+        jLabel73.setFont(new java.awt.Font("Z003", 0, 18)); // NOI18N
+        jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel73.setText("Dati utili per la prenotazione");
+
+        jLabel74.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel74.setText("Codice volo");
+
+        jLabel75.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel75.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel75.setText("Numero gate");
+
+        pannelloAmministratoreAggiungiVoloNumerogateComboBox.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloNumerogateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7" }));
+        pannelloAmministratoreAggiungiVoloNumerogateComboBox.setBorder(null);
+        pannelloAmministratoreAggiungiVoloNumerogateComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloNumerogateComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel77.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel77.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel77.setText("Compagnia aerea");
+
+        pannelloAmministratoreAggiungiVoloCompagniaAereaInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloCompagniaAereaInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreAggiungiVoloCompagniaAereaInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloCompagniaAereaInputActionPerformed(evt);
+            }
+        });
+
+        jLabel78.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel78.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel78.setText("Aeroporto di origine");
+
+        jLabel79.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel79.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel79.setText("Tipo di volo");
+
+        jLabel80.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel80.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel80.setText("Aeroporto di destinazione");
+
+        jLabel81.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel81.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel81.setText("Ora");
+
+        jLabel82.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel82.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel82.setText("Ora");
+
+        jLabel83.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel83.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel83.setText("Data");
+
+        jSeparator12.setForeground(new java.awt.Color(0, 51, 51));
+
+        jSeparator13.setForeground(new java.awt.Color(0, 51, 51));
+
+        jLabel84.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
+        jLabel84.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel84.setText("Dettagli volo");
+
+        pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Napoli", "Zurigo", "Parigi", "Madrid", " " }));
+        pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox.setBorder(null);
+        pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBoxActionPerformed(evt);
+            }
+        });
+
+        pannelloAmministratoreAggiungiVoloCodiceVoloInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloCodiceVoloInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreAggiungiVoloCodiceVoloInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloCodiceVoloInputActionPerformed(evt);
+            }
+        });
+
+        pannelloAmministratoreAggiungiVoloTipoVoloComboBox.setFont(new java.awt.Font("Z003", 0, 24)); // NOI18N
+        pannelloAmministratoreAggiungiVoloTipoVoloComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Partenza", "Arrivo" }));
+        pannelloAmministratoreAggiungiVoloTipoVoloComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+        pannelloAmministratoreAggiungiVoloTipoVoloComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloTipoVoloComboBoxActionPerformed(evt);
+            }
+        });
+
+        pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Verona", "Milano", "Zurigo", "Parigi", "Madrid", "Barcellona", "Valencia" }));
+        pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox.setBorder(null);
+        pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBoxActionPerformed(evt);
+            }
+        });
+
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInput.setText("11");
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInputActionPerformed(evt);
+            }
+        });
+
+        pannelloAmministratoreAggiungiVoloDataInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloDataInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreAggiungiVoloDataInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloDataInputActionPerformed(evt);
+            }
+        });
+
+        pannelloAmministratoreAggiungiVoloOrarioArrivoOraInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloOrarioArrivoOraInput.setText("22");
+        pannelloAmministratoreAggiungiVoloOrarioArrivoOraInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreAggiungiVoloOrarioArrivoOraInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloOrarioArrivoOraInputActionPerformed(evt);
+            }
+        });
+
+        jLabel89.setFont(new java.awt.Font("Z003", 0, 18)); // NOI18N
+        jLabel89.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel89.setText("Imposta tratta e orari");
+
+        jLabel91.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel91.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel91.setText("Numero posti aereo");
+
+        pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "90", "100", "200", "300" }));
+        pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox.setBorder(null);
+        pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel85.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel85.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel85.setText("Minuti");
+
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInput.setText("23");
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInputActionPerformed(evt);
+            }
+        });
+
+        jLabel86.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel86.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel86.setText("Minuti");
+
+        pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInput.setText("18");
+        pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInputActionPerformed(evt);
+            }
+        });
+
+        pannelloAmministratoreAggiungiVoloPulsanteSalva.setBackground(new java.awt.Color(102, 102, 255));
+        pannelloAmministratoreAggiungiVoloPulsanteSalva.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
+        pannelloAmministratoreAggiungiVoloPulsanteSalva.setForeground(new java.awt.Color(255, 255, 255));
+        pannelloAmministratoreAggiungiVoloPulsanteSalva.setText("Salva");
+        pannelloAmministratoreAggiungiVoloPulsanteSalva.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreAggiungiVoloPulsanteSalva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreAggiungiVoloPulsanteSalvaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pannelloAmministratoreDestroAggiungiVoloLayout = new javax.swing.GroupLayout(pannelloAmministratoreDestroAggiungiVolo);
+        pannelloAmministratoreDestroAggiungiVolo.setLayout(pannelloAmministratoreDestroAggiungiVoloLayout);
+        pannelloAmministratoreDestroAggiungiVoloLayout.setHorizontalGroup(
+            pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel77)
+                            .addComponent(jLabel74)
+                            .addComponent(jLabel79))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                                .addComponent(pannelloAmministratoreAggiungiVoloCodiceVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel75)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pannelloAmministratoreAggiungiVoloNumerogateComboBox, 0, 539, Short.MAX_VALUE))
+                            .addComponent(pannelloAmministratoreAggiungiVoloCompagniaAereaInput)
+                            .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                                .addComponent(pannelloAmministratoreAggiungiVoloTipoVoloComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel91)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(259, 259, 259))
+                    .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                        .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel78)
+                                    .addComponent(jLabel80))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                                        .addGap(496, 496, 496)
+                                        .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel85)
+                                            .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel86)
+                                            .addComponent(jLabel81)))
+                                    .addComponent(jLabel83, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pannelloAmministratoreAggiungiVoloOrarioArrivoOraInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pannelloAmministratoreAggiungiVoloDataInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(pannelloAmministratoreAggiungiVoloPulsanteSalva, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator12)
+                    .addComponent(jSeparator13, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                        .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(461, 461, 461))
+                    .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                        .addComponent(jLabel89, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(72, 72, 72))
+                    .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                        .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        pannelloAmministratoreDestroModificaVoliLayout.setVerticalGroup(
-            pannelloAmministratoreDestroModificaVoliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1129, Short.MAX_VALUE)
+        pannelloAmministratoreDestroAggiungiVoloLayout.setVerticalGroup(
+            pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel84)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel73)
+                .addGap(18, 18, 18)
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel74)
+                    .addComponent(pannelloAmministratoreAggiungiVoloCodiceVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel75)
+                    .addComponent(pannelloAmministratoreAggiungiVoloNumerogateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel77)
+                    .addComponent(pannelloAmministratoreAggiungiVoloCompagniaAereaInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pannelloAmministratoreAggiungiVoloTipoVoloComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel79))
+                .addGap(60, 60, 60)
+                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel65)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel89)
+                .addGap(23, 23, 23)
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel78)
+                    .addComponent(pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel82)
+                    .addComponent(pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel85))
+                .addGap(48, 48, 48)
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel80)
+                    .addComponent(pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pannelloAmministratoreAggiungiVoloOrarioArrivoOraInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel81))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel86))
+                .addGap(50, 50, 50)
+                .addGroup(pannelloAmministratoreDestroAggiungiVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pannelloAmministratoreAggiungiVoloDataInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel83))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(pannelloAmministratoreAggiungiVoloPulsanteSalva, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
         );
 
-        pannelloAmministratoreDestro.add(pannelloAmministratoreDestroModificaVoli, "card4");
+        pannelloAmministratoreDestroAggiungiVoloScorrevole.setViewportView(pannelloAmministratoreDestroAggiungiVolo);
+
+        pannelloAmministratoreDestro.add(pannelloAmministratoreDestroAggiungiVoloScorrevole, "card6");
+
+        pannelloAmministratoreDestroModificaVolo.setBackground(new java.awt.Color(255, 255, 255));
+        pannelloAmministratoreDestroModificaVolo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true), "Modifica volo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Z003", 0, 48), new java.awt.Color(51, 102, 255))); // NOI18N
+
+        jLabel53.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel53.setText("Dettagli volo");
+
+        pannelloAmministratoreModificaVoloNumerogateComboBox.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreModificaVoloNumerogateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7" }));
+        pannelloAmministratoreModificaVoloNumerogateComboBox.setBorder(null);
+        pannelloAmministratoreModificaVoloNumerogateComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreModificaVoloNumerogateComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel54.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel54.setText("Numero gate");
+
+        jLabel55.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel55.setText("Compagnia aerea");
+
+        pannelloAmministratoreModificaVoloCompagniaAereaInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreModificaVoloCompagniaAereaInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreModificaVoloCompagniaAereaInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreModificaVoloCompagniaAereaInputActionPerformed(evt);
+            }
+        });
+
+        jLabel56.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel56.setText("Modifica stato");
+
+        jLabel57.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel57.setText("Stato volo");
+
+        pannelloAmministratoreModificaVoloStatoComboBox.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreModificaVoloStatoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PROGRAMMATO", "DECOLLATO", "IN RITARDO", "ATTERRATO", "CANCELLATO" }));
+        pannelloAmministratoreModificaVoloStatoComboBox.setBorder(null);
+        pannelloAmministratoreModificaVoloStatoComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreModificaVoloStatoComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel58.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel58.setText("Aeroporto di destinazione");
+
+        pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Roma", "Milano", "Parigi", "Madrid", "Barcellona", " " }));
+        pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox.setBorder(null);
+        pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel59.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel59.setText("Modifica Percorso");
+
+        jSeparator10.setForeground(new java.awt.Color(0, 51, 51));
+
+        jSeparator11.setForeground(new java.awt.Color(0, 51, 51));
+
+        jLabel60.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel60.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel60.setText("Aeroporto di origine");
+
+        pannelloAmministratoreModificaVoloAeroportoOrigineComboBox.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreModificaVoloAeroportoOrigineComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Napoli", "Zurigo", "Parigi", "Madrid", " " }));
+        pannelloAmministratoreModificaVoloAeroportoOrigineComboBox.setBorder(null);
+        pannelloAmministratoreModificaVoloAeroportoOrigineComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreModificaVoloAeroportoOrigineComboBoxActionPerformed(evt);
+            }
+        });
+
+        pannelloAmministratoreDestroModificaVoloPulsanteSalva.setBackground(new java.awt.Color(102, 102, 255));
+        pannelloAmministratoreDestroModificaVoloPulsanteSalva.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
+        pannelloAmministratoreDestroModificaVoloPulsanteSalva.setForeground(new java.awt.Color(255, 255, 255));
+        pannelloAmministratoreDestroModificaVoloPulsanteSalva.setText("Salva");
+        pannelloAmministratoreDestroModificaVoloPulsanteSalva.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreDestroModificaVoloPulsanteSalva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreDestroModificaVoloPulsanteSalvaActionPerformed(evt);
+            }
+        });
+
+        jLabel61.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
+        jLabel61.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel61.setText("Codice volo");
+
+        pannelloAmministratoreModificaVoloCodiceVoloInput.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreModificaVoloCodiceVoloInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreModificaVoloCodiceVoloInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreModificaVoloCodiceVoloInputActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pannelloAmministratoreDestroModificaVoloLayout = new javax.swing.GroupLayout(pannelloAmministratoreDestroModificaVolo);
+        pannelloAmministratoreDestroModificaVolo.setLayout(pannelloAmministratoreDestroModificaVoloLayout);
+        pannelloAmministratoreDestroModificaVoloLayout.setHorizontalGroup(
+            pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator10, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator11)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(pannelloAmministratoreDestroModificaVoloPulsanteSalva, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel58)
+                            .addComponent(jLabel60))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pannelloAmministratoreModificaVoloAeroportoOrigineComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34))
+                    .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel55)
+                            .addComponent(jLabel61)
+                            .addComponent(jLabel54))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pannelloAmministratoreModificaVoloCodiceVoloInput)
+                            .addComponent(pannelloAmministratoreModificaVoloCompagniaAereaInput)
+                            .addComponent(pannelloAmministratoreModificaVoloNumerogateComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(573, 573, 573))
+            .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                        .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(jLabel57)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pannelloAmministratoreModificaVoloStatoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pannelloAmministratoreDestroModificaVoloLayout.setVerticalGroup(
+            pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel53)
+                .addGap(18, 18, 18)
+                .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel61)
+                    .addComponent(pannelloAmministratoreModificaVoloCodiceVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pannelloAmministratoreModificaVoloCompagniaAereaInput, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel55))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel54)
+                    .addComponent(pannelloAmministratoreModificaVoloNumerogateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel59)
+                .addGap(18, 18, 18)
+                .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel60)
+                    .addComponent(pannelloAmministratoreModificaVoloAeroportoOrigineComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel58)
+                    .addComponent(pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(67, 67, 67)
+                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel56)
+                .addGap(18, 18, 18)
+                .addGroup(pannelloAmministratoreDestroModificaVoloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pannelloAmministratoreModificaVoloStatoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel57))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
+                .addComponent(pannelloAmministratoreDestroModificaVoloPulsanteSalva, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        pannelloAmministratoreDestro.add(pannelloAmministratoreDestroModificaVolo, "card5");
 
         pannelloAmministratoreDestroImpostazioni.setBackground(new java.awt.Color(255, 255, 255));
         pannelloAmministratoreDestroImpostazioni.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true), "Impostazioni", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Z003", 0, 48), new java.awt.Color(102, 102, 255))); // NOI18N
@@ -1419,19 +2344,11 @@ public class Login extends javax.swing.JFrame {
         jLabel46.setForeground(new java.awt.Color(0, 51, 51));
         jLabel46.setText("Username");
 
-        pannelloAmministratoreDestroImpostazioniUsernameLabel.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloAmministratoreDestroImpostazioniUsernameLabel.setFont(new java.awt.Font("Bitstream Charter", 0, 24)); // NOI18N
         pannelloAmministratoreDestroImpostazioniUsernameLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
         pannelloAmministratoreDestroImpostazioniUsernameLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pannelloAmministratoreDestroImpostazioniUsernameLabelActionPerformed(evt);
-            }
-        });
-
-        pannelloAmministratoreDestroImpostazioniPasswordLabel.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        pannelloAmministratoreDestroImpostazioniPasswordLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
-        pannelloAmministratoreDestroImpostazioniPasswordLabel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pannelloAmministratoreDestroImpostazioniPasswordLabelActionPerformed(evt);
             }
         });
 
@@ -1447,6 +2364,21 @@ public class Login extends javax.swing.JFrame {
         });
 
         jSeparator7.setForeground(new java.awt.Color(0, 51, 51));
+
+        pannelloAmministratoreDestroImpostazioniPasswordLabel.setFont(new java.awt.Font("Bitstream Charter", 0, 24)); // NOI18N
+        pannelloAmministratoreDestroImpostazioniPasswordLabel.setForeground(new java.awt.Color(102, 102, 255));
+        pannelloAmministratoreDestroImpostazioniPasswordLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 255), 2, true));
+
+        pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount.setBackground(new java.awt.Color(102, 102, 255));
+        pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
+        pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount.setForeground(new java.awt.Color(255, 255, 255));
+        pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount.setText("Crea account");
+        pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pannelloAmministratoreDestroImpostazioniPulsanteCreaAccountActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pannelloAmministratoreDestroImpostazioniLayout = new javax.swing.GroupLayout(pannelloAmministratoreDestroImpostazioni);
         pannelloAmministratoreDestroImpostazioni.setLayout(pannelloAmministratoreDestroImpostazioniLayout);
@@ -1464,30 +2396,33 @@ public class Login extends javax.swing.JFrame {
                                 .addGroup(pannelloAmministratoreDestroImpostazioniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(pannelloAmministratoreDestroImpostazioniPulsanteConferma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
                                     .addComponent(pannelloAmministratoreDestroImpostazioniUsernameLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pannelloAmministratoreDestroImpostazioniPasswordLabel)))
+                                    .addComponent(pannelloAmministratoreDestroImpostazioniPasswordLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)))
                             .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel46))
-                        .addGap(0, 482, Short.MAX_VALUE)))
+                        .addGap(0, 759, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pannelloAmministratoreDestroImpostazioniLayout.setVerticalGroup(
             pannelloAmministratoreDestroImpostazioniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pannelloAmministratoreDestroImpostazioniLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(112, 112, 112)
                 .addComponent(jLabel42)
                 .addGap(56, 56, 56)
                 .addGroup(pannelloAmministratoreDestroImpostazioniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel46)
                     .addComponent(pannelloAmministratoreDestroImpostazioniUsernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pannelloAmministratoreDestroImpostazioniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel45)
-                    .addComponent(pannelloAmministratoreDestroImpostazioniPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGroup(pannelloAmministratoreDestroImpostazioniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pannelloAmministratoreDestroImpostazioniPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel45))
+                .addGap(18, 18, 18)
                 .addComponent(pannelloAmministratoreDestroImpostazioniPulsanteConferma, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(676, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(514, Short.MAX_VALUE))
         );
 
         pannelloAmministratoreDestro.add(pannelloAmministratoreDestroImpostazioni, "card2");
@@ -1535,23 +2470,39 @@ public class Login extends javax.swing.JFrame {
         pannelloGenericoDestroHome.setLayout(pannelloGenericoDestroHomeLayout);
         pannelloGenericoDestroHomeLayout.setHorizontalGroup(
             pannelloGenericoDestroHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloGenericoDestroHomeLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 1343, Short.MAX_VALUE)
+            .addGroup(pannelloGenericoDestroHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pannelloGenericoDestroHomeLayout.createSequentialGroup()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         pannelloGenericoDestroHomeLayout.setVerticalGroup(
             pannelloGenericoDestroHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloGenericoDestroHomeLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1117, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 1153, Short.MAX_VALUE)
+            .addGroup(pannelloGenericoDestroHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloGenericoDestroHomeLayout.createSequentialGroup()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1147, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pannelloGenericoDestro.add(pannelloGenericoDestroHome, "card4");
 
+        javax.swing.GroupLayout pannelloGenericoDestroModificaPrenotazioneLayout = new javax.swing.GroupLayout(pannelloGenericoDestroModificaPrenotazione);
+        pannelloGenericoDestroModificaPrenotazione.setLayout(pannelloGenericoDestroModificaPrenotazioneLayout);
+        pannelloGenericoDestroModificaPrenotazioneLayout.setHorizontalGroup(
+            pannelloGenericoDestroModificaPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1343, Short.MAX_VALUE)
+        );
+        pannelloGenericoDestroModificaPrenotazioneLayout.setVerticalGroup(
+            pannelloGenericoDestroModificaPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1153, Short.MAX_VALUE)
+        );
+
+        pannelloGenericoDestro.add(pannelloGenericoDestroModificaPrenotazione, "card5");
+
         pannelloGenericoDestroAggiungiPrenotazione.setBackground(new java.awt.Color(255, 255, 255));
         pannelloGenericoDestroAggiungiPrenotazione.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true), "Aggiungi prenotazione", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Z003", 0, 48), new java.awt.Color(51, 102, 255))); // NOI18N
+        pannelloGenericoDestroAggiungiPrenotazione.setPreferredSize(new java.awt.Dimension(1000, 1153));
 
         jLabel33.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(0, 51, 51));
@@ -1656,7 +2607,7 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pannelloGenericoDestroAggiungiPrenotazioneCognomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pannelloGenericoDestroAggiungiPrenotazioneNumeroBagagliComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pannelloGenericoDestroAggiungiPrenotazioneLayout.createSequentialGroup()
                 .addGroup(pannelloGenericoDestroAggiungiPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pannelloGenericoDestroAggiungiPrenotazioneLayout.createSequentialGroup()
@@ -1681,7 +2632,7 @@ public class Login extends javax.swing.JFrame {
                             .addGroup(pannelloGenericoDestroAggiungiPrenotazioneLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 528, Short.MAX_VALUE))
+                        .addGap(0, 912, Short.MAX_VALUE))
                     .addComponent(jSeparator6)
                     .addGroup(pannelloGenericoDestroAggiungiPrenotazioneLayout.createSequentialGroup()
                         .addContainerGap()
@@ -1724,7 +2675,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(pannelloGenericoDestroAggiungiPrenotazionePulsantePrenota, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(367, Short.MAX_VALUE))
+                .addContainerGap(397, Short.MAX_VALUE))
         );
 
         pannelloGenericoDestro.add(pannelloGenericoDestroAggiungiPrenotazione, "card4");
@@ -1739,7 +2690,7 @@ public class Login extends javax.swing.JFrame {
         pannelloGenericoDestroVisualizzaPrenotazioni.setLayout(pannelloGenericoDestroVisualizzaPrenotazioniLayout);
         pannelloGenericoDestroVisualizzaPrenotazioniLayout.setHorizontalGroup(
             pannelloGenericoDestroVisualizzaPrenotazioniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1343, Short.MAX_VALUE)
         );
         pannelloGenericoDestroVisualizzaPrenotazioniLayout.setVerticalGroup(
             pannelloGenericoDestroVisualizzaPrenotazioniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1807,16 +2758,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        pannelloGenericoSinistroPulsanteModificaVolo.setFont(new java.awt.Font("Z003", 0, 32)); // NOI18N
-        pannelloGenericoSinistroPulsanteModificaVolo.setForeground(new java.awt.Color(102, 102, 255));
-        pannelloGenericoSinistroPulsanteModificaVolo.setText("Modifica volo");
-        pannelloGenericoSinistroPulsanteModificaVolo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
-        pannelloGenericoSinistroPulsanteModificaVolo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pannelloGenericoSinistroPulsanteModificaVoloActionPerformed(evt);
-            }
-        });
-
         pannelloGenericoSinistroPulsanteEsci.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
         pannelloGenericoSinistroPulsanteEsci.setForeground(new java.awt.Color(102, 102, 255));
         pannelloGenericoSinistroPulsanteEsci.setText("Esci");
@@ -1834,36 +2775,36 @@ public class Login extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(0, 51, 51));
         jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel48.setText("Arrivo");
+        jLabel48.setText("Cognome passeggero");
 
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1.addActionListener(new java.awt.event.ActionListener() {
+        pannelloSinistroGenericoRicercheRapideNomePasseggeroLabel.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloSinistroGenericoRicercheRapideNomePasseggeroLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloSinistroGenericoRicercheRapideNomePasseggeroLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1ActionPerformed(evt);
+                pannelloSinistroGenericoRicercheRapideNomePasseggeroLabelActionPerformed(evt);
             }
         });
 
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2.addActionListener(new java.awt.event.ActionListener() {
+        pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabel.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2ActionPerformed(evt);
+                pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabelActionPerformed(evt);
             }
         });
 
         jLabel47.setFont(new java.awt.Font("Z003", 1, 24)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(0, 51, 51));
         jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel47.setText("Partenza");
+        jLabel47.setText("Nome passeggero");
 
-        pannelloGenericoSinistroPulsanteModificaVolo1.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
-        pannelloGenericoSinistroPulsanteModificaVolo1.setForeground(new java.awt.Color(102, 102, 255));
-        pannelloGenericoSinistroPulsanteModificaVolo1.setText("Cerca");
-        pannelloGenericoSinistroPulsanteModificaVolo1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
-        pannelloGenericoSinistroPulsanteModificaVolo1.addActionListener(new java.awt.event.ActionListener() {
+        pannelloSinistroGenericoRicercheRapidePulsanteCerca.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
+        pannelloSinistroGenericoRicercheRapidePulsanteCerca.setForeground(new java.awt.Color(102, 102, 255));
+        pannelloSinistroGenericoRicercheRapidePulsanteCerca.setText("Cerca");
+        pannelloSinistroGenericoRicercheRapidePulsanteCerca.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloSinistroGenericoRicercheRapidePulsanteCerca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pannelloGenericoSinistroPulsanteModificaVolo1ActionPerformed(evt);
+                pannelloSinistroGenericoRicercheRapidePulsanteCercaActionPerformed(evt);
             }
         });
 
@@ -1872,11 +2813,11 @@ public class Login extends javax.swing.JFrame {
         jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel49.setText("Codice");
 
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
-        pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3.addActionListener(new java.awt.event.ActionListener() {
+        pannelloSinistroGenericoRicercheRapideCodiceLabel.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
+        pannelloSinistroGenericoRicercheRapideCodiceLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        pannelloSinistroGenericoRicercheRapideCodiceLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3ActionPerformed(evt);
+                pannelloSinistroGenericoRicercheRapideCodiceLabelActionPerformed(evt);
             }
         });
 
@@ -1887,16 +2828,16 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pannelloGenericoSinistroPulsanteModificaVolo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1)
+                    .addComponent(pannelloSinistroGenericoRicercheRapidePulsanteCerca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pannelloSinistroGenericoRicercheRapideNomePasseggeroLabel)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel47)
                             .addComponent(jLabel48)
                             .addComponent(jLabel49))
-                        .addGap(0, 215, Short.MAX_VALUE))
-                    .addComponent(pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(pannelloSinistroGenericoRicercheRapideCodiceLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -1905,17 +2846,17 @@ public class Login extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel47)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pannelloSinistroGenericoRicercheRapideNomePasseggeroLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel48)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel49)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pannelloSinistroGenericoRicercheRapideCodiceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addComponent(pannelloGenericoSinistroPulsanteModificaVolo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pannelloSinistroGenericoRicercheRapidePulsanteCerca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1940,21 +2881,20 @@ public class Login extends javax.swing.JFrame {
             .addGroup(pannelloGenericoSinistroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pannelloGenericoSinistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                    .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pannelloGenericoSinistroPulsanteEsci, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pannelloGenericoSinistroPulsanteModificaVolo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pannelloGenericoSinistroPulsanteVisualizzaPrenotazioni, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                    .addComponent(pannelloGenericoSinistroPulsanteAggiungiPrenotazione, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel51, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator9, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pannelloGenericoSinistroPulsanteHome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(665, Short.MAX_VALUE))
+                    .addComponent(pannelloGenericoSinistroPulsanteAggiungiPrenotazione, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pannelloGenericoSinistroPulsanteVisualizzaPrenotazioni, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                    .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pannelloGenericoSinistroPulsanteEsci, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 687, Short.MAX_VALUE))
             .addGroup(pannelloGenericoSinistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pannelloGenericoSinistroLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(jLabel52)
-                    .addContainerGap(145, Short.MAX_VALUE)))
+                    .addContainerGap(849, Short.MAX_VALUE)))
         );
         pannelloGenericoSinistroLayout.setVerticalGroup(
             pannelloGenericoSinistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1969,20 +2909,18 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(pannelloGenericoSinistroPulsanteAggiungiPrenotazione, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pannelloGenericoSinistroPulsanteVisualizzaPrenotazioni, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pannelloGenericoSinistroPulsanteModificaVolo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139)
+                .addGap(201, 201, 201)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
                 .addComponent(pannelloGenericoSinistroPulsanteEsci, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addContainerGap())
             .addGroup(pannelloGenericoSinistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pannelloGenericoSinistroLayout.createSequentialGroup()
                     .addGap(405, 405, 405)
                     .addComponent(jLabel52)
-                    .addContainerGap(674, Short.MAX_VALUE)))
+                    .addContainerGap(735, Short.MAX_VALUE)))
         );
 
         jScrollPane5.setViewportView(pannelloGenericoSinistro);
@@ -1993,8 +2931,8 @@ public class Login extends javax.swing.JFrame {
             pannelloGenericoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pannelloGenericoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(pannelloGenericoDestro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(pannelloGenericoSuperiore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -2017,14 +2955,13 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(pannelloGenerale, javax.swing.GroupLayout.DEFAULT_SIZE, 1356, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(pannelloGenerale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(pannelloGenerale, javax.swing.GroupLayout.DEFAULT_SIZE, 1256, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(pannelloGenerale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2036,7 +2973,6 @@ public class Login extends javax.swing.JFrame {
         pannelloSuperutenteDestroHome.setVisible( true );
         pannelloSuperutenteDestroAttivo = pannelloSuperutenteDestroHome;
 
-        mostraAmministratori();
     }
 
     private void pannelloSuperutentePulsanteAggiungiVoloActionPerformed(java.awt.event.ActionEvent evt) {
@@ -2056,135 +2992,6 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_pannelloSuperutenteAggiungiVoloCompagniaAereaInputActionPerformed
 
     private void pannelloSuperutenteAggiungiVoloPulsanteSalvaActionPerformed(java.awt.event.ActionEvent evt) {
-
-        String codice, compagnia, partenza, arrivo, gate;
-        String data;
-        String orarioPartenza;
-        String orarioArrivo;
-        Integer numeroPosti;
-        String tipoVolo;
-
-        codice    = pannelloSuperutenteAggiungiVoloCodiceVoloInput.getText();
-        compagnia = pannelloSuperutenteAggiungiVoloCompagniaAereaInput.getText();
-        partenza  = String.valueOf(pannelloSuperutenteAggiungiVoloAeroportoOrigineComboBox.getSelectedItem());
-        arrivo    = String.valueOf(pannelloSuperutenteAggiungiVoloAeroportoDestinazioneComboBox.getSelectedItem());
-        gate      = String.valueOf(pannelloSuperutenteAggiungiVoloNumerogateComboBox.getSelectedItem());
-
-        data           = pannelloSuperutenteAggiungiVoloDataInput.getText();
-        orarioPartenza = pannelloSuperutenteAggiungiVoloOrarioPartenzaInput.getText();
-        orarioArrivo   = pannelloSuperutenteAggiungiVoloOrarioArrivoInput.getText();
-        numeroPosti    = Integer.parseInt( String.valueOf( pannelloSuperutenteAggiungiVoloNumeroPostiAereoComboBox.getSelectedItem() ) );
-        tipoVolo       = String.valueOf( pannelloSuperutenteAggiungiVoloTipoVoloComboBox.getSelectedItem() );
-
-        int res = selezionaAmministratore();
-
-        if( res > 1 ) {
-            javax.swing.JOptionPane.showMessageDialog(
-                    null,
-                    "E' possibile selezionare solo un amministratore!",
-                    "Errore",
-                    javax.swing.JOptionPane.ERROR_MESSAGE
-            );
-        } else if( res == 1 ) {
-
-            String username = recuperaUsernameAmministratoreSelezionato();
-
-            controller.aggiungiVolo( codice, compagnia, gate, partenza, arrivo,
-                    data, orarioArrivo, orarioPartenza, username );
-
-            CardVolo cardForRoot = new CardVolo(this, controller, codice, compagnia, gate, partenza, arrivo,
-                    data, orarioPartenza, orarioArrivo);
-
-            CardVolo cardForGenerico = new CardVolo(this, controller, codice, compagnia, gate, partenza, arrivo,
-                    data, orarioPartenza, orarioArrivo);
-
-            cardForGenerico.setTestoPulsanteCancella( "Seleziona" );
-            cardForGenerico.nascondiPulsanteModifica();
-
-            if( tipoVolo.equals( "Arrivo" ) ) {
-                cardForGenerico.nascondiPulsanti();
-                cardForRoot.nascondiPulsanti();
-            }
-
-            pannelloScorrevole.add( cardForRoot);
-            sottoPannelloGenericoDestroHomeScorrevole.add( cardForGenerico );
-
-            javax.swing.JOptionPane.showMessageDialog(
-                    null,
-                    "Volo aggiunto con successo!",
-                    "Successo",
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE
-            );
-
-        } else {
-
-            String username = pannelloSuperutenteAggiungiVoloUsernameInput.getText();
-            String password = new String( pannelloSuperutenteAggiungiVoloPasswordInput.getPassword() );
-
-            Amministratore admin = controller.aggiungiAmministratore( username,password) ;
-
-            if ( admin == null ) {
-                javax.swing.JOptionPane.showMessageDialog(
-                        null,
-                        "Username non valido: Viola in vincolo di chiave!",
-                        "Errore",
-                        javax.swing.JOptionPane.ERROR_MESSAGE
-                );
-            } else {
-                controller.aggiungiVolo( admin, codice, compagnia, gate, partenza, arrivo,
-                        data, orarioArrivo, orarioPartenza, numeroPosti.intValue(), username, password);
-
-                CardVolo cardForRoot = new CardVolo(this, controller, codice, compagnia, gate, partenza, arrivo,
-                        data, orarioPartenza, orarioArrivo );
-
-                CardVolo cardForGenerico = new CardVolo(this, controller, codice, compagnia, gate, partenza, arrivo,
-                        data, orarioPartenza, orarioArrivo );
-
-                cardForGenerico.setTestoPulsanteCancella("Seleziona");
-                cardForGenerico.nascondiPulsanteModifica();
-
-                if( tipoVolo.equals( "Arrivo" ) ) {
-                    cardForGenerico.nascondiPulsanti();
-                    cardForRoot.nascondiPulsanti();
-                }
-
-                pannelloScorrevole.add( cardForRoot );
-                sottoPannelloGenericoDestroHomeScorrevole.add( cardForGenerico );
-
-                javax.swing.JOptionPane.showMessageDialog(
-                        null,
-                        "Volo aggiunto con successo!",
-                        "Successo",
-                        javax.swing.JOptionPane.INFORMATION_MESSAGE
-                );
-            }
-        }
-    }
-
-    private int selezionaAmministratore() {
-
-        int count = 0;
-
-        for( Component componente : sottoPannelloSuperutenteDestroAggiungiVoloListaAmministratori.getComponents() ) {
-            if( componente instanceof CardAmministratore ) {
-                CardAmministratore card = ( CardAmministratore ) componente;
-                if( card.isPressedRadio() )
-                    count++;
-            }
-        }
-
-        return count;
-    }
-
-    private String recuperaUsernameAmministratoreSelezionato() {
-        for( Component componente : sottoPannelloSuperutenteDestroAggiungiVoloListaAmministratori.getComponents() ) {
-            if( componente instanceof CardAmministratore ) {
-                CardAmministratore card = ( CardAmministratore ) componente;
-                if( card.isPressedRadio() )
-                    return card.getUsernameAmministratore();
-            }
-        }
-        return null;
     }
 
     private void pannelloSuperutenteAggiungiVoloNumerogateComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloSuperutenteAggiungiVoloNumerogateComboBoxActionPerformed
@@ -2274,10 +3081,14 @@ public class Login extends javax.swing.JFrame {
         pannelloSignin.setVisible( true );
 
         sottoPannelloGeneraleAttivo = pannelloSignin;
+        //controller.garbageAdmin( chiaveSessione );
     }
 
     private void pannelloSinistroAmministratorePulsanteModificaVoloActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        pannelloAmministratoreDestroAttivo.setVisible( false );
+        pannelloAmministratoreDestroModificaVolo.setVisible( true );
+
+        pannelloAmministratoreDestroAttivo = pannelloAmministratoreDestroModificaVolo;
     }
 
     private void pannelloSinistroAmministratorePulsanteImpostazioniVoloActionPerformed(java.awt.event.ActionEvent evt) {
@@ -2290,33 +3101,347 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pannelloAmministratoreDestroImpostazioniUsernameLabelActionPerformed
 
-    private void pannelloAmministratoreDestroImpostazioniPasswordLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreDestroImpostazioniPasswordLabelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pannelloAmministratoreDestroImpostazioniPasswordLabelActionPerformed
+    private void pannelloAmministratoreDestroImpostazioniPulsanteConfermaActionPerformed(java.awt.event.ActionEvent evt) {
+        String username = pannelloAmministratoreDestroImpostazioniUsernameLabel.getText();
+        String password = new String( pannelloAmministratoreDestroImpostazioniPasswordLabel.getPassword() );
 
-    private void pannelloAmministratoreDestroImpostazioniPulsanteConfermaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreDestroImpostazioniPulsanteConfermaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pannelloAmministratoreDestroImpostazioniPulsanteConfermaActionPerformed
+        int res = controller.modificaCredenziali( chiaveSessione, username, password );
 
-    private void pannelloGenericoSinistroPulsanteModificaVolo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloGenericoSinistroPulsanteModificaVolo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pannelloGenericoSinistroPulsanteModificaVolo1ActionPerformed
+        if( res == 0 ) {
+           messageSuccess( "Utente aggiornato!" );
+            // L'utente viene disconnesso dall'account e viene mmostrata la
+            // pagina di login.
+            pannelloSinistroAmministratorePulsanteEsciActionPerformed(null);
 
-    private void pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1ActionPerformed
+        } else if( res == 1 )
+            messageError( "Questo nome utente è già in uso!" );
 
-    private void pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2ActionPerformed
+    }
 
-    private void pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3ActionPerformed
+    private void pannelloSinistroGenericoRicercheRapidePulsanteCercaActionPerformed(java.awt.event.ActionEvent evt) {
+
+        String nome = pannelloSinistroGenericoRicercheRapideNomePasseggeroLabel.getText();
+        String cognome   = pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabel.getText();
+        String codice   = pannelloSinistroGenericoRicercheRapideCodiceLabel.getText();
+
+        for( Component c : pannelloGenericoDestroVisualizzaPrenotazioniScorrevole.getComponents() ) {
+            if (c instanceof CardPrenotazione) {
+                CardPrenotazione card = (CardPrenotazione) c;
+                card.setVisible( true );
+            }
+        }
+
+        for( Component c : pannelloGenericoDestroVisualizzaPrenotazioniScorrevole.getComponents() ) {
+            if( c instanceof CardPrenotazione ) {
+                CardPrenotazione card = ( CardPrenotazione ) c;
+
+                if( !card.getCodice().equals( codice ) &&
+                    !card.getNomePasseggero().equals( nome ) &&
+                    !card.getCognomePasseggero().equals( cognome ) ) {
+                    card.setVisible( false );
+                }
+            }
+        }
+    }
+
+    private void pannelloSinistroGenericoRicercheRapideNomePasseggeroLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloSinistroGenericoRicercheRapideNomePasseggeroLabelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3ActionPerformed
+    }//GEN-LAST:event_pannelloSinistroGenericoRicercheRapideNomePasseggeroLabelActionPerformed
+
+    private void pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabelActionPerformed
+
+    private void pannelloSinistroGenericoRicercheRapideCodiceLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloSinistroGenericoRicercheRapideCodiceLabelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloSinistroGenericoRicercheRapideCodiceLabelActionPerformed
 
     private void pannelloSuperutenteAggiungiVoloNumeroPostiAereoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloSuperutenteAggiungiVoloNumeroPostiAereoComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pannelloSuperutenteAggiungiVoloNumeroPostiAereoComboBoxActionPerformed
+
+    private void pannelloAmministratoreModificaVoloNumerogateComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreModificaVoloNumerogateComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreModificaVoloNumerogateComboBoxActionPerformed
+
+    private void pannelloAmministratoreModificaVoloCompagniaAereaInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreModificaVoloCompagniaAereaInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreModificaVoloCompagniaAereaInputActionPerformed
+
+    private void pannelloAmministratoreModificaVoloStatoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreModificaVoloStatoComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreModificaVoloStatoComboBoxActionPerformed
+
+    private void pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBoxActionPerformed
+
+    private void pannelloAmministratoreModificaVoloAeroportoOrigineComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreModificaVoloAeroportoOrigineComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreModificaVoloAeroportoOrigineComboBoxActionPerformed
+
+    private void pannelloAmministratoreDestroModificaVoloPulsanteSalvaActionPerformed(java.awt.event.ActionEvent evt) {
+
+        boolean status = false;
+        CardVolo card = null;
+
+        String codice = pannelloAmministratoreModificaVoloCodiceVoloInput.getText();
+        String gate   = String.valueOf( pannelloAmministratoreModificaVoloNumerogateComboBox.getSelectedItem());
+        String compagnia = pannelloAmministratoreModificaVoloCompagniaAereaInput.getText();
+        String statoVolo = String.valueOf( pannelloAmministratoreModificaVoloStatoComboBox.getSelectedItem() );
+
+        String aeroportoOrigine = String.valueOf( pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox.getSelectedItem());
+        String aeroportoDestinazione = String.valueOf(pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox.getSelectedItem());
+
+        int res = controller.modificaVolo( chiaveSessione, codice, statoVolo,
+                compagnia, aeroportoOrigine, aeroportoDestinazione, gate );
+
+        switch ( res ) {
+            case 0:
+                modificaCardVolo( codice, gate, compagnia,
+                        statoVolo, aeroportoOrigine, aeroportoDestinazione,
+                        sottoPannelloAmministratoreDestroHomeScorrevole );
+                modificaCardVolo( codice, gate, compagnia,
+                        statoVolo, aeroportoOrigine, aeroportoDestinazione,
+                        sottoPannelloGenericoDestroHomeScorrevole );
+
+                messageSuccess( "Volo modificato con successo!" );
+                break;
+            case 1:
+                messageError( "Conflitto: orario già occupato da un altro volo!" );
+                break;
+            case 2:
+                messageError( "Volo inesistente!" );
+                break;
+            default:
+                messageError( "Errore!" );
+                break;
+        }
+    }
+
+    private void modificaCardVolo( String codice, String gate, String compagnia,
+                               String statoVolo, String aeroportoOrigine,
+                               String aeroportoDestinazione, JComponent comp ) {
+
+        CardVolo card = null;
+        boolean status = false;
+
+        for( Component componente : comp.getComponents() ) {
+            if( componente instanceof CardVolo ) {
+                card = ( CardVolo ) componente;
+
+                if( card.getCodice().equals( codice )) {
+                    status = true; break;
+                }
+            }
+        }
+
+        if( status ) {
+            card.setGate( gate );
+            card.setCompagnia( compagnia );
+            card.setAeroportoOrigine( aeroportoOrigine );
+            card.setAeroportoDestinazione( aeroportoDestinazione );
+            card.setStatoVolo( statoVolo );
+        }
+    }
+
+    private void pannelloAmministratoreModificaVoloCodiceVoloInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreModificaVoloCodiceVoloInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreModificaVoloCodiceVoloInputActionPerformed
+
+    private void cardPrenotazionePulsanteCancellaPrenotazioneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardPrenotazionePulsanteCancellaPrenotazioneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cardPrenotazionePulsanteCancellaPrenotazioneActionPerformed
+
+    private void pulsanteToggle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pulsanteToggle1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pulsanteToggle1ActionPerformed
+
+    private void pannelloSinistroAmministratorePulsanteAggiungiVoloActionPerformed(java.awt.event.ActionEvent evt) {
+        pannelloAmministratoreDestroAttivo.setVisible( false );
+        pannelloAmministratoreDestroAggiungiVoloScorrevole.setVisible( true );
+
+        pannelloAmministratoreDestroAttivo = pannelloAmministratoreDestroAggiungiVoloScorrevole;
+    }
+
+    private void pannelloAmministratoreAggiungiVoloNumerogateComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloNumerogateComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloNumerogateComboBoxActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloCompagniaAereaInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloCompagniaAereaInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloCompagniaAereaInputActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloPulsanteSalvaActionPerformed(java.awt.event.ActionEvent evt) {
+
+        String codice = pannelloAmministratoreAggiungiVoloCodiceVoloInput.getText();
+        String compagnia = pannelloAmministratoreAggiungiVoloCompagniaAereaInput.getText();
+        String partenza = String.valueOf(pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox.getSelectedItem());
+        String arrivo = String.valueOf(pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox.getSelectedItem());
+        String gate = String.valueOf(pannelloAmministratoreAggiungiVoloNumerogateComboBox.getSelectedItem());
+
+        String data = pannelloAmministratoreAggiungiVoloDataInput.getText();
+        String orarioPartenzaOra = pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInput.getText();
+        String orarioPartenzaMinuti = pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInput.getText();
+        String orarioArrivoOra = pannelloAmministratoreAggiungiVoloOrarioArrivoOraInput.getText();
+        String orarioArrivoMinuti = pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInput.getText();
+        Integer numeroPosti = Integer.parseInt(String.valueOf(pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox.getSelectedItem()));
+        String tipoVolo = String.valueOf(pannelloAmministratoreAggiungiVoloTipoVoloComboBox.getSelectedItem());
+
+        int res = controller.addVolo( chiaveSessione, codice, compagnia, gate, partenza,
+                arrivo, data, orarioArrivoOra, orarioArrivoMinuti,
+                orarioPartenzaOra, orarioPartenzaMinuti, numeroPosti, tipoVolo );
+
+        if ( res == 0 ) {
+            String orarioPartenza = orarioPartenzaOra + "." + orarioPartenzaMinuti;
+            String orarioArrivo = orarioArrivoOra + "." + orarioArrivoMinuti;
+
+            CardVolo cardForAdmin = new CardVolo(this, controller, codice, compagnia, gate,
+                    partenza, arrivo, data, orarioPartenza, orarioArrivo );
+
+            CardVolo cardForGenerico = new CardVolo(this, controller, codice, compagnia, gate,
+                    partenza, arrivo, data, orarioPartenza, orarioArrivo );
+
+            if( tipoVolo.equals( "Arrivo" ) ) {
+                cardForGenerico.nascondiPulsanti();
+            } else {
+                cardForGenerico.setTestoPulsanteCancella( "Seleziona" );
+                cardForGenerico.nascondiPulsanteModifica();
+            }
+
+            sottoPannelloAmministratoreDestroHomeScorrevole.add( cardForAdmin );
+            sottoPannelloGenericoDestroHomeScorrevole.add( cardForGenerico );
+            messageSuccess( "Volo aggiunto!" );
+
+        } else if( res == 1 ) {
+            messageError( "Volo esistente!" );
+        } else {
+            messageError( "Conflitto: orario già occupato da un altro volo!" );
+        }
+    }
+
+    private void messageSuccess( String testo ) {
+        javax.swing.JOptionPane.showMessageDialog(
+                null,
+                testo,
+                "Successo",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
+    private void messageError( String testo ) {
+        javax.swing.JOptionPane.showMessageDialog(
+                null,
+                testo,
+                "Errore",
+                javax.swing.JOptionPane.ERROR_MESSAGE
+        );
+    }
+
+    private void pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBoxActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloCodiceVoloInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloCodiceVoloInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloCodiceVoloInputActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloTipoVoloComboBoxActionPerformed(java.awt.event.ActionEvent evt) {
+
+        String tratte[] = { "Verona", "Milano", "Zurigo",
+                "Parigi", "Madrid", "Barcellona", "Valencia" };
+
+        pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox.setModel(
+                new DefaultComboBoxModel<>( tratte ) );
+        pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox.setModel(
+                new DefaultComboBoxModel<>( tratte ) );
+
+        String tipoVolo = String.valueOf( pannelloAmministratoreAggiungiVoloTipoVoloComboBox.getSelectedItem() );
+
+        if( tipoVolo.equals( "Partenza") ) {
+            jLabel91.setVisible( true );
+            pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox.setVisible( true );
+
+            pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox.removeAllItems();
+            pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox.addItem( "Napoli" );
+        } else {
+            jLabel91.setVisible( false );
+            pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox.setVisible( false );
+
+            pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox.removeAllItems();
+            pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox.addItem( "Napoli" );
+        }
+    }
+
+    public void impostaTrattePannelloModifica( String tipoVolo ) {
+
+        String tratte[] = { "Verona", "Milano", "Zurigo",
+                "Parigi", "Madrid", "Barcellona", "Valencia" };
+
+        pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox.setModel(
+                new DefaultComboBoxModel<>( tratte ) );
+        pannelloAmministratoreModificaVoloAeroportoOrigineComboBox.setModel(
+                new DefaultComboBoxModel<>( tratte ) );
+
+        if( tipoVolo.equals( "Partenza" ) ) {
+
+            pannelloAmministratoreModificaVoloAeroportoOrigineComboBox.removeAllItems();
+            pannelloAmministratoreModificaVoloAeroportoOrigineComboBox.addItem( "Napoli" );
+        } else {
+            pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox.removeAllItems();
+            pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox.addItem( "Napoli" );
+        }
+
+    }
+
+    private void pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBoxActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInputActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloDataInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloDataInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloDataInputActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloOrarioArrivoOraInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloOrarioArrivoOraInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloOrarioArrivoOraInputActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBoxActionPerformed
+
+    private void pannelloCardVoloPulsanteModificaVoloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloCardVoloPulsanteModificaVoloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloCardVoloPulsanteModificaVoloActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInputActionPerformed
+
+    private void pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInputActionPerformed
+
+    private void pannelloAmministratoreDestroImpostazioniPulsanteCreaAccountActionPerformed(java.awt.event.ActionEvent evt) {
+        String username = pannelloAmministratoreDestroImpostazioniUsernameLabel.getText();
+        String password = new String( pannelloAmministratoreDestroImpostazioniPasswordLabel.getPassword() );
+
+        Amministratore amm = controller.aggiungiAmministratore( username, password );
+
+        if( amm != null ) {
+            messageSuccess( "Utente creato!" );
+            // L'utente viene disconnesso dall'account e viene mmostrata la
+            // pagina di login.
+            pannelloSinistroAmministratorePulsanteEsciActionPerformed(null);
+
+        } else {
+            messageError("Questo nome utente è già in uso!");
+        }
+    }
 
     private void pannelloGenericoDestroAggiungiPrenotazionePulsantePrenotaActionPerformed(java.awt.event.ActionEvent evt) {
 
@@ -2326,72 +3451,63 @@ public class Login extends javax.swing.JFrame {
         String numeroBagagli = String.valueOf(pannelloGenericoDestroAggiungiPrenotazioneNumeroBagagliComboBox.getSelectedItem());
 
         int res = controller.aggiungiPrenotazione( chiaveSessione, codiceVolo,
-                                                   nomePasseggero, cognomePasseggero, numeroBagagli );
-        if( res == 1  ) {
-            javax.swing.JOptionPane.showMessageDialog(
-                    null,
-                    "Volo inesistente!",
-                    "Errore",
-                    javax.swing.JOptionPane.ERROR_MESSAGE
-            );
-        } else if( res == 2 ) {
-            javax.swing.JOptionPane.showMessageDialog(
-                    null,
-                    "Prenotazione già esistente!",
-                    "Errore",
-                    javax.swing.JOptionPane.ERROR_MESSAGE
-            );
-        } else if( res == 3 ) {
-            javax.swing.JOptionPane.showMessageDialog(
-                    null,
-                    "Il volo non è programmato!",
-                    "Errore",
-                    javax.swing.JOptionPane.ERROR_MESSAGE
-            );
-        } else if( res == 4 ) {
-            javax.swing.JOptionPane.showMessageDialog(
-                    null,
-                    "Posti non disponibili: Areo pieno!",
-                    "Errore",
-                    javax.swing.JOptionPane.ERROR_MESSAGE
-            );
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(
-                    null,
-                    "Prenotazione effettuata con successo!",
-                    "Successo",
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE
-            );
+                nomePasseggero, cognomePasseggero, numeroBagagli );
 
-            String numeroBiglietto = controller.recuperaBiglietto( chiaveSessione, codiceVolo,
-                    nomePasseggero, cognomePasseggero, numeroBagagli );
-            String postoAssegnato  = controller.recuperaPostoAssegnato( chiaveSessione, codiceVolo,
-                    nomePasseggero, cognomePasseggero, numeroBagagli );
-
-            visualizzaPrenotazione( codiceVolo, nomePasseggero,
-                    cognomePasseggero, numeroBagagli, "Confermata", numeroBiglietto, postoAssegnato );
+        switch ( res ) {
+            case 0:
+                messageSuccess( "Prenotazione aggiunta con successo!" );
+                break;
+            case 1:
+                messageError( "Prenotazione esistente!" );
+                break;
+            case 2:
+                messageError( "Nessun posto disponibile!" );
+               break;
+            case 3:
+                messageError( "Volo inesistente!" );
+                break;
+            case 4:
+                messageError( "Volo non programmato!" );
+                break;
+            default:
+                messageError( "Errore!" );
+                break;
         }
+
+        String numeroBiglietto = controller.recuperaBiglietto( chiaveSessione, codiceVolo,
+                nomePasseggero, cognomePasseggero, numeroBagagli );
+        String postoAssegnato  = controller.recuperaPostoAssegnato( chiaveSessione, codiceVolo,
+                nomePasseggero, cognomePasseggero, numeroBagagli );
+        String stato = controller.recuperaStatoPrenotazione( chiaveSessione, codiceVolo,
+                nomePasseggero, cognomePasseggero, numeroBagagli );
+
+        visualizzaPrenotazione( codiceVolo, nomePasseggero, cognomePasseggero,
+                numeroBagagli, stato, numeroBiglietto, postoAssegnato );
     }
 
     private void visualizzaPrenotazione( String codiceVolo,        String nomePasseggero,
                                          String cognomePasseggero, String numeroBagagli, String stato,
                                          String numeroBiglietto,   String postoAssegnato ) {
 
-        CardVolo cardvolo = null;
+        if( sottoPannelloGenericoDestroHomeScorrevole.getComponents().length > 0 ) {
 
-        for( Component componente : sottoPannelloGenericoDestroHomeScorrevole.getComponents() ) {
-            if( componente instanceof CardVolo ) {
-                cardvolo = ( CardVolo ) componente;
-                if( cardvolo.getCodice().equals( codiceVolo )) break;
+            CardVolo cardvolo = null;
+
+            for( Component componente : sottoPannelloGenericoDestroHomeScorrevole.getComponents() ) {
+                if (componente instanceof CardVolo) {
+                    cardvolo = (CardVolo) componente;
+                    if (cardvolo.getCodice().equals(codiceVolo))
+                        break;
+                }
             }
+
+            CardPrenotazione cardPrenotazione = new CardPrenotazione( controller,
+                    chiaveSessione, codiceVolo, cardvolo.getAeroportoOrigine(),
+                    cardvolo.getAeroportoDestinazione(), nomePasseggero,
+                    cognomePasseggero, numeroBagagli, stato, numeroBiglietto, postoAssegnato );
+
+            pannelloGenericoDestroVisualizzaPrenotazioniScorrevole.add( cardPrenotazione );
         }
-
-        String partenza = cardvolo.getAeroportoOrigine();
-        String arrivo = cardvolo.getAeroportoDestinazione();
-
-        CardPrenotazione cardPrenotazione = new CardPrenotazione( controller, chiaveSessione, codiceVolo, partenza,
-                arrivo, nomePasseggero, cognomePasseggero, numeroBagagli, stato, numeroBiglietto, postoAssegnato );
-        pannelloGenericoDestroVisualizzaPrenotazioniScorrevole.add( cardPrenotazione );
     }
 
     private void pannelloGenericoSinistroPulsanteHomeActionPerformed(java.awt.event.ActionEvent evt) {
@@ -2430,8 +3546,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     private void pannelloGenericoSinistroPulsanteModificaVoloActionPerformed(java.awt.event.ActionEvent evt) {
-       // CardPrenotazione card = new CardPrenotazione();
-        // pannelloGenericoDestroVisualizzaPrenotazioniScorrevole.add( card );
+
     }
 
     private void pannelloSuperutenteModificaVoloCodiceVoloInputActionPerformed(java.awt.event.ActionEvent evt) {
@@ -2448,59 +3563,6 @@ public class Login extends javax.swing.JFrame {
 
     private void pannelloSuperutenteDestroModificaVoloPulsanteSalvaActionPerformed(java.awt.event.ActionEvent evt) {
 
-        // Spazzare il metodo in più parti ( metodi ).
-
-        boolean status = false;
-        CardVolo card = null;
-
-        String codice = pannelloSuperutenteModificaVoloCodiceVoloInput.getText();
-
-        for( Component componente : pannelloScorrevole.getComponents() ) {
-            if( componente instanceof CardVolo ) {
-                card = ( CardVolo ) componente;
-                if( card.getCodice().equals( codice )) {
-                    status = true; break;
-                }
-            }
-        }
-
-        if( !status ) {
-            javax.swing.JOptionPane.showMessageDialog(
-                    null,
-                    "Codice volo inesistente!",
-                    "Errore",
-                    javax.swing.JOptionPane.ERROR_MESSAGE
-            );
-        } else {
-
-            String gate = String.valueOf(pannelloSuperutenteModificaVoloNumerogateComboBox.getSelectedItem());
-            String compagnia = pannelloSuperutenteModificaVoloCompagniaAereaInput.getText();
-            String statoVolo = String.valueOf( pannelloSuperutenteModificaVoloStatoComboBox.getSelectedItem() );
-
-            String aeroportoOrigine = String.valueOf(pannelloSuperutenteModificaVoloAeroportoDestinazioneComboBox.getSelectedItem());
-            String aeroportoDestinazione = String.valueOf(pannelloSuperutenteModificaVoloAeroportoDestinazioneComboBox.getSelectedItem());
-
-            card.setGate( gate );
-            card.setCompagnia( compagnia );
-            card.setAeroportoOrigine( aeroportoOrigine );
-            card.setAeroportoDestinazione( aeroportoDestinazione );
-            card.setStatoVolo( statoVolo );
-
-            for( Component componente : sottoPannelloGenericoDestroHomeScorrevole.getComponents() ) {
-                if( componente instanceof CardVolo ) {
-                    card = ( CardVolo ) componente;
-                    if( card.getCodice().equals( codice ))
-                        break;
-                }
-            }
-            card.setGate( gate );
-            card.setCompagnia( compagnia );
-            card.setAeroportoOrigine( aeroportoOrigine );
-            card.setAeroportoDestinazione( aeroportoDestinazione );
-            card.setStatoVolo( statoVolo );
-
-            controller.modificaVolo( codice, statoVolo, compagnia,aeroportoOrigine, aeroportoDestinazione );
-        }
     }
 
     private void pannelloSuperutentePulsanteAddActionPerformed(java.awt.event.ActionEvent evt) {
@@ -2519,8 +3581,6 @@ public class Login extends javax.swing.JFrame {
         String password = new String( signinPasswordInput.getPassword() );
 
         int res = controller.login( username, password );
-
-        System.out.println( res );
 
         if( res == 0 ) {
 
@@ -2543,17 +3603,24 @@ public class Login extends javax.swing.JFrame {
 
             caricaPrenotazioni();
 
+            signinPannelloErroreTesto.setText("");
+            coloraPannelliUsernamePassword( new java.awt.Color( 51, 51, 51) );
+//            sottoPannelloGenericoDestroHomeScorrevole.removeAll();
+//            sottoPannelloGenericoDestroHomeScorrevole.revalidate();
+//            sottoPannelloGenericoDestroHomeScorrevole.repaint();
+//
         } else if ( res == 1 ) {
 
             chiaveSessione = username;
 
-            signinPannelloErroreTesto.setText( "" );
-            signinUsernameInput.setText( "" );
-            signinPasswordInput.setText( "" );
+            signinPannelloErroreTesto.setText("");
+            signinUsernameInput.setText("");
+            signinPasswordInput.setText("");
 
             pannelloSignin.setVisible( false );
             pannelloAmministratore.setVisible( true );
-            
+            pannelloAmministratoreDestroHome.setVisible( true );
+
             sottoPannelloGeneraleAttivo = pannelloAmministratore;
             pannelloAmministratoreDestroAttivo = pannelloAmministratoreDestroHome;
 
@@ -2563,21 +3630,8 @@ public class Login extends javax.swing.JFrame {
 
             caricaVoli();
 
-        } else if( res == 2 ) {
-
-            chiaveSessione = username;
-
-            signinPannelloErroreTesto.setText( "" );
-            signinUsernameInput.setText( "" );
-            signinPasswordInput.setText( "" );
-
-            pannelloSignin.setVisible( false );
-            pannelloSuperutente.setVisible( true );
-
-            sottoPannelloGeneraleAttivo = pannelloSuperutente;
-            pannelloSuperutenteDestroAttivo = pannelloSuperutenteDestroHome;
-
-            mostraAmministratori();
+            signinPannelloErroreTesto.setText("");
+            coloraPannelliUsernamePassword( new java.awt.Color(51, 51, 51) );
 
         } else {
             signinPannelloErroreTesto.setText("Username o password errari!");
@@ -2596,10 +3650,12 @@ public class Login extends javax.swing.JFrame {
             String stato          = lista[ i ][ 4 ];
             String gate           = lista[ i ][ 5 ];
             String data           = lista[ i ][ 6 ];
+            String partenza       = lista[ i ][ 7 ];
+            String arrivo         = lista[ i ][ 8 ];
 
             CardVolo card = new CardVolo(
                     this, controller, codice, compagnia, gate,
-                    "partenza", "arrivo", data, orarioPartenza,
+                    partenza, arrivo, data, orarioPartenza,
                     orarioArrivo
             );
             sottoPannelloAmministratoreDestroHomeScorrevole.add( card );
@@ -2617,24 +3673,15 @@ public class Login extends javax.swing.JFrame {
             String stato             = lista[ i ][ 4 ];
             String numeroBiglietto   = lista[ i ][ 5 ];
             String postoAssegnato    = lista[ i ][ 6 ];
+            String partenza          = lista[ i ][ 7 ];
+            String arrivo            = lista[ i ][ 8 ];
 
             CardPrenotazione card = new CardPrenotazione(
-                    controller, chiaveSessione, codice, "", "",
+                    controller, chiaveSessione, codice, partenza, arrivo,
                     nomePasseggero, cognomePasseggero, numeroBagagli, stato, numeroBiglietto,
                     postoAssegnato
             );
             pannelloGenericoDestroVisualizzaPrenotazioniScorrevole.add( card );
-        }
-    }
-
-    private void mostraAmministratori() {
-
-        sottoPannelloSuperutenteDestroAggiungiVoloListaAmministratori.removeAll();
-        String[] usernameAdmins = controller.recuperaAmministratori();
-
-        for( int i = 0; i < usernameAdmins.length; i++ ) {
-            CardAmministratore card = new CardAmministratore( usernameAdmins[ i ] );
-            sottoPannelloSuperutenteDestroAggiungiVoloListaAmministratori.add( card );
         }
     }
 
@@ -2656,6 +3703,39 @@ public class Login extends javax.swing.JFrame {
         pannelloGenericoDestroAttivo = pannelloGenericoDestroAggiungiPrenotazione;
     }
 
+    public void setPannelloAmministratoreDestroAttivoComeModificaVolo() {
+        pannelloAmministratoreDestroAttivo.setVisible( false );
+        pannelloAmministratoreDestroModificaVolo.setVisible( true );
+        pannelloAmministratoreDestroAttivo = pannelloAmministratoreDestroModificaVolo;
+    }
+
+    public void cancellaCardVolo( String codice ) {
+
+        JComponent pannelloAdmin = sottoPannelloAmministratoreDestroHomeScorrevole;
+        JComponent pannelloGenerico = sottoPannelloGenericoDestroHomeScorrevole;
+
+        for( Component component : pannelloAdmin.getComponents()  ) {
+            if( component instanceof CardVolo ) {
+                if( ( ( CardVolo ) component
+                    ).getCodice().equals(codice ) ) {
+                    pannelloAdmin.remove( component );
+                    pannelloAdmin.revalidate();
+                    pannelloAdmin.repaint();
+                }
+            }
+        }
+
+        for( Component component : pannelloGenerico.getComponents()  ) {
+            if( component instanceof CardVolo ) {
+                if( ( ( CardVolo ) component
+                ).getCodice().equals(codice ) ) {
+                    pannelloGenerico.remove( component );
+                    pannelloGenerico.revalidate();
+                    pannelloGenerico.repaint();
+                }
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -2682,6 +3762,16 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cardPrenotazioneAeroportoDestinazioneLabel;
+    private javax.swing.JLabel cardPrenotazioneAeroportoOrigineLabel;
+    private javax.swing.JLabel cardPrenotazioneCodiceVoloInput;
+    private javax.swing.JLabel cardPrenotazioneCognomePasseggeroInput;
+    private javax.swing.JLabel cardPrenotazioneNomePasseggeroInput;
+    private javax.swing.JLabel cardPrenotazioneNumeroBagagliInput;
+    private javax.swing.JLabel cardPrenotazioneNumeroBiglietto;
+    private javax.swing.JLabel cardPrenotazionePostoAssegnatoInput;
+    private javax.swing.JButton cardPrenotazionePulsanteCancellaPrenotazione;
+    private javax.swing.JLabel cardPrenotazioneStatoVoloInput;
     private javax.swing.JLabel cardVoloAeroportoDestinazioneLabel;
     private javax.swing.JLabel cardVoloAeroportoOrigineLabel;
     private javax.swing.JLabel cardVoloCodiceVoloLabel;
@@ -2740,18 +3830,59 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel91;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -2761,45 +3892,73 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JPanel pannelloAmministratore;
+    private javax.swing.JComboBox<String> pannelloAmministratoreAggiungiVoloAeroportoDestinazioneComboBox;
+    private javax.swing.JComboBox<String> pannelloAmministratoreAggiungiVoloAeroportoOrigineComboBox;
+    private javax.swing.JTextField pannelloAmministratoreAggiungiVoloCodiceVoloInput;
+    private javax.swing.JTextField pannelloAmministratoreAggiungiVoloCompagniaAereaInput;
+    private javax.swing.JTextField pannelloAmministratoreAggiungiVoloDataInput;
+    private javax.swing.JComboBox<String> pannelloAmministratoreAggiungiVoloNumeroPostiAereoComboBox;
+    private javax.swing.JComboBox<String> pannelloAmministratoreAggiungiVoloNumerogateComboBox;
+    private javax.swing.JTextField pannelloAmministratoreAggiungiVoloOrarioArrivoMinutiInput;
+    private javax.swing.JTextField pannelloAmministratoreAggiungiVoloOrarioArrivoOraInput;
+    private javax.swing.JTextField pannelloAmministratoreAggiungiVoloOrarioPartenzaMinutiInput;
+    private javax.swing.JTextField pannelloAmministratoreAggiungiVoloOrarioPartenzaOraInput;
+    private javax.swing.JButton pannelloAmministratoreAggiungiVoloPulsanteSalva;
+    private javax.swing.JComboBox<String> pannelloAmministratoreAggiungiVoloTipoVoloComboBox;
     private javax.swing.JPanel pannelloAmministratoreDestro;
+    private javax.swing.JPanel pannelloAmministratoreDestroAggiungiVolo;
+    private javax.swing.JScrollPane pannelloAmministratoreDestroAggiungiVoloScorrevole;
     private javax.swing.JPanel pannelloAmministratoreDestroHome;
     private javax.swing.JScrollPane pannelloAmministratoreDestroHomeScorrevole;
     private javax.swing.JPanel pannelloAmministratoreDestroImpostazioni;
-    private javax.swing.JTextField pannelloAmministratoreDestroImpostazioniPasswordLabel;
+    private javax.swing.JPasswordField pannelloAmministratoreDestroImpostazioniPasswordLabel;
     private javax.swing.JButton pannelloAmministratoreDestroImpostazioniPulsanteConferma;
+    private javax.swing.JButton pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount;
     private javax.swing.JTextField pannelloAmministratoreDestroImpostazioniUsernameLabel;
-    private javax.swing.JPanel pannelloAmministratoreDestroModificaVoli;
+    private javax.swing.JPanel pannelloAmministratoreDestroModificaVolo;
+    private javax.swing.JButton pannelloAmministratoreDestroModificaVoloPulsanteSalva;
+    private javax.swing.JComboBox<String> pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox;
+    private javax.swing.JComboBox<String> pannelloAmministratoreModificaVoloAeroportoOrigineComboBox;
+    private javax.swing.JTextField pannelloAmministratoreModificaVoloCodiceVoloInput;
+    private javax.swing.JTextField pannelloAmministratoreModificaVoloCompagniaAereaInput;
+    private javax.swing.JComboBox<String> pannelloAmministratoreModificaVoloNumerogateComboBox;
+    private javax.swing.JComboBox<String> pannelloAmministratoreModificaVoloStatoComboBox;
     private javax.swing.JPanel pannelloAmministratoreSinistro;
     private javax.swing.JPanel pannelloAmministratoreSuperiore;
+    private javax.swing.JPanel pannelloCardAmministratore1;
+    private javax.swing.JPanel pannelloCardPrenotazione;
+    private javax.swing.JPanel pannelloCardVolo;
+    private javax.swing.JButton pannelloCardVoloPulsanteCancellaVolo;
+    private javax.swing.JButton pannelloCardVoloPulsanteModificaVolo;
     private javax.swing.JPanel pannelloGenerale;
     private javax.swing.JPanel pannelloGenerico;
     private javax.swing.JPanel pannelloGenericoDestro;
     private javax.swing.JPanel pannelloGenericoDestroAggiungiPrenotazione;
     private javax.swing.JTextField pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput;
-    private javax.swing.JTextField pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput1;
-    private javax.swing.JTextField pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput2;
-    private javax.swing.JTextField pannelloGenericoDestroAggiungiPrenotazioneCodiceVoloInput3;
     private javax.swing.JTextField pannelloGenericoDestroAggiungiPrenotazioneCognomePasseggeroInput;
     private javax.swing.JTextField pannelloGenericoDestroAggiungiPrenotazioneNomePasseggeroInput;
     private javax.swing.JComboBox<String> pannelloGenericoDestroAggiungiPrenotazioneNumeroBagagliComboBox;
     private javax.swing.JButton pannelloGenericoDestroAggiungiPrenotazionePulsantePrenota;
     private javax.swing.JPanel pannelloGenericoDestroHome;
+    private javax.swing.JPanel pannelloGenericoDestroModificaPrenotazione;
     private javax.swing.JPanel pannelloGenericoDestroVisualizzaPrenotazioni;
     private javax.swing.JPanel pannelloGenericoDestroVisualizzaPrenotazioniScorrevole;
     private javax.swing.JPanel pannelloGenericoSinistro;
     private javax.swing.JButton pannelloGenericoSinistroPulsanteAggiungiPrenotazione;
     private javax.swing.JButton pannelloGenericoSinistroPulsanteEsci;
     private javax.swing.JButton pannelloGenericoSinistroPulsanteHome;
-    private javax.swing.JButton pannelloGenericoSinistroPulsanteModificaVolo;
-    private javax.swing.JButton pannelloGenericoSinistroPulsanteModificaVolo1;
     private javax.swing.JButton pannelloGenericoSinistroPulsanteVisualizzaPrenotazioni;
     private javax.swing.JPanel pannelloGenericoSuperiore;
     private javax.swing.JPanel pannelloScorrevole;
     private javax.swing.JPanel pannelloSignin;
+    private javax.swing.JButton pannelloSinistroAmministratorePulsanteAggiungiVolo;
     private javax.swing.JButton pannelloSinistroAmministratorePulsanteEsci;
     private javax.swing.JButton pannelloSinistroAmministratorePulsanteHome;
     private javax.swing.JButton pannelloSinistroAmministratorePulsanteImpostazioniVolo;
-    private javax.swing.JButton pannelloSinistroAmministratorePulsanteModificaVolo;
+    private javax.swing.JTextField pannelloSinistroGenericoRicercheRapideCodiceLabel;
+    private javax.swing.JTextField pannelloSinistroGenericoRicercheRapideCognomePasseggeroLabel;
+    private javax.swing.JTextField pannelloSinistroGenericoRicercheRapideNomePasseggeroLabel;
+    private javax.swing.JButton pannelloSinistroGenericoRicercheRapidePulsanteCerca;
     private javax.swing.JPanel pannelloSuperutente;
     private javax.swing.JComboBox<String> pannelloSuperutenteAggiungiVoloAeroportoDestinazioneComboBox;
     private javax.swing.JComboBox<String> pannelloSuperutenteAggiungiVoloAeroportoOrigineComboBox;
@@ -2815,7 +3974,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton pannelloSuperutenteAggiungiVoloPulsanteSalva;
     private javax.swing.JComboBox<String> pannelloSuperutenteAggiungiVoloTipoVoloComboBox;
     private javax.swing.JTextField pannelloSuperutenteAggiungiVoloUsernameInput;
-    private javax.swing.JPanel pannelloSuperutenteCardVolo;
     private javax.swing.JPanel pannelloSuperutenteDestro;
     private javax.swing.JPanel pannelloSuperutenteDestroAggiungiVolo;
     private javax.swing.JScrollPane pannelloSuperutenteDestroAggiungiVoloScorrevole;
@@ -2829,12 +3987,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> pannelloSuperutenteModificaVoloNumerogateComboBox;
     private javax.swing.JComboBox<String> pannelloSuperutenteModificaVoloStatoComboBox;
     private javax.swing.JButton pannelloSuperutentePulsanteAggiungiVolo;
-    private javax.swing.JButton pannelloSuperutentePulsanteCancellaVolo;
     private javax.swing.JButton pannelloSuperutentePulsanteEsci;
     private javax.swing.JButton pannelloSuperutentePulsanteHome;
     private javax.swing.JButton pannelloSuperutentePulsanteModificaVolo;
     private javax.swing.JPanel pannelloSuperutenteSinistro;
     private javax.swing.JPanel pannelloSuperutenteSuperiore;
+    private javax.swing.JToggleButton pulsanteToggle1;
     private javax.swing.JPanel signin;
     private javax.swing.JPanel signinPannelloErrore;
     private javax.swing.JLabel signinPannelloErroreTesto;
@@ -2847,5 +4005,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel sottoPannelloAmministratoreDestroHomeScorrevole;
     private javax.swing.JPanel sottoPannelloGenericoDestroHomeScorrevole;
     private javax.swing.JPanel sottoPannelloSuperutenteDestroAggiungiVoloListaAmministratori;
+    private javax.swing.JLabel usernameAmministratore1;
+    private javax.swing.JLabel voliGestitiAmministratore1;
     // End of variables declaration//GEN-END:variables
 }

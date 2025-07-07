@@ -10,25 +10,27 @@ public class CardPrenotazione extends JPanel {
     private Controller controller;
 
     private JPanel pannelloCardPrenotazione = new JPanel();
-    private JPanel jPanel2 = new JPanel();
+    private JPanel jPanel3 = new JPanel();
+    private JLabel jLabel62 = new JLabel();
+    private JLabel jLabel63 = new JLabel();
+    private JLabel jLabel64 = new JLabel();
+    private JLabel jLabel66 = new JLabel();
+    private JLabel jLabel67 = new JLabel();
+    private JLabel jLabel68 = new JLabel();
+    private JLabel jLabel69 = new JLabel();
+    private JLabel jLabel70 = new JLabel();
+    private JLabel jLabel71 = new JLabel();
+
     private JLabel cardPrenotazioneAeroportoOrigineLabel = new JLabel();
     private JLabel cardPrenotazioneAeroportoDestinazioneLabel = new JLabel();
-    private JLabel jLabel33 = new JLabel();
-    private JLabel jLabel34 = new JLabel();;
-    private JLabel jLabel35 = new JLabel();;
-    private JLabel jLabel36 = new JLabel();;
-    private JLabel jLabel37 = new JLabel();;
-    private JLabel jLabel38 = new JLabel();;
-    private JLabel jLabel39 = new JLabel();;
-
     private JButton cardPrenotazionePulsanteCancellaPrenotazione = new JButton();
-    private JLabel cardPrenotazioneNomePasseggeroInput = new JLabel();;
-    private JLabel cardPrenotazioneCognomePasseggeroInput = new JLabel();;
-    private JLabel cardPrenotazioneNumeroBiglietto = new JLabel();;
-    private JLabel cardPrenotazioneNumeroBagagliInput = new JLabel();;
-    private JLabel cardPrenotazioneStatoVoloInput = new JLabel();;
-    private JLabel cardPrenotazionePostoAssegnatoInput = new JLabel();;
-    private JLabel cardPrenotazioneCodiceVoloInput = new JLabel();;
+    private JLabel cardPrenotazioneNomePasseggeroInput = new JLabel();
+    private JLabel cardPrenotazioneCognomePasseggeroInput = new JLabel();
+    private JLabel cardPrenotazioneNumeroBiglietto = new JLabel();
+    private JLabel cardPrenotazioneNumeroBagagliInput = new JLabel();
+    private JLabel cardPrenotazioneStatoVoloInput = new JLabel();
+    private JLabel cardPrenotazionePostoAssegnatoInput = new JLabel();
+    private JLabel cardPrenotazioneCodiceVoloInput = new JLabel();
 
     public CardPrenotazione( Controller controller, String chiaveSessione, String codice, String partenza,
                              String arrivo, String nomePasseggero, String cognomePasseggero,
@@ -38,222 +40,231 @@ public class CardPrenotazione extends JPanel {
         this.controller = controller;
 
         pannelloCardPrenotazione.setBackground(new java.awt.Color(255, 255, 255));
-        pannelloCardPrenotazione.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 1, true));
+        pannelloCardPrenotazione.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
         pannelloCardPrenotazione.setMaximumSize(new java.awt.Dimension(940, 300));
         pannelloCardPrenotazione.setPreferredSize(new java.awt.Dimension(940, 300));
 
-        jPanel2.setBackground(new java.awt.Color(153, 51, 255));
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
 
-        cardPrenotazioneAeroportoOrigineLabel.setFont(new java.awt.Font("DialogInput", 0, 36)); // NOI18N
+        cardPrenotazioneAeroportoOrigineLabel.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
         cardPrenotazioneAeroportoOrigineLabel.setForeground(new java.awt.Color(255, 255, 255));
         cardPrenotazioneAeroportoOrigineLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cardPrenotazioneAeroportoOrigineLabel.setText( partenza );
 
-        cardPrenotazioneAeroportoDestinazioneLabel.setFont(new java.awt.Font("DialogInput", 0, 36)); // NOI18N
+        cardPrenotazioneAeroportoDestinazioneLabel.setFont(new java.awt.Font("Z003", 0, 48)); // NOI18N
         cardPrenotazioneAeroportoDestinazioneLabel.setForeground(new java.awt.Color(255, 255, 255));
         cardPrenotazioneAeroportoDestinazioneLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cardPrenotazioneAeroportoDestinazioneLabel.setText( arrivo );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
+        jLabel62.setFont(new java.awt.Font("Z003", 1, 20)); // NOI18N
+        jLabel62.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel62.setText("Partenza");
+
+        jLabel63.setFont(new java.awt.Font("Z003", 1, 20)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel63.setText("Destinazione");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(cardPrenotazioneAeroportoOrigineLabel)
-                                .addGap(168, 168, 168)
-                                .addComponent(cardPrenotazioneAeroportoDestinazioneLabel)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel62)
+                                        .addComponent(cardPrenotazioneAeroportoOrigineLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel63)
+                                        .addComponent(cardPrenotazioneAeroportoDestinazioneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel3Layout.setVerticalGroup(
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(cardPrenotazioneAeroportoOrigineLabel)
                                         .addComponent(cardPrenotazioneAeroportoDestinazioneLabel))
-                                .addContainerGap(27, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel62)
+                                        .addComponent(jLabel63))
+                                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jLabel33.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel33.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel33.setText("Nome passeggero:");
+        jLabel64.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel64.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel64.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel64.setText("Nome passeggero:");
 
-        jLabel34.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel34.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel34.setText("Codice volo:");
+        jLabel66.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel66.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel66.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel66.setText("Numero bagagli:");
 
-        jLabel35.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel35.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel35.setText("Numero bagagli:");
+        jLabel67.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel67.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel67.setText("Codice volo:");
 
-        jLabel36.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel36.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel36.setText("Numero biglietto:");
+        jLabel68.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel68.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel68.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel68.setText("Stato prenotazione:");
 
-        jLabel37.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel37.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel37.setText("Stato volo:");
-
-        cardPrenotazionePulsanteCancellaPrenotazione.setBackground(new java.awt.Color(51, 102, 255));
-        cardPrenotazionePulsanteCancellaPrenotazione.setFont(new java.awt.Font("DialogInput", 0, 24)); // NOI18N
-        cardPrenotazionePulsanteCancellaPrenotazione.setForeground(new java.awt.Color(255, 255, 255));
+        cardPrenotazionePulsanteCancellaPrenotazione.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
+        cardPrenotazionePulsanteCancellaPrenotazione.setForeground(new java.awt.Color(0, 153, 153));
         cardPrenotazionePulsanteCancellaPrenotazione.setText("Cancella");
-        cardPrenotazionePulsanteCancellaPrenotazione.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 102, 255), 2, true));
+        cardPrenotazionePulsanteCancellaPrenotazione.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         cardPrenotazionePulsanteCancellaPrenotazione.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cardPrenotazionePulsanteCancellaPrenotazioneActionPerformed(evt);
             }
         });
 
-        jLabel38.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel38.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel38.setText("Cognome passeggero:");
+        jLabel69.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel69.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel69.setText("Cognome passeggero:");
 
         cardPrenotazioneNomePasseggeroInput.setBackground(new java.awt.Color(255, 255, 255));
-        cardPrenotazioneNomePasseggeroInput.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        cardPrenotazioneNomePasseggeroInput.setForeground(new java.awt.Color(0, 51, 51));
+        cardPrenotazioneNomePasseggeroInput.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        cardPrenotazioneNomePasseggeroInput.setForeground(new java.awt.Color(102, 102, 255));
         cardPrenotazioneNomePasseggeroInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cardPrenotazioneNomePasseggeroInput.setText( nomePasseggero );
 
         cardPrenotazioneNumeroBagagliInput.setBackground(new java.awt.Color(255, 255, 255));
-        cardPrenotazioneNumeroBagagliInput.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        cardPrenotazioneNumeroBagagliInput.setForeground(new java.awt.Color(0, 51, 51));
+        cardPrenotazioneNumeroBagagliInput.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        cardPrenotazioneNumeroBagagliInput.setForeground(new java.awt.Color(102, 102, 255));
         cardPrenotazioneNumeroBagagliInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cardPrenotazioneNumeroBagagliInput.setText( numeroBagagli );
 
-        cardPrenotazioneNumeroBiglietto.setBackground(new java.awt.Color(255, 255, 255));
-        cardPrenotazioneNumeroBiglietto.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        cardPrenotazioneNumeroBiglietto.setForeground(new java.awt.Color(0, 51, 51));
-        cardPrenotazioneNumeroBiglietto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardPrenotazioneNumeroBiglietto.setText( numeroBiglietto );
-
-        cardPrenotazioneStatoVoloInput.setBackground(new java.awt.Color(255, 255, 255));
-        cardPrenotazioneStatoVoloInput.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        cardPrenotazioneStatoVoloInput.setForeground(new java.awt.Color(0, 51, 51));
-        cardPrenotazioneStatoVoloInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardPrenotazioneStatoVoloInput.setText( stato );
-
         cardPrenotazioneCodiceVoloInput.setBackground(new java.awt.Color(255, 255, 255));
-        cardPrenotazioneCodiceVoloInput.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        cardPrenotazioneCodiceVoloInput.setForeground(new java.awt.Color(0, 51, 51));
+        cardPrenotazioneCodiceVoloInput.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        cardPrenotazioneCodiceVoloInput.setForeground(new java.awt.Color(102, 102, 255));
         cardPrenotazioneCodiceVoloInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cardPrenotazioneCodiceVoloInput.setText( codice );
 
+        jLabel70.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel70.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel70.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel70.setText("Numero biglietto:");
+
+        jLabel71.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel71.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        jLabel71.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel71.setText("Posto assegnato:");
+
+        cardPrenotazionePostoAssegnatoInput.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazionePostoAssegnatoInput.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        cardPrenotazionePostoAssegnatoInput.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazionePostoAssegnatoInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazionePostoAssegnatoInput.setText( postoAssegnato );
+
+        cardPrenotazioneNumeroBiglietto.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneNumeroBiglietto.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        cardPrenotazioneNumeroBiglietto.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazioneNumeroBiglietto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneNumeroBiglietto.setText( numeroBiglietto );
+
         cardPrenotazioneCognomePasseggeroInput.setBackground(new java.awt.Color(255, 255, 255));
-        cardPrenotazioneCognomePasseggeroInput.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        cardPrenotazioneCognomePasseggeroInput.setForeground(new java.awt.Color(0, 51, 51));
+        cardPrenotazioneCognomePasseggeroInput.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        cardPrenotazioneCognomePasseggeroInput.setForeground(new java.awt.Color(102, 102, 255));
         cardPrenotazioneCognomePasseggeroInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cardPrenotazioneCognomePasseggeroInput.setText( cognomePasseggero );
 
-        jLabel39.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel39.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel39.setText("Posto assegnato:");
-
-        cardPrenotazionePostoAssegnatoInput.setBackground(new java.awt.Color(255, 255, 255));
-        cardPrenotazionePostoAssegnatoInput.setFont(new java.awt.Font("DialogInput", 0, 16)); // NOI18N
-        cardPrenotazionePostoAssegnatoInput.setForeground(new java.awt.Color(0, 51, 51));
-        cardPrenotazionePostoAssegnatoInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardPrenotazionePostoAssegnatoInput.setText( postoAssegnato );
+        cardPrenotazioneStatoVoloInput.setBackground(new java.awt.Color(255, 255, 255));
+        cardPrenotazioneStatoVoloInput.setFont(new java.awt.Font("Bitstream Charter", 1, 18)); // NOI18N
+        cardPrenotazioneStatoVoloInput.setForeground(new java.awt.Color(102, 102, 255));
+        cardPrenotazioneStatoVoloInput.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cardPrenotazioneStatoVoloInput.setText( stato );
 
         javax.swing.GroupLayout pannelloCardPrenotazioneLayout = new javax.swing.GroupLayout(pannelloCardPrenotazione);
         pannelloCardPrenotazione.setLayout(pannelloCardPrenotazioneLayout);
         pannelloCardPrenotazioneLayout.setHorizontalGroup(
                 pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                                                .addComponent(jLabel67)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(cardPrenotazioneCodiceVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(54, 54, 54)
+                                                                .addComponent(jLabel68))
+                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                                                .addComponent(jLabel64)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(cardPrenotazioneNomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                                                .addComponent(jLabel66)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(cardPrenotazioneNumeroBagagliInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                                 .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                                .addComponent(jLabel34)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cardPrenotazioneCodiceVoloInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                .addGap(6, 6, 6)
+                                                                .addComponent(cardPrenotazioneStatoVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(cardPrenotazionePulsanteCancellaPrenotazione, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                                .addComponent(jLabel39)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cardPrenotazionePostoAssegnatoInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                                                                .addComponent(jLabel70)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(cardPrenotazioneNumeroBiglietto, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
+                                                                                .addComponent(jLabel69)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(cardPrenotazioneCognomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addGap(0, 0, Short.MAX_VALUE))))
                                         .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                                .addComponent(jLabel33)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cardPrenotazioneNomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                                .addComponent(jLabel35)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cardPrenotazioneNumeroBagagliInput, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(0, 4, Short.MAX_VALUE)))
-                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                .addComponent(jLabel37)
+                                                .addComponent(jLabel71)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cardPrenotazioneStatoVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                .addGap(0, 62, Short.MAX_VALUE)
-                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                                .addComponent(jLabel36)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cardPrenotazioneNumeroBiglietto, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                                .addComponent(jLabel38)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cardPrenotazioneCognomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(38, 38, 38)
-                                .addComponent(cardPrenotazionePulsanteCancellaPrenotazione, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cardPrenotazionePostoAssegnatoInput, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
         pannelloCardPrenotazioneLayout.setVerticalGroup(
                 pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabel33)
-                                                .addComponent(cardPrenotazioneNomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(cardPrenotazioneCognomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel38))
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel35)
-                                                        .addComponent(cardPrenotazioneNumeroBagagliInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel36)
-                                                        .addComponent(cardPrenotazioneNumeroBiglietto, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel64)
+                                                        .addComponent(cardPrenotazioneNomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLabel69)
+                                                        .addComponent(cardPrenotazioneCognomePasseggeroInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(jLabel39)
-                                                                        .addComponent(cardPrenotazionePostoAssegnatoInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addComponent(cardPrenotazioneStatoVoloInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(cardPrenotazioneCodiceVoloInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                        .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
-                                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                                .addComponent(jLabel37))))
+                                                        .addComponent(jLabel66)
+                                                        .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(cardPrenotazioneNumeroBagagliInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jLabel70)
+                                                                .addComponent(cardPrenotazioneNumeroBiglietto, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel71)
+                                                        .addComponent(cardPrenotazionePostoAssegnatoInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                                                .addGroup(pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel67, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloCardPrenotazioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(cardPrenotazioneCodiceVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jLabel68)
+                                                                .addComponent(cardPrenotazioneStatoVoloInput, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGroup(pannelloCardPrenotazioneLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(cardPrenotazionePulsanteCancellaPrenotazione, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -274,5 +285,17 @@ public class CardPrenotazione extends JPanel {
             parent.remove( this ); parent.revalidate();
             parent.repaint();
         }
+    }
+
+    public String getNomePasseggero() {
+        return cardPrenotazioneNomePasseggeroInput.getText();
+    }
+
+    public String getCognomePasseggero() {
+        return cardPrenotazioneCognomePasseggeroInput.getText();
+    }
+
+    public String getCodice() {
+        return cardPrenotazioneCodiceVoloInput.getText();
     }
 }
