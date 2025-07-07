@@ -14,9 +14,9 @@ public class Controller {
 
 	private static Controller instance;
 
-	private Amministratore root;
 	private Map<String, Generico> guestMap;
 	private Map<String, Amministratore> adminMap;
+	private Gate[] gateArray;
 
 	public static Controller getInstance() {
 		if( instance == null )
@@ -25,114 +25,205 @@ public class Controller {
 	}
 
 	public Controller() {
-
-		guestMap = new HashMap<>();
-		adminMap = new HashMap<>();
-
-		try {
-			root = new AmministratoreImplementDao().get( "root" );
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		guestMap   = new HashMap<>();
+		adminMap   = new HashMap<>();
+		gateArray  = new Gate[ 8 ];
 	}
+
+	/**
+	 * Il metodo login permette a un utente di accedere alla propria homepaage
+	 * oppure essere respinto.
+	 *
+	 * Il metodo verifica se le credenziali inserite corrispondono alle credenziali di accesso
+	 * dell'utente root, di un amministratore o di un utente generico. Il controllo viene
+	 * dapprima effettuato negli array associativi; in caso di fallimento viene effettuato nella
+	 * base di dati.
+	 *
+	 * @param username
+	 * @param password
+	 * @return corrisponde a accesso consentito per l'utente root = 2,
+	 * accesso consentito all'amministratore = 1, accesso consentito all'utente generico = 0 e
+	 * accesso negato = 3.
+	 */
 
 	public int login( String username, String password ) {
 
-		if( username.equals( root.getUsername() ) && password.equals( root.getPassword() ) ) {
-			return 2;
-		}
+		final int ACCESSO_GENERICO       = 0;
+		final int ACCESSO_AMMINISTRATORE = 1;
+		final int ACCESSO_NEGATO         = 2;
 
 		Generico guest = guestMap.get( username );
 
 		if( guest != null ) {
-			if (password.equals( guest.getPassword() ) ) return 0;
-			return 3;
+			if (password.equals( guest.getPassword() ) ) return ACCESSO_GENERICO;
+			return ACCESSO_NEGATO;
 		}
 
 		try {
 			Generico guest1 = new GenericoImplementDao().get( username );
+
 			if( guest1 != null ) {
 				if (password.equals(guest1.getPassword())) {
 					guestMap.put( username, guest1 );
-					return 0;
+					return ACCESSO_GENERICO;
 				} else {
-					return 3;
+					return ACCESSO_NEGATO;
 				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return 3;
+			return ACCESSO_NEGATO;
 		}
 
 		Amministratore admin = adminMap.get( username );
 
 		if( admin != null ) {
-			System.out.println("eccomi");
-			if ( password.equals( admin.getPassword() ) ) return 1;
-			return 3;
+			if ( password.equals( admin.getPassword() ) ) return ACCESSO_AMMINISTRATORE;
+			return ACCESSO_NEGATO;
 		}
+
 		try {
 			Amministratore admin1 = new AmministratoreImplementDao().get( username );
 			if( admin1 != null ) {
-				if (password.equals(admin1.getPassword())) {
-					adminMap.put( username, admin1 ); return 1;
+				if ( password.equals(admin1.getPassword() ) ) {
+					adminMap.put( username, admin1 ); return ACCESSO_AMMINISTRATORE;
 				} else {
-					return 3;
+					return ACCESSO_NEGATO;
 				}
 			}
-			return 3;
-		} catch (SQLException e) {
+			return ACCESSO_NEGATO;
+		} catch ( SQLException e ) {
 			e.printStackTrace();
-			return 3;
+			return ACCESSO_NEGATO;
 		}
 	}
 
-	public int aggiungiPrenotazione( String chiaveSessione, String codice, String nome, String cognome, String bagagli ) {
+	/**
+	 * La prenotazione può essere aggiunta da parte di un utente generico
+	 * solo se essa risulta programmata. In caso contrario viene restituito
+	 * un codice di errore.
+	 *
+	 *
+	 * @param chiaveSessione
+	 * @param codice
+	 * @param nome
+	 * @param cognome
+	 * @param bagagli
+	 * @return corrispondono a volo inesistente = 0,
+	 * 	prenotazione già esistente = 1, volo non programmato = 2,
+	 * 	posti non disponibili nell'aereo = 3, prenotazione aggiunta con
+	 * 	successo = 4.
+	 */
+	public int aggiungiPrenotazione( String chiaveSessione, String codice,
+									 String nome, String cognome, String bagagli ) {
 
+		final int SUCCESSO 				   = 0;
+		final int DUPLICE_PRENOTAZIONE     = 1;
+		final int NESSUN_POSTO_DISPONIBILE = 2;
+		final int VOLO_INESISTENTE 		   = 3;
+		final int VOLO_NON_PROGRAMMATO     = 4;
+
+		// Viene determinato un utente generico in base alla chiaveSessione. Essa corrisponde
+		// allo username dell'utente attualmente connesso.
 		Generico generico = guestMap.get( chiaveSessione );
-		VoloInPartenza volo = null;
+		VoloInPartenza volo = recuperaVolo( codice );
 
+		if( volo != null ) {
+
+			if( !volo.getStato().equals( "PROGRAMMATO" ) )
+				return VOLO_NON_PROGRAMMATO;
+
+			Prenotazione p = costruisciPrenotazione( volo, generico,
+					nome, cognome, bagagli );
+			// verifica se esistono posti disponibili all'interno dell'aereo.
+			if ( p != null ) {
+				if ( !generico.esistePrenotazione( p ) ) {
+					// La prenotazione non è duplicata
+					generico.aggiungiPrenotazione( p );
+					return SUCCESSO;
+				} else {
+					// Esiste una prenotazione equivalente.
+					p.rimuoviVolo();
+					return DUPLICE_PRENOTAZIONE;
+				}
+			}
+			return NESSUN_POSTO_DISPONIBILE;
+		}
+		return VOLO_INESISTENTE;
+	}
+
+	/**
+	 * Il metodo consente di recuperare un partendo dal suo codice.
+	 * I Voli vengono identificati mediante il codice del volo, quindi
+	 * non possono esistere due voli con lo stesso codice. Se il codice
+	 * esiste allora viene recuperato uno ed un solo volo.
+	 *
+	 * @param codice
+	 * @return corrisponde al codice del volo di partenza
+	 */
+
+	private VoloInPartenza recuperaVolo( String codice ) {
+
+		Volo volo = null;
 		boolean status = false;
 
 		for( Amministratore admin : adminMap.values() ) {
-			if( ( volo = ( VoloInPartenza ) admin.trovaVolo( codice ) ) != null )
-				status = true;
+			volo = admin.trovaVolo( codice );
+			if( volo != null ) {
+				status = true; break;
+			}
 		}
 
-		if( status == false )
-			return 1;
-
-		if( volo.getStato().equals( "Programmato" )  ) {
-
-			Prenotazione prenotazione = new Prenotazione( generico,volo );
-
-			prenotazione.setNomePasseggero( nome );
-			prenotazione.setCognomePasseggero( cognome );
-			prenotazione.setNumeroBagagli( bagagli );
-
-			int numeroPosto 	   = volo.occupaPosto();
-			String numeroBiglietto = volo.getCodice() + String.valueOf( numeroPosto );
-
-			if( numeroPosto >= 0 ) {
-				prenotazione.setStatoPrenotazione( "Sospesa" );
-				prenotazione.setPostoAssegnato( String.valueOf( numeroPosto ) );
-				prenotazione.setNumeroBiglietto( numeroBiglietto );
-				volo.aggiungiPrenotazione( prenotazione );
-			} else {
-				return 4;
-			}
-
-			if( volo.numeroPostiSuperato() ) {
-				for( Prenotazione p : volo.getPrenotazioni() )
-					p.setStatoPrenotazione( "Confermata" );
-			}
-
-			if( !generico.confrontaPrenotazione( prenotazione ) ) {
-				generico.effettuaPrenotazione( prenotazione ); return 0;
-			} return 2;
-		} else {
-			return 3;
+		if( status && volo instanceof VoloInPartenza ) {
+			return ( VoloInPartenza ) volo;
 		}
+		return null;
+	}
+
+	/**
+	 * Il metodo ha il compito di costruire una prenotazione ed è
+	 * strettamente collegato al metodo aggiungiPrenotazione().
+	 * Come prima cosa viene contrallo se esistono posti disponibili all'
+	 * interno dell'aereo. In caso affermativo viene assegnato il posto
+	 * al passeggero, il numero di biglietto, la prenotazione
+	 * viene marcata come Sospesa e viene aggiunta al volo specificato;
+	 * in caso negativo viene restituito un messaggio di errore.
+	 *
+	 * Una volta che la prenotazione è stata aggiunta all'insieme delle
+	 * prenotazioni associate a quel volo, non ci resta che capire se il
+	 * numero di posti minimo è stato superato. In caso affermativo, ogni
+	 * prenotazione associata a quel volo viene marcata come Confermata.
+	 *
+	 *
+	 * @param volo
+	 * @param nome
+	 * @param cognome
+	 * @param bagagli
+	 * @return
+	 */
+	private Prenotazione costruisciPrenotazione( VoloInPartenza volo, Generico generico,
+										 String nome, String cognome, String bagagli ) {
+
+		int numeroPosto = volo.occupaPosto();
+		String numeroBiglietto = volo.getCodice() + String.valueOf( numeroPosto );
+
+		// Esistono posti disponibili all'interno dell'aereo
+		if ( numeroPosto >= 0 ) {
+
+			Prenotazione p = new Prenotazione( volo, generico, nome, cognome, numeroBiglietto,
+					String.valueOf( numeroPosto ), bagagli, "SOSPESA" );
+			volo.addPrenotazione( p );
+
+			if ( volo.numeroMinimoPostiSuperato() ) {
+				System.out.println( "eccomi" );
+				for ( Prenotazione s : volo.getPrenotazioni() ) {
+					s.setStatoPrenotazione( "CONFERMATA" );
+				}
+			}
+
+			return p;
+		}
+		return null;
 	}
 
 	public String recuperaBiglietto( String chiaveSessione, String codiceVolo,
@@ -160,34 +251,116 @@ public class Controller {
 		} return null;
 	}
 
-	public void modificaVolo( String codice, String statoVolo, String compagnia,
-							  String aeroportoOrigine, String aeroportoDestinazione ) {
+	public String recuperaStatoPrenotazione(  String chiaveSessione, String codiceVolo,
+											  String nomePasseggero, String cognomePasseggero,
+											  String numeroBagagli ) {
+		Generico guest = guestMap.get( chiaveSessione );
+		Prenotazione prenotazione = guest.cercaPrenotazione( codiceVolo, nomePasseggero,
+				cognomePasseggero, numeroBagagli );
 
-		VoloInPartenza volo = null;
-		boolean status = false;
+		if( prenotazione != null ) {
+			return prenotazione.getStato();
+		} return null;
+	}
 
-		for( Amministratore admin : adminMap.values() ) {
-			if( ( volo = ( VoloInPartenza ) admin.trovaVolo( codice ) ) != null )
-				status = true;
+	public int modificaVolo( String chiaveSessione, String codice, String statoVolo, String compagnia,
+							     String aeroportoOrigine, String aeroportoDestinazione, String gate ) {
+
+		final int SUCCESSO         = 0;
+		final int ORARI_NON_VALIDI = 1;
+		final int VOLO_INESISTENTE = 2;
+
+		Amministratore admin = adminMap.get( chiaveSessione );
+		Volo volo = null;
+
+		for( Volo element : admin.getVoliGestiti() ) {
+			if( codice.equals( element.getCodice() ) )
+				volo = element;
 		}
 
-		if( status ) {
+		if( volo != null ) {
+
+			/* Inizio sezione controlli */
+
+			if( !checkOrario( volo,gate ) )
+				return ORARI_NON_VALIDI;
+
+			if( volo instanceof VoloInPartenza )
+				( ( VoloInPartenza ) volo ).setAeroportoDestinazione(
+						aeroportoDestinazione );
+			else if( volo instanceof  VoloInArrivo )
+				( ( VoloInArrivo ) volo ).setAeroportoOrigine(
+						aeroportoOrigine );
 
 			volo.setCompagnia( compagnia );
-			volo.setAeroportoDestinazione( aeroportoDestinazione );
 			volo.setStato( statoVolo );
+			volo.setGate( gate );
+
+			/* Fine sezione controlli */
+
+			propagaStatoPrenotazione( volo, statoVolo );
+			return SUCCESSO;
 		}
+		return VOLO_INESISTENTE;
+	}
+
+	/**
+	 * Il seguente metodo consente di propagare lo stato di una
+	 * prenotazione ad ogni prenotazione, associata a un determinato volo,
+	 * in base allo stato del volo stesso. Se un volo viene
+	 * marcato come "Cancellato", allora ogni prenotazione associata a quel volo
+	 * viene anch'essa contrassegnata come "Cancellata". Mentre se lo stato del
+	 * volo risulta "In ritardo" allora ogni sua prenotazione viene marcata come
+	 * "Sospesa"
+	 *
+	 * @param volo
+	 * @param statoVolo
+	 */
+	private void propagaStatoPrenotazione( Volo volo, String statoVolo ) {
 
 		ArrayList<Prenotazione> lista = volo.getPrenotazioni();
 
-		if( statoVolo.equals( "Cancellato" ) ) {
-			for( Prenotazione p : lista )
-				p.setStatoPrenotazione( "Cancellata" );
+		if( statoVolo.equals( "CANCELLATO" ) ) {
+			for( Prenotazione p : lista ) {
+				p.setStatoPrenotazione("CANCELLATA");
+			}
 
-		} else if( statoVolo.equals( "In ritardo" ) ) {
+		} else if( statoVolo.equals( "IN_RITARDO" ) ) {
 			for( Prenotazione p : lista )
-				p.setStatoPrenotazione( "Sospesa" );
+				p.setStatoPrenotazione( "SOSPESA" );
 		}
+	}
+
+	private boolean voloDuplicato( Volo volo ) {
+
+		for( Amministratore amm : adminMap.values() ) {
+			if( amm.checkVolo( volo ) ) return true;
+		}
+		return false;
+	}
+
+	private boolean checkOrario( Volo volo, String numeroGate ) {
+
+		int numero = Integer.parseInt( numeroGate );
+
+		if( gateArray[ numero ] == null ) {
+			gateArray[ numero ] = new Gate( numeroGate );
+			return true;
+		} else {
+			if( volo.getGate().equals( numeroGate ) )
+				return true;
+		}
+
+		if( volo instanceof VoloInArrivo ) {
+			if( !gateArray[ numero ].aggiungiVolo(
+					( VoloInArrivo ) volo ) )
+				return false;
+		} else {
+			if( !gateArray[ numero ].aggiungiVolo(
+					( VoloInPartenza ) volo ) )
+				return false;
+		}
+		return true;
 	}
 
 	public void cancellaPrenotazione( String chiaveSessione, String nomePasseggero,
@@ -198,51 +371,123 @@ public class Controller {
 		Prenotazione p = guest.cercaPrenotazione( codiceVolo, nomePasseggero,
 				cognomePasseggero, numeroBagaagli );
 
+		int posto = Integer.parseInt( p.getPostoAssegnato() );
+		Volo volo = p.getVoloAssociato();
+
+		if( volo instanceof VoloInPartenza ) {
+			( ( VoloInPartenza ) volo).riassegnaPosto( posto );
+		}
+
 		if( p != null ) {
 			guest.rimuoviPrenotazione( p );
+
 		}
 	}
 
-	public void aggiungiVolo( String codice, String compagnia,    String numeroGate,     String partenza, String arrivo,
-							  String data,   String orarioArrivo, String orarioPartenza, String username ) {
+	public int addVolo( String chiaveSessione, String codice, String compagnia,
+						 String numeroGate, String partenza, String arrivo,
+						 String data, String orarioArrivoOra, String orarioArrivoMinuti,
+						 String orarioPartenzaOra, String orarioPartenzaMinuti,
+						 int numeroPosti, String tipoVolo ) {
 
-		Amministratore admin = adminMap.get( username );
-		Gate gate = new Gate( numeroGate );
+		final int SUCCESSO         = 0;
+		final int VOLO_ESISTENTE   = 1;
+		final int ORARI_NON_VALIDI = 2;
 
-		Volo volo = new Volo( admin,gate );
+		Amministratore admin = adminMap.get( chiaveSessione );
+		Volo volo = null;
 
-		volo.setCodice( codice );
-		volo.setCompagnia( compagnia );
-		volo.setData( data );
-		//volo.setAeroportoDestinazione( arrivo );
-		volo.setOrarioArrivo( orarioArrivo );
-		volo.setOrarioPartenza( orarioPartenza );
-		volo.setStato( "Programmato" );
+		if( tipoVolo.equals( "Partenza" ) ) {
+			volo = add( admin, codice, compagnia, numeroGate,
+					arrivo, data, orarioPartenzaOra, orarioPartenzaMinuti,
+					orarioArrivoOra, orarioArrivoMinuti, numeroPosti );
+		} else {
+			volo = add( admin, codice, compagnia, numeroGate,
+					partenza, data,  orarioPartenzaOra, orarioPartenzaMinuti,
+					orarioArrivoOra, orarioArrivoMinuti );
+		}
+
+		if( volo == null ) {
+			return ORARI_NON_VALIDI;
+		} else {
+
+			for( Amministratore amm : adminMap.values() ) {
+				if( amm.checkVolo( volo ) ) return VOLO_ESISTENTE;
+			}
+
+			admin.inserisciVolo( volo );
+			return SUCCESSO;
+		}
 	}
-	// Fare l'overloading di questo metodo per i voli in arrivo e in partenza
-	public void aggiungiVolo( Amministratore admin, String codice, String compagnia,    String numeroGate,     String partenza, String arrivo,
-							  				        String data,   String orarioArrivo, String orarioPartenza, int numeroPosti, String username, String password ) {
 
-		Gate gate = new Gate( numeroGate );
-		VoloInPartenza volo = new VoloInPartenza( admin, gate );
+	// Metodo per l'arrivo
+	public Volo add( Amministratore admin, String codice, String compagnia,
+					 String numeroGate, String partenza, String data,
+					 String orarioPartenzaOra, String orarioPartenzaMinuti,
+					 String orarioArrivoOra, String orarioArrivoMinuti ) {
 
-		volo.setCodice( codice );
-		volo.setCompagnia( compagnia );
-		volo.setData( data );
-		volo.setAeroportoDestinazione( arrivo );
-		volo.setOrarioArrivo( orarioArrivo );
-		volo.setOrarioPartenza( orarioPartenza );
-		volo.setNumeroPosti( numeroPosti );
-		volo.setStato( "Programmato" );
+		int numero = Integer.parseInt( numeroGate );
 
-		System.out.println( volo.toString() );
+		if( gateArray[ numero ] == null ) {
+			gateArray[ numero ] = new Gate( numeroGate );
+		}
+
+		Orario orarioPartenza = new Orario( Integer.valueOf( orarioPartenzaOra ),
+				Integer.valueOf( orarioPartenzaMinuti ) );
+		Orario orarioArrivo   = new Orario( Integer.valueOf( orarioArrivoOra ),
+				Integer.valueOf( orarioArrivoMinuti ) );
+
+		VoloInArrivo volo = new VoloInArrivo( admin, codice, compagnia, data, orarioPartenza,
+				orarioArrivo, "PROGRAMMATO", gateArray[ numero ], partenza );
+
+		if( !gateArray[ numero ].aggiungiVolo( volo ) ) {
+			volo = null; return null;
+		}
+		return volo;
+	}
+
+	// Metodo per la partenza
+	public Volo add( Amministratore admin, String codice, String compagnia,
+					 String numeroGate, String arrivo, String data,
+					 String orarioPartenzaOra, String orarioPartenzaMinuti,
+					 String orarioArrivoOra, String orarioArrivoMinuti,
+					 int numeroPosti ) {
+
+		int numero = Integer.parseInt( numeroGate );
+
+		if( gateArray[ numero ] == null ) {
+			gateArray[ numero ] = new Gate( numeroGate );
+		}
+
+		Orario orarioPartenza = new Orario( Integer.valueOf( orarioPartenzaOra ),
+				Integer.valueOf( orarioPartenzaMinuti ) );
+		Orario orarioArrivo   = new Orario( Integer.valueOf( orarioArrivoOra ),
+				Integer.valueOf( orarioArrivoMinuti ) );
+
+		VoloInPartenza volo = new VoloInPartenza( admin, codice,
+				compagnia, data, orarioPartenza, orarioArrivo, "Programmato",
+				gateArray[ numero ], arrivo, numeroPosti );
+
+		if( !gateArray[ numero ].aggiungiVolo( volo ) ) {
+			volo = null; return null;
+		}
+		return volo;
 	}
 
 	public void cancellaVolo( String codiceVolo ) {
 
+		int numero;
+		Volo volo = null;
+
 		for( Amministratore admin : adminMap.values() ) {
-			if( admin.trovaVolo( codiceVolo ) != null )
+			volo = admin.trovaVolo( codiceVolo );
+			if( volo != null ) {
+				numero = Integer.valueOf( volo.getGate() );
+				gateArray[ numero ] = null;
+
+				volo.rimuoviGate();
 				admin.rimuoviVolo( admin.trovaVolo( codiceVolo ) );
+			}
 		}
 	}
 
@@ -262,27 +507,19 @@ public class Controller {
 		}
 	}
 
-//	public String[] visualizzaPrenotazioni( String chiaveSessione ) {
-//		Generico generico  = guestMap.get( chiaveSessione );
-//		return generico.getPrenotazioni();
-//	}
+	public String[][] recuperaAmministratori() {
 
-	public String[] recuperaAmministratori() {
+			String[][] matrice = new String[ adminMap.size() ][ 2 ];
 
-		AmministratoreImplementDao admin = new AmministratoreImplementDao();
-		try {
+			int i = 0;
 
-			ArrayList<Amministratore> list = admin.getAll();
-			String[] array = new String[ list.size() ];
+			for( Map.Entry<String, Amministratore> entry : adminMap.entrySet() ) {
+				matrice[ i ][ 0 ] = entry.getKey();
+				matrice[ i ][ 1 ] = Integer.toString( entry.getValue().contaVoliGestiti() );
 
-			for( int i = 0; i < list.size(); i++ )
-				array[ i ] = list.get( i ).getUsername();
-			return array;
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
+				i++;
+			}
+			return matrice;
 	}
 
 	public String[][] recuperaVoliAmministratore( String chiaveSessione ) {
@@ -290,18 +527,35 @@ public class Controller {
 		Amministratore admin = adminMap.get( chiaveSessione );
 
 		int numeroVoli = admin.contaVoliGestiti();
-		String[][] voli = new String[ numeroVoli ][ 7 ];
+		String[][] voli = new String[ numeroVoli ][ 9 ];
 
 		ArrayList<Volo> list = admin.getVoliGestiti();
 
 		for( int i = 0; i < voli.length; i++ ) {
 			voli[ i ][ 0 ] = list.get( i ).getCodice();
 			voli[ i ][ 1 ] = list.get( i ).getCompagniaAerea();
-			voli[ i ][ 2 ] = list.get( i ).getOrarioArrivo();
-			voli[ i ][ 3 ] = list.get( i ).getOrarioPartenza();
+
+			String orarioArrivo =  list.get( i ).getOrarioArrivo().getOra() +
+					"." + list.get( i ).getOrarioArrivo().getMinuti();
+			voli[ i ][ 2 ] = orarioArrivo;
+
+			String orarioPartenza =  list.get( i ).getOrarioPartenza().getOra() +
+					"." + list.get( i ).getOrarioPartenza().getMinuti();
+
+			voli[ i ][ 3 ] = orarioPartenza;
 			voli[ i ][ 4 ] = list.get( i ).getStato();
 			voli[ i ][ 5 ] = list.get( i ).getGate();
 			voli[ i ][ 6 ] = list.get( i ).getData();
+
+			if( list.get( i ) instanceof VoloInPartenza ) {
+				voli[ i ][ 7 ] = "Napoli";
+				voli[ i ][ 8 ] = ( ( VoloInPartenza )
+						list.get( i ) ).getAeroportoDestinazione();
+			} else if( list.get( i ) instanceof VoloInArrivo ) {
+				voli[ i ][ 7 ] = ( ( VoloInArrivo )
+						list.get( i ) ).getAeroportoOrigine();
+				voli[ i ][ 8 ] = "Napoli";
+			}
 		}
 
 		return voli;
@@ -312,7 +566,7 @@ public class Controller {
 		Generico guest = guestMap.get( chiaveSessione );
 		int numeroPrenotazioni = guest.contaPrenotazioni();
 
-		String[][] prenotazioni = new String[ numeroPrenotazioni ][ 7 ];
+		String[][] prenotazioni = new String[ numeroPrenotazioni ][ 9 ];
 		ArrayList<Prenotazione> list = guest.getPrenotazioni();
 
 		for( int i = 0; i < prenotazioni.length; i++ ) {
@@ -323,8 +577,84 @@ public class Controller {
 			prenotazioni[ i ][ 4 ] = list.get( i ).getStato();
 			prenotazioni[ i ][ 5 ] = list.get( i ).getNumeroBiglietto();
 			prenotazioni[ i ][ 6 ] = list.get( i ).getPostoAssegnato();
+
+			if( list.get( i ).getVoloAssociato() instanceof VoloInPartenza ) {
+				prenotazioni[ i ][ 7 ] = "Napoli";
+				prenotazioni[ i ][ 8 ] = ( ( VoloInPartenza )
+						list.get( i ).getVoloAssociato()).getAeroportoDestinazione();
+			}
+			else if( list.get( i ).getVoloAssociato() instanceof VoloInArrivo ) {
+				prenotazioni[ i ][ 7 ] = ( ( VoloInArrivo )
+						list.get( i ).getVoloAssociato()).getAeroportoOrigine();
+				prenotazioni[ i ][ 8 ] = "Napoli";
+			}
 		}
 
 		return prenotazioni;
+	}
+
+	public int modificaCredenziali( String chiaveSessione, String username, String password ) {
+
+		Amministratore vecchioAmm = adminMap.get( chiaveSessione );
+		AmministratoreImplementDao admin = new AmministratoreImplementDao();
+
+		if ( vecchioAmm != null ) {
+			Amministratore nuovoAmm = new Amministratore( username,password,
+					vecchioAmm.getVoliGestiti() ) ;
+			try {
+				admin.update( vecchioAmm,nuovoAmm );
+
+				vecchioAmm.setUsername( username );
+				vecchioAmm.setPassword( password );
+
+				adminMap.remove( chiaveSessione );
+				adminMap.put( vecchioAmm.getUsername(), vecchioAmm );
+
+				return 0;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return 1;
+			}
+		}
+
+		Generico vecchioGenerico = guestMap.get( chiaveSessione );
+		GenericoImplementDao guest = new GenericoImplementDao();
+
+		if( vecchioGenerico != null ) {
+			Generico nuovoGenerico = new Generico( username,password );
+
+			try {
+				guest.update( vecchioGenerico,nuovoGenerico );
+
+				vecchioGenerico.setUsername( username );
+				vecchioGenerico.setPassword( password );
+
+				guestMap.remove( chiaveSessione );
+				guestMap.put( vecchioGenerico.getUsername(), vecchioGenerico );
+
+				return 0;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return 1;
+			}
+		}
+		return 2;
+	}
+
+	public String recuperaTipoVolo( String codice ) {
+
+		for( Amministratore admin : adminMap.values() ) {
+			for( Volo volo : admin.getVoliGestiti() ) {
+
+				if( volo.getCodice().equals( codice ) ) {
+					if (volo instanceof VoloInPartenza)
+						return "Partenza";
+					else
+						return "Arrivo";
+				}
+			}
+		}
+
+		return null;
 	}
 }
