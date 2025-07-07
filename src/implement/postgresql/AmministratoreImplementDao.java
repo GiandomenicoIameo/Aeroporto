@@ -76,7 +76,6 @@ public class AmministratoreImplementDao implements UtenteDao<Amministratore> {
 	* degli utenti amministratori.
 	*/
 	public boolean add( Amministratore admin ) throws SQLException {
-
 			PreparedStatement stmt = connection.prepareStatement(
 					"INSERT INTO \"Amministratori\" ( \"Username\", \"Password\" ) " +
 					"VALUES ( ?,? )" );
@@ -87,12 +86,28 @@ public class AmministratoreImplementDao implements UtenteDao<Amministratore> {
 			return stmt.executeUpdate() > 0;
 	}
 
+	public boolean update( Amministratore vecchio, Amministratore nuovo ) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement(
+				"UPDATE \"Amministratori\" " +
+						"SET \"Username\" = ?, \"Password\" = ? " +
+						"WHERE \"Username\" = ?" );
+
+		stmt.setString( 1, nuovo.getUsername() );
+		stmt.setString( 2, nuovo.getPassword() );
+		stmt.setString( 3, vecchio.getUsername() );
+
+		// L'istruzione seguente esegue la query SQL e restituisce
+		// un intero che rappresenta il numero di righe coinvolte( modificate,
+		//inserite o cancellate ). Se il numero di righe coinvolte è maggiore di
+		// di 0 allora il metodo restituisce true, false in caso contrario.
+		return stmt.executeUpdate() > 0;
+	}
+
 	/**
 	* Elimina un record dalla tabella
 	* degli utenti generici.
 	*/
 	public boolean delete( Amministratore admin ) throws SQLException {
-
 			PreparedStatement stmt = connection.prepareStatement(
 				"DELETE FROM \"Amministratori\" WHERE \"Username\" = ?" );
 

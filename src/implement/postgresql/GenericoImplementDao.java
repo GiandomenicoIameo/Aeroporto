@@ -1,5 +1,6 @@
 package implement.postgresql;
 
+import model.Amministratore;
 import model.Generico;
 import dao.UtenteDao;
 import database.ConnessioneDatabase;
@@ -40,12 +41,9 @@ public class GenericoImplementDao implements UtenteDao<Generico> {
 				String telefono = result.getString( 4 );
 				int anni 		= result.getInt( 5 );
 
-				Generico generico = new Generico();
+				Generico generico = new Generico( user, pass );
 
-				generico.setUsername( user );
-				generico.setPassword( pass );
 				generico.setTelefono( telefono );
-
 				generico.setNome( nome );
 				generico.setAnni( anni );
 
@@ -76,12 +74,9 @@ public class GenericoImplementDao implements UtenteDao<Generico> {
 				String telefono = result.getString( 4 );
 				int anni 		= result.getInt( 5 );
 
-				Generico generico = new Generico();
+				Generico generico = new Generico( username,password );
 
-				generico.setUsername( username );
-				generico.setPassword( password );
 				generico.setTelefono( telefono );
-
 				generico.setNome( nome );
 				generico.setAnni( anni );
 
@@ -110,6 +105,23 @@ public class GenericoImplementDao implements UtenteDao<Generico> {
 			stmt.setInt( 5, generico.getAnni() );
 
 			return stmt.executeUpdate() > 0;
+	}
+
+	public boolean update( Generico vecchio, Generico nuovo ) throws SQLException {
+		PreparedStatement stmt = connection.prepareStatement(
+				"UPDATE \"Generico\" " +
+						"SET \"Username\" = ?, SET \"Password\" = ? " +
+						"WHERE \"Username = ?" );
+
+		stmt.setString( 1, nuovo.getUsername() );
+		stmt.setString( 2, nuovo.getPassword() );
+		stmt.setString( 3, vecchio.getUsername() );
+
+		// L'istruzione seguente esegue la query SQL e restituisce
+		// un intero che rappresenta il numero di righe coinvolte( modificate,
+		//inserite o cancellate ). Se il numero di righe coinvolte è maggiore di
+		// di 0 allora il metodo restituisce true, false in caso contrario.
+		return stmt.executeUpdate() > 0;
 	}
 
 	/**
