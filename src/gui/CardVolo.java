@@ -282,12 +282,6 @@ public class CardVolo extends JPanel {
         this.add( pannelloCardVolo );
     }
 
-    public CardVolo( Login app, Controller controller, CardVolo card ) {
-        this( app, controller, card.getCodice(),card.getCompagniaAerea(), card.getGate(),
-                card.getAeroportoOrigine(), card.getAeroportoDestinazione(), card.getData(),
-                card.getOrarioPartenza(),card.getOrarioArrivo() );
-    }
-
     public void setCodice( String codice ) {
         cardVoloCodiceVoloLabel.setText( codice );
     }

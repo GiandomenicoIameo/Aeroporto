@@ -41,8 +41,8 @@ public class CardPrenotazione extends JPanel {
 
         pannelloCardPrenotazione.setBackground(new java.awt.Color(255, 255, 255));
         pannelloCardPrenotazione.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        pannelloCardPrenotazione.setMaximumSize(new java.awt.Dimension(940, 300));
-        pannelloCardPrenotazione.setPreferredSize(new java.awt.Dimension(940, 300));
+        pannelloCardPrenotazione.setMaximumSize(new java.awt.Dimension(1100, 300));
+        pannelloCardPrenotazione.setPreferredSize(new java.awt.Dimension(1100, 300));
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -119,7 +119,7 @@ public class CardPrenotazione extends JPanel {
 
         cardPrenotazionePulsanteCancellaPrenotazione.setFont(new java.awt.Font("Z003", 0, 36)); // NOI18N
         cardPrenotazionePulsanteCancellaPrenotazione.setForeground(new java.awt.Color(0, 153, 153));
-        cardPrenotazionePulsanteCancellaPrenotazione.setText("Cancella");
+        cardPrenotazionePulsanteCancellaPrenotazione.setText("Annulla");
         cardPrenotazionePulsanteCancellaPrenotazione.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         cardPrenotazionePulsanteCancellaPrenotazione.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
