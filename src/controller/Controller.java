@@ -264,8 +264,8 @@ public class Controller {
 		} return null;
 	}
 
-	public int modificaVolo( String chiaveSessione, String codice, String statoVolo, String compagnia,
-							     String aeroportoOrigine, String aeroportoDestinazione, String gate ) {
+	public int modificaVolo( String chiaveSessione, String codice, String statoVolo,
+							 String compagnia,String gate ) {
 
 		final int SUCCESSO         = 0;
 		final int ORARI_NON_VALIDI = 1;
@@ -285,13 +285,13 @@ public class Controller {
 
 			if( !checkOrario( volo,gate ) )
 				return ORARI_NON_VALIDI;
-
-			if( volo instanceof VoloInPartenza )
-				( ( VoloInPartenza ) volo ).setAeroportoDestinazione(
-						aeroportoDestinazione );
-			else if( volo instanceof  VoloInArrivo )
-				( ( VoloInArrivo ) volo ).setAeroportoOrigine(
-						aeroportoOrigine );
+//
+//			if( volo instanceof VoloInPartenza )
+//				( ( VoloInPartenza ) volo ).setAeroportoDestinazione(
+//						aeroportoDestinazione );
+//			else if( volo instanceof  VoloInArrivo )
+//				( ( VoloInArrivo ) volo ).setAeroportoOrigine(
+//						aeroportoOrigine );
 
 			volo.setCompagnia( compagnia );
 			volo.setStato( statoVolo );
