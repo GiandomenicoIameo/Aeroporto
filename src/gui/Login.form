@@ -302,7 +302,7 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="pannelloAmministratoreSuperiore" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pannelloAmministratoreDestro" pref="888" max="32767" attributes="0"/>
+                          <Component id="pannelloAmministratoreDestro" pref="879" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="pannelloAmministratoreSinistro" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -519,11 +519,11 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="888" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="879" max="32767" attributes="0"/>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="pannelloAmministratoreDestroHomeScorrevole" min="-2" pref="879" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1264,72 +1264,45 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jSeparator10" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jSeparator11" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="pannelloAmministratoreDestroModificaVoloPulsanteSalva" min="-2" pref="226" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel55" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel61" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel54" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel58" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel60" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="pannelloAmministratoreModificaVoloAeroportoOrigineComboBox" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                                          <Component id="pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel55" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel61" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel54" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="pannelloAmministratoreModificaVoloCodiceVoloInput" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="pannelloAmministratoreModificaVoloCompagniaAereaInput" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="pannelloAmministratoreModificaVoloNumerogateComboBox" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="pannelloAmministratoreModificaVoloCodiceVoloInput" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="pannelloAmministratoreModificaVoloCompagniaAereaInput" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="pannelloAmministratoreModificaVoloNumerogateComboBox" alignment="0" pref="377" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="573" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel59" max="32767" attributes="0"/>
+                                      <Component id="jLabel53" min="-2" pref="233" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-                                              <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="pannelloAmministratoreModificaVoloStatoComboBox" min="-2" pref="186" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jLabel53" min="-2" pref="233" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jLabel56" min="-2" pref="259" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel56" min="-2" pref="259" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="pannelloAmministratoreModificaVoloStatoComboBox" min="-2" pref="186" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="pannelloAmministratoreDestroModificaVoloPulsanteSalva" min="-2" pref="226" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1355,30 +1328,17 @@
                               </Group>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                               <Component id="jSeparator10" min="-2" pref="10" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="pannelloAmministratoreModificaVoloAeroportoOrigineComboBox" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                              <Component id="jSeparator11" min="-2" pref="10" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="pannelloAmministratoreModificaVoloStatoComboBox" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pannelloAmministratoreModificaVoloStatoComboBox" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="pannelloAmministratoreDestroModificaVoloPulsanteSalva" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="pannelloAmministratoreDestroModificaVoloPulsanteSalva" min="-2" pref="56" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="jSeparator11" min="-2" pref="10" max="-2" attributes="0"/>
+                              <EmptySpace pref="274" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1511,55 +1471,6 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel58">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Z003" size="24" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="33" green="33" red="0" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Aeroporto di destinazione"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBox">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="DialogInput" size="18" style="0"/>
-                        </Property>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="6">
-                            <StringItem index="0" value="Roma"/>
-                            <StringItem index="1" value="Milano"/>
-                            <StringItem index="2" value="Parigi"/>
-                            <StringItem index="3" value="Madrid"/>
-                            <StringItem index="4" value="Barcellona"/>
-                            <StringItem index="5" value=" "/>
-                          </StringArray>
-                        </Property>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="null"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pannelloAmministratoreModificaVoloAeroportoDestinazioneComboBoxActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel59">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Z003" size="48" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="33" green="33" red="0" type="rgb"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="2"/>
-                        <Property name="text" type="java.lang.String" value="Modifica Percorso"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparator10">
                       <Properties>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1573,42 +1484,6 @@
                           <Color blue="33" green="33" red="0" type="rgb"/>
                         </Property>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel60">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Z003" size="24" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="33" green="33" red="0" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Aeroporto di origine"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="pannelloAmministratoreModificaVoloAeroportoOrigineComboBox">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="DialogInput" size="18" style="0"/>
-                        </Property>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="5">
-                            <StringItem index="0" value="Napoli"/>
-                            <StringItem index="1" value="Zurigo"/>
-                            <StringItem index="2" value="Parigi"/>
-                            <StringItem index="3" value="Madrid"/>
-                            <StringItem index="4" value=" "/>
-                          </StringArray>
-                        </Property>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="null"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pannelloAmministratoreModificaVoloAeroportoOrigineComboBoxActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="pannelloAmministratoreDestroModificaVoloPulsanteSalva">
                       <Properties>
@@ -1739,7 +1614,7 @@
                               <Component id="pannelloAmministratoreDestroImpostazioniPulsanteCreaAccount" min="-2" pref="56" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                               <Component id="jSeparator7" min="-2" pref="15" max="-2" attributes="0"/>
-                              <EmptySpace pref="243" max="32767" attributes="0"/>
+                              <EmptySpace pref="234" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

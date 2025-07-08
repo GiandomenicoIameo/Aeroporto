@@ -72,7 +72,7 @@ public class CardVolo extends JPanel {
         cardVoloStatoVoloLabel.setFont(new java.awt.Font("Z003", 1, 36)); // NOI18N
         cardVoloStatoVoloLabel.setForeground(new java.awt.Color(204, 255, 0));
         cardVoloStatoVoloLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        cardVoloStatoVoloLabel.setText("CONFERMATO");
+        cardVoloStatoVoloLabel.setText( "CONFERMATO".toLowerCase() );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -319,7 +319,7 @@ public class CardVolo extends JPanel {
     }
 
     public void setStatoVolo( String stato ) {
-        cardVoloStatoVoloLabel.setText( stato );
+        cardVoloStatoVoloLabel.setText( stato.toLowerCase() );
     }
 
     public String getAeroportoDestinazione() {
@@ -378,10 +378,6 @@ public class CardVolo extends JPanel {
     }
 
     private void pannelloCardVoloPulsanteModificaVoloActionPerformed(ActionEvent evt) {
-
-        String tipoVolo = controller.recuperaTipoVolo( getCodice() );
-        app.impostaTrattePannelloModifica( tipoVolo );
-
         app.setPannelloAmministratoreDestroAttivoComeModificaVolo();
     }
 }
