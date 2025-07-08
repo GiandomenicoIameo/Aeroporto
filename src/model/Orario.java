@@ -32,7 +32,6 @@ public class Orario {
         this( 0,0 );
     }
 
-
     public void setOrario( int ora, int minuti ) {
         setOra( ora );
         setMinuti( minuti );
@@ -84,10 +83,7 @@ public class Orario {
 
         Orario orario = ( Orario ) obj;
 
-        if( ora != orario.getOra() ||
-            minuti != orario.getMinuti() )
-            return false;
-
-        return true;
+        return ( ora == orario.getOra() &&
+                minuti == orario.getMinuti() );
     }
 }

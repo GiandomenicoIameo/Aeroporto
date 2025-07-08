@@ -48,8 +48,8 @@ public class Amministratore extends Utente {
 		voliGestiti.add( volo );
 	}
 
-	public boolean rimuoviVolo( Volo volo ) {
-		return voliGestiti.remove( volo );
+	public void rimuoviVolo( Volo volo ) {
+		voliGestiti.remove( volo );
 	}
 
 	public Volo trovaVolo( String codice ) {
@@ -74,18 +74,28 @@ public class Amministratore extends Utente {
 
 	public boolean checkVolo( Volo volo ) {
 
+		if( checkCodice( volo ) )
+			return true;
+
 		for( Volo element : voliGestiti ) {
 
-			if( element instanceof VoloInPartenza &&
-				volo instanceof VoloInPartenza ) {
-				return ( ( VoloInPartenza ) element).equals( volo );
-			}
-			if( element instanceof VoloInArrivo &&
-					volo instanceof VoloInArrivo ) {
-				return ( ( VoloInArrivo ) element ).equals( volo );
-			}
+			if( volo instanceof VoloInPartenza )
+				return ( ( VoloInPartenza ) volo ).equals(
+						element );
+			else
+				return ( ( VoloInArrivo ) volo ).equals(
+						element );
+		}
+		// Questa istruzione viene eseguita se l'amministratore
+		// in un dato momento non possiede voli gestiti.
+		return false;
+	}
 
-			if( element.equals( volo ) )
+	private boolean checkCodice( Volo volo ) {
+
+		for( Volo element : voliGestiti ) {
+			if( volo.getCodice().equals(
+					element.getCodice() ) )
 				return true;
 		}
 		return false;

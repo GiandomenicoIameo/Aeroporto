@@ -38,28 +38,10 @@ public class VoloInArrivo extends Volo {
 		if ( volo instanceof VoloInArrivo ) {
 
 			if ( super.equals( volo ) ) {
-				return true;
-			} else {
-				if( !( volo.getData().equals( data ) ) )
-					return false;
-
-				if( !( volo.getOrarioArrivo().equals( orarioArrivo ) ) )
-					return false;
-
-				if( !( volo.getOrarioPartenza().equals( orarioPartenza ) ) )
-					return false;
-
-				if( !( volo.getStato().equals( stato ) ) )
-					return false;
-
-				if( !( volo.getGate().equals( gate ) ) )
-					return false;
-
 				return ( ( VoloInArrivo ) volo ).getAeroportoOrigine().equals(
 						aeroportoOrigine );
 			}
-		} else {
-			return super.equals( volo );
 		}
+		return false;
 	}
 }

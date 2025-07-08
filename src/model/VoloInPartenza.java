@@ -104,31 +104,12 @@ public class VoloInPartenza extends Volo {
 	public boolean equals( Volo volo ) {
 
 		if ( volo instanceof VoloInPartenza ) {
-
 			if ( super.equals( volo ) ) {
-				return true;
-			} else {
-
-				if( !( volo.getData().equals( data ) ) )
-					return false;
-
-				if( !( volo.getOrarioArrivo().equals( orarioArrivo ) ) )
-					return false;
-
-				if( !( volo.getOrarioPartenza().equals( orarioPartenza ) ) )
-					return false;
-
-				if( !( volo.getStato().equals( stato ) ) )
-					return false;
-
-				if( !( volo.getGate().equals( gate ) ) )
-					return false;
 
 				return ( ( VoloInPartenza ) volo ).getAeroportoDestinazione().equals(
 						aeroportoDestinazione );
 			}
-		} else {
-			return super.equals( volo );
 		}
+		return false;
 	}
 }

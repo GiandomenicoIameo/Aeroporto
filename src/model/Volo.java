@@ -153,15 +153,9 @@ public class Volo {
 		return gate.getNumeroGate();
 	}
 
-	public void rimuoviGate() {
-		gate.rimuoviVolo( this );
-		gate = null;
-	}
-
 	// Metodi per gestire le prenotazioni.
 	public void rimuoviPrenotazione( Prenotazione p ) {
 		prenotazioni.remove( p );
-
 	}
 
 	public ArrayList<Prenotazione> getPrenotazioni() {
@@ -191,6 +185,18 @@ public class Volo {
 
 		Volo volo = ( Volo ) obj;
 
-		return volo.getCodice().equals( codice );
+		if( !volo.getData().equals( data ) )
+			return false;
+
+		if( !volo.getOrarioArrivo().equals( orarioArrivo ) )
+			return false;
+
+		if( !volo.getOrarioPartenza().equals( orarioPartenza ) )
+			return false;
+
+		if( !volo.getStato().equals( stato ) )
+			return false;
+
+		return volo.getGate().equals( gate );
 	}
 }

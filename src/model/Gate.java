@@ -10,27 +10,7 @@ public class Gate {
 		numeroGate = numero;
 	}
 
-	public boolean aggiungiVolo( VoloInPartenza volo ) {
-
-		for( Volo element : voli ) {
-			if (!element.getData().equals(volo.getData())) {
-				continue;
-			}
-
-			if ( element instanceof VoloInPartenza &&
-					element.getOrarioPartenza().equals(
-						volo.getOrarioPartenza()) ||
-				element instanceof VoloInArrivo &&
-					element.getOrarioArrivo().equals(
-						volo.getOrarioPartenza()))
-				return false;
-
-		}
-		voli.add( volo );
-		return true;
-	}
-
-	public boolean aggiungiVolo( VoloInArrivo volo ) {
+	public boolean checkVolo( VoloInPartenza volo ) {
 
 		for( Volo element : voli ) {
 			if ( !element.getData().equals(volo.getData() ) ) {
@@ -38,16 +18,38 @@ public class Gate {
 			}
 
 			if ( element instanceof VoloInPartenza &&
-					element.getOrarioPartenza().equals(
-							volo.getOrarioArrivo()) ||
-				 element instanceof VoloInArrivo &&
-					element.getOrarioArrivo().equals(
-							volo.getOrarioArrivo()))
+					volo.getOrarioPartenza().equals(
+							element.getOrarioPartenza() ) ||
+				element instanceof VoloInArrivo &&
+					volo.getOrarioPartenza().equals(
+							element.getOrarioArrivo() ))
+				return false;
+
+		}
+		return true;
+	}
+
+	public boolean checkVolo( VoloInArrivo volo ) {
+
+		for( Volo element : voli ) {
+
+			if ( !volo.getData().equals( element.getData() ) ) {
+				continue;
+			}
+
+			if( element instanceof VoloInArrivo &&
+					volo.getOrarioArrivo().equals(
+						element.getOrarioArrivo() ) ||
+				element instanceof VoloInPartenza &&
+					volo.getOrarioArrivo().equals(
+						element.getOrarioPartenza() ) )
 				return false;
 		}
-
-		voli.add( volo );
 		return true;
+	}
+
+	public void aggiungiVolo( Volo volo ) {
+		voli.add( volo );
 	}
 
 	public void rimuoviVolo( Volo volo ) {
