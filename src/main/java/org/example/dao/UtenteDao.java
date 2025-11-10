@@ -19,7 +19,6 @@ public interface UtenteDao<T extends Utente> extends Dao<String,T> {
      * Recupera una lista di record
      * dalla tabella degli utenti.
      *
-     *
      */
     List<T> getAll() throws SQLException;
 
