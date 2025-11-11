@@ -1,7 +1,7 @@
-package org.example.gui;
+package it.unina.gui;
 
-import org.example.controller.*;
-import org.example.model.Amministratore;
+import it.unina.controller.Controller;
+import it.unina.model.Amministratore;
 
 import javax.swing.*;
 import java.awt.*;

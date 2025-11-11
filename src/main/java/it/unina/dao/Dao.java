@@ -1,4 +1,4 @@
-package org.example.dao;
+package it.unina.dao;
 
 import java.sql.SQLException;
 import java.util.*;

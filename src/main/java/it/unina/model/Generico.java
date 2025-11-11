@@ -1,5 +1,4 @@
-package org.example.model;
-import java.lang.reflect.Array;
+package it.unina.model;
 import java.util.*;
 
 public class Generico extends Utente {

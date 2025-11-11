@@ -1,6 +1,6 @@
-package org.example.gui;
+package it.unina.gui;
 
-import org.example.controller.*;
+import it.unina.controller.Controller;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

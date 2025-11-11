@@ -1,4 +1,4 @@
-package org.example.database;
+package it.unina.database;
 
 import java.sql.*;
 

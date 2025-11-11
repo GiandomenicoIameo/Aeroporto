@@ -1,9 +1,9 @@
-package org.example.controller;
+package it.unina.controller;
 
-import org.example.model.*;
+import it.unina.model.*;
 
-import org.example.implement.postgresql.GenericoImplementDao;
-import org.example.implement.postgresql.AmministratoreImplementDao;
+import it.unina.implement.postgresql.GenericoImplementDao;
+import it.unina.implement.postgresql.AmministratoreImplementDao;
 
 import java.sql.*;
 import java.util.*;
@@ -337,7 +337,7 @@ public class Controller {
         if( volo.getGate().equals( numeroGate ) )
             return true;
 
-        if( volo instanceof VoloInArrivo ) {
+        if( volo instanceof VoloInArrivo) {
             if( !gateArray[ numero ].checkVolo(
                     ( VoloInArrivo ) volo ) )
                 return false;

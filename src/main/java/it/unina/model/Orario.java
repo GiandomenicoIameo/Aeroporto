@@ -1,4 +1,4 @@
-package org.example.model;
+package it.unina.model;
 
 public class Orario {
 

@@ -1,5 +1,5 @@
-package org.example;
-import org.example.gui.Login;
+package it.unina;
+import it.unina.gui.Login;
 
 public class Main {
     public static void main() {

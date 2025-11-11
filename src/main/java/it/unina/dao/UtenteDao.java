@@ -1,6 +1,6 @@
-package org.example.dao;
+package it.unina.dao;
 
-import org.example.model.Utente;
+import it.unina.model.Utente;
 import java.sql.*;
 import java.util.*;
 

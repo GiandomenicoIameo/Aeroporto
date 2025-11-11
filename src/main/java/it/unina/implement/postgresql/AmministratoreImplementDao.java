@@ -1,8 +1,8 @@
-package org.example.implement.postgresql;
+package it.unina.implement.postgresql;
 
-import org.example.model.Amministratore;
-import org.example.dao.UtenteDao;
-import org.example.database.ConnessioneDatabase;
+import it.unina.model.Amministratore;
+import it.unina.dao.UtenteDao;
+import it.unina.database.ConnessioneDatabase;
 
 import java.util.*;
 import java.sql.*;
