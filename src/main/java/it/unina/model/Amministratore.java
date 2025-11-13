@@ -10,11 +10,6 @@ public class Amministratore extends Utente {
     // predisposto dal sistema. Il seguente costruttore
     // presuppone l'esistenza di un esemplare di Volo.
 
-    public Amministratore( String username, String password, Volo volo ) {
-        super( username, password );
-        voliGestiti.add( volo );
-    }
-
     public Amministratore( String username, String password ) {
         super( username, password );
     }
@@ -59,11 +54,6 @@ public class Amministratore extends Utente {
         } return null;
     }
 
-    public void modificaStatoVolo( Volo volo, String stato ) {
-        if ( voliGestiti.contains( volo ) )
-            volo.setStato( stato );
-    }
-
     public int contaVoliGestiti() {
         return voliGestiti.size();
     }
@@ -93,9 +83,9 @@ public class Amministratore extends Utente {
 
     private boolean checkCodice( Volo volo ) {
 
-        for( Volo element : voliGestiti ) {
+        for( Volo elemento : voliGestiti ) {
             if( volo.getCodice().equals(
-                    element.getCodice() ) )
+                    elemento.getCodice() ) )
                 return true;
         }
         return false;
