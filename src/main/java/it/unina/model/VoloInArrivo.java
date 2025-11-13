@@ -2,7 +2,6 @@ package it.unina.model;
 
 public class VoloInArrivo extends Volo {
 
-    // Variabili di istanza.
     private String aeroportoOrigine;
 
     public VoloInArrivo( Amministratore admin, String codice,
@@ -14,14 +13,9 @@ public class VoloInArrivo extends Volo {
         this.aeroportoOrigine = aeroportoOrigine;
     }
 
-    public void setAeroportoOrigine( String aeroporto ) {
-        aeroportoOrigine = aeroporto;
-    }
-
     public String getAeroportoOrigine() {
         return aeroportoOrigine;
     }
-
 
     /**
      *
@@ -30,8 +24,6 @@ public class VoloInArrivo extends Volo {
      * le date, gli orari di arrivo, di partenza, il numero di gate, la compagnia, lo
      * 	stato e l'aeroporto di partenza coincidono.
      *
-     * @param volo
-     * @return
      */
     public boolean equals( Volo volo ) {
 
