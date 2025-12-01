@@ -67,7 +67,7 @@ public class Volo {
     }
 
     public Volo() {
-
+        //Costruttore per l'attività di testing.
     }
 
     public void setStato( String stato ) {

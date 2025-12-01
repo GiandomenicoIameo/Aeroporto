@@ -10,6 +10,10 @@ public class Gate {
         numeroGate = numero;
     }
 
+    public Gate() {
+        //Costruttore per l'attività di testing.
+    }
+
     public boolean checkVolo( VoloInPartenza volo ) {
 
         for( Volo element : voli ) {
@@ -53,8 +57,14 @@ public class Gate {
     }
 
     public void rimuoviVolo( Volo volo ) {
-        if( voli.contains( volo ) )
-            voli.remove( volo );
+        voli.remove( volo );
+    }
+
+    /* Metodo per
+     l'attività
+     di testing */
+    public int getNumeroVoli() {
+        return voli.size();
     }
 
     public void setNumeroGate( String numero ) {
