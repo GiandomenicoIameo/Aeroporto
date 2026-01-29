@@ -753,7 +753,10 @@ BEGIN
 	) THEN	
 		-- Il seguente comando è innoquo. Serve solo
 		-- a far scattare il successivo trigger
-		-- assegnazioneGate.
+		-- assegnazioneGate. Il trigger assegnazioneGate scatta solo
+	    -- se è stato modificato un volo che è
+	    -- referenziato da una voce nella tabella
+	    -- Assegnazione.
 		UPDATE AEROPORTO."Assegnazione"
 		SET    "Codice" = "Codice"
 		WHERE  "Codice" = NEW."Codice";
