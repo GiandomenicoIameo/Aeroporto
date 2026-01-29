@@ -83,7 +83,7 @@ CREATE TABLE AEROPORTO."Aeroporto" (
 	CONSTRAINT "CodiceMaiuscolo"
 		CHECK ("Codice" = UPPER("Codice")),
 	CONSTRAINT "AeroportoFisicoUnivoco"
-		UNIQUE ("Nome", "Stato", "Citta")
+		UNIQUE ("Nome","Stato","Citta")
 );
 
 CREATE TABLE AEROPORTO."Volo" (
@@ -106,31 +106,40 @@ CREATE TABLE AEROPORTO."Volo" (
 		FOREIGN KEY ("IdAmministratore")
 		REFERENCES AEROPORTO."Amministratore" ("IdAmministratore")
 			ON DELETE RESTRICT ON UPDATE CASCADE,
-			-- ON DELETE RESTRICT viene utilizzato per garantire
-			-- il vincolo di partecipazione totale da parte di Volo,
-			-- anche all'atto della cancellazione.
+			-- ON DELETE RESTRICT garantisce il vincolo di partecipazione
+			-- totale di Volo al tipo di associazione Effettuazione.
+			-- Un volo non può esistere senza l'amministratore che lo
+			-- gestisce. L'azione RESTRICT impedisce di rimuovere
+			-- l'amministratore se è legata a un certo numero di voli.
 	CONSTRAINT "VoloChiaveEsternaCompagniaAerea"
 		FOREIGN KEY ("IdCompagnia")
 		REFERENCES AEROPORTO."CompagniaAerea" ("IdCompagnia")
 			ON DELETE RESTRICT ON UPDATE CASCADE,
-			-- ON DELETE RESTRICT viene utilizzato per garantire
-			-- il vincolo di partecipazione totale da parte di Volo,
-			-- anche all'atto della cancellazione.
+			-- ON DELETE RESTRICT garantisce il vincolo di partecipazione
+			-- totale di Volo al tipo di associazione Appartenenza.
+			-- Un volo non può esistere senza la compagnia aerea.
+			-- L'azione RESTRICT impedisce di rimuovere la compagnia
+			-- se è legata a un certo numero di voli.
 	CONSTRAINT "VoloChiaveEsternaAeroportoPartenza"
 		FOREIGN KEY ("CodiceAeroportoPartenza")
 		REFERENCES AEROPORTO."Aeroporto" ("Codice")
 			ON DELETE RESTRICT ON UPDATE CASCADE,
-			-- ON DELETE RESTRICT viene utilizzato per garantire
-			-- il vincolo di partecipazione totale da parte di Volo,
-			-- anche all'atto della
-		-- cancellazione.
+			-- ON DELETE RESTRICT garantisce il vincolo di partecipazione
+			-- totale di Volo al tipo di associazione Partenza.
+			-- Un volo non può esistere senza l'aeroporto di partenza.
+			-- L'azione RESTRICT impedisce di rimuovere
+			-- l'aeroporto di partenza se costituisce la partenza 
+			-- di un certo numero di voli.
 	CONSTRAINT "VoloChiaveEsternaAeroportoDestinazione"
 		FOREIGN KEY ("CodiceAeroportoDestinazione")
 		REFERENCES AEROPORTO."Aeroporto" ("Codice")
 			ON DELETE RESTRICT ON UPDATE CASCADE,
-			-- ON DELETE RESTRICT viene utilizzato per garantire
-			-- il vincolo di partecipazione totale da parte di Volo,
-			-- anche all'atto della cancellazione.
+			-- ON DELETE RESTRICT garantisce il vincolo di partecipazione
+			-- totale di Volo al tipo di associazione Destinazione.
+			-- Un volo non può esistere senza l'aeroporto di destinazione.
+			-- L'azione RESTRICT impedisce di rimuovere l'aeroporto di
+			-- destinazione se se costituisce la destinazione di 
+			-- un certo numero di voli.
 	CONSTRAINT "ArrivoMaggioreDiPartenza"
 		CHECK ("OrarioArrivo" > "OrarioPartenza")
 );
@@ -155,8 +164,9 @@ CREATE TABLE AEROPORTO."StoricoPrenotazione" (
 			ON DELETE RESTRICT ON UPDATE CASCADE
 		-- ON DELETE RESTRICT viene utilizzato per garantire
 		-- il vincolo di partecipazione totale da parte 
-		-- di StoricoPrenotazione, anche all'atto della
-		-- cancellazione.
+		-- di StoricoPrenotazione al tipo di associazione
+		-- "Relazione". Un storicoPrenotazione non può esistere senza 
+		-- un volo associato.
 );
 
 CREATE TABLE AEROPORTO."Passeggero" (
@@ -193,26 +203,29 @@ CREATE TABLE AEROPORTO."Prenotazione" (
 	CONSTRAINT "PrenotazioneChiaveEsternaVolo"
 		FOREIGN KEY ("Codice") 
 		REFERENCES AEROPORTO."Volo" ("Codice")
-			ON UPDATE CASCADE,
-			-- Qui non è stato specificato ON DELETE RESTRICT
-			-- perché una prenotazione potrebbe essere eliminata
-			-- dall'utente quando desidera.
+			 ON DELETE RESTRICT ON UPDATE CASCADE,
+		-- ON DELETE RESTRICT garantisce il vincolo di partecipazione
+		-- totale di Prenotazione al tipo di associazione "Inclusione".
+		-- Una prenotazione non può esistere senza essere associata 
+		-- a un volo.
 	CONSTRAINT "PrenotazioneChiaveEsternaGenerico"
 		FOREIGN KEY ("IdGenerico")
 		REFERENCES AEROPORTO."Generico" ("IdGenerico")
-			ON UPDATE CASCADE,
-			-- Qui non è stato specificato ON DELETE
-			-- perché le prenotazioni devono rimanere
+			ON DELETE SET NULL ON UPDATE CASCADE,
+			-- Le prenotazioni devono rimanere
 			-- nel sistema anche se l'utente cancella l'account.
+			-- Pertanto, all'atto della cancellazione dell'account
+			-- utente la prenotazione non subisce lo stesso
+			-- destino ma resta nel sistema.
 	CONSTRAINT "PrenotazioneChiaveEsternaPasseggero"
 		FOREIGN KEY ("NumeroDocumento")
 		REFERENCES AEROPORTO."Passeggero" ("NumeroDocumento")
-			ON DELETE RESTRICT	ON UPDATE CASCADE
+			ON DELETE RESTRICT ON UPDATE CASCADE
 			-- ON DELETE RESTRICT viene utilizzato per garantire
 			-- il vincolo di partecipazione totale da parte 
-			-- di Prenotazione. Una prenotazione non dovrebbe
-			-- esistere nel sistema senza essere associata
-			-- ad alcun passeggero.
+			-- di Prenotazione al tipo di associazione Intestazione.
+			-- Una prenotazione non dovrebbe esistere nel sistema 
+			-- senza essere associata ad alcun passeggero.
 );
 
 CREATE TABLE AEROPORTO."Gate" (
@@ -241,9 +254,9 @@ CREATE TABLE AEROPORTO."Assegnazione" (
 			ON DELETE CASCADE ON UPDATE CASCADE,
 		-- ON DELETE CASCADE è necessario per garantire
 		-- che nella tabella Assegnazione non ci siano
-		-- valori nulli dovuti a un volo cancellato
-		-- oppure per evitare che un gate sia assegnato
-		-- inesistente.
+		-- valori nulli in corrispondenza dell'attributo
+		-- "Codice" di Volo. Quindi anche per evitare che 
+		-- un gate gestisca voli inesistenti.
 		-- Si suppone che l'assegnazione sia fatta
 		-- dall'amministratore e non dal software.
 	CONSTRAINT "AssegnazioneChiaveEsternaGate"
@@ -252,9 +265,9 @@ CREATE TABLE AEROPORTO."Assegnazione" (
 			ON DELETE CASCADE ON UPDATE CASCADE,
 		-- ON DELETE CASCADE è necessario per garantire
 		-- che nella tabella Assegnazione non ci siano
-		-- valori nulli dovuti a un volo cancellato
-		-- oppure per evitare che un volo sia assegnato
-		-- a un gate
+		--  valori nulli in corrispondenza dell'attributo
+		-- "Numero" di Gate. Quindi per evitare che un 
+		-- volo sia assegnato a un gate inesistente.
 	CONSTRAINT "ControlloOrarioAssegnazione"
 		CHECK ("OrarioFineAssegnazione" > "OrarioInizioAssegnazione")
 );
@@ -262,6 +275,48 @@ CREATE TABLE AEROPORTO."Assegnazione" (
 -- ============================================================
 -- 2. DEFINIZIONE DEI VINCOLI DI INTEGRITÀ SEMANTICI
 -- ============================================================
+
+-- Username generico unico
+CREATE FUNCTION AEROPORTO.usernameGenericoUnico()
+RETURNS TRIGGER AS $$
+BEGIN
+	IF EXISTS (
+		SELECT 1
+		FROM AEROPORTO."Amministratore"
+		WHERE "Username" = NEW."Username" ) 
+	THEN
+		RAISE EXCEPTION 'Username già presente';	
+	END IF;
+
+	RETURN NEW;
+END;
+$$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER UsernameGenericoUnico
+BEFORE INSERT ON AEROPORTO."Generico"
+FOR EACH ROW
+	EXECUTE FUNCTION AEROPORTO.usernameGenericoUnico();
+
+-- Username Amministratore unico
+CREATE FUNCTION AEROPORTO.usernameAmministratoreUnico()
+RETURNS TRIGGER AS $$
+BEGIN
+	IF EXISTS (
+		SELECT 1
+		FROM AEROPORTO."Generico"
+		WHERE "Username" = NEW."Username" ) 
+	THEN
+		RAISE EXCEPTION 'Username già presente';	
+	END IF;
+
+	RETURN NEW;
+END;
+$$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER UsernameAmministratoreUnico
+BEFORE INSERT ON AEROPORTO."Amministratore"
+FOR EACH ROW
+	EXECUTE FUNCTION AEROPORTO.usernameAmministratoreUnico();
 
 -- Assegnazione IdUtente a Generico
 CREATE FUNCTION AEROPORTO.assegnazioneIdGenerico()
@@ -408,7 +463,7 @@ FOR EACH ROW
 -- cancellazione prenotazione da parte dell'utente (verificato!)
 -- Il punto di non ritorno è rappresentato dallo stato 'Chiuso'. Dopo
 -- questo stato, l'utente non può più annullare la prenotazione.
-CREATE FUNCTION AEROPORTO.cancellazioneVolo()
+CREATE FUNCTION AEROPORTO.cancellazionePrenotazione()
 RETURNS TRIGGER AS $$
 DECLARE
 	stato VARCHAR;
@@ -418,7 +473,10 @@ BEGIN
 	FROM  AEROPORTO."Volo"
 	WHERE "Codice" = NEW."Codice";
 
-	IF stato <> 'Programmato' AND stato <> 'InRitardo' AND stato <> 'Cancellato' THEN
+	IF stato <> 'Programmato' AND 
+	   stato <> 'InRitardo'   AND 
+	   stato <> 'Cancellato' 
+	THEN
 		RAISE EXCEPTION 'Non è possibile annullare la prenotazione!';
 	END IF;
 	
@@ -426,11 +484,11 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
-CREATE TRIGGER CancellazioneVolo
+CREATE TRIGGER CancellazionePrenotazione
 BEFORE UPDATE OF "Stato" ON AEROPORTO."Prenotazione"
 FOR EACH ROW
 	WHEN (NEW."Stato" = 'Cancellata')
-		EXECUTE FUNCTION AEROPORTO.CancellazioneVolo();
+		EXECUTE FUNCTION AEROPORTO.CancellazionePrenotazione();
 
 -- Posto unico 
 CREATE FUNCTION AEROPORTO.controlloPostoUnicoPerVolo()
@@ -663,6 +721,7 @@ BEGIN
 			AND	"OrarioFineAssegnazione"   > NEW."OrarioInizioAssegnazione"
 			AND "Stato" IN ('Pianificato','Attivo')
 	) THEN
+		-- La transizione fallisce e viene annullata (rollback)
 		RAISE EXCEPTION 'Conflitto di orari: Modificare gli orari del
 		volo con codice %', NEW."Codice";
 	END IF;
@@ -672,13 +731,6 @@ END;
 
 $$ LANGUAGE PLPGSQL; 
 
--- Questo trigger viene eseguito
--- dopo i trigger conflitto e Orario.
-
--- Non è necessario confrontare gli orari di arrivo e partenza di un
--- volo per verificare un conflitto. Sono sufficienti solo gli orari di
--- di assegnazione. Infatti, per il precedente trigger di ha che
--- OrarioInizioAssegnazione < OrarioPartenza < OrarioFineAssegnazione.
 CREATE TRIGGER OrarioConflittoAssegnazioneGate
 BEFORE INSERT OR UPDATE ON AEROPORTO."Assegnazione"
 FOR EACH ROW
@@ -689,7 +741,7 @@ FOR EACH ROW
 -- ogni qual volta un volo viene inserito o aggiornato. 
 -- Quando un volo viene creato e il gate non ancora assegnato
 -- gli orari di partenza dei voli potrebbero essere in conflitto.
--- Successivamente, quando l'admin assegna o gate, il software
+-- Successivamente, quando l'admin assegna un gate il software
 -- rileva i conflitti.
 
 CREATE FUNCTION AEROPORTO.aggiornamentoAssegnazioniGate()
@@ -706,7 +758,10 @@ BEGIN
 		SET    "Codice" = "Codice"
 		WHERE  "Codice" = NEW."Codice";
 	END IF;
-	
+
+	 -- Se il volo è stato appena creato, allora sicuramente
+	 -- non è associato a nessun gate nella tabella Assegnazione,
+	 -- pertanto viene solo creata la nuova tupla. 
 	RETURN NEW;
 END;
 $$ LANGUAGE PLPGSQL; 
