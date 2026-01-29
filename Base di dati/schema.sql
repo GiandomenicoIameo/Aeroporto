@@ -442,9 +442,9 @@ RETURNS TRIGGER AS $$
 DECLARE
 	prenotabile BOOLEAN;
 BEGIN
-	SELECT volo."Prenotabile" 
+	SELECT "Prenotabile" 
 		INTO prenotabile
-	FROM AEROPORTO."Volo" AS volo
+	FROM AEROPORTO."Volo"
 	WHERE "Codice" = NEW."Codice";
 
 	IF prenotabile = FALSE THEN
