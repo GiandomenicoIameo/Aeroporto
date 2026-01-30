@@ -27,6 +27,13 @@ CREATE DOMAIN AEROPORTO."StatoOccupazione" AS VARCHAR(11)
 	CHECK (VALUE IN ('Pianificato','Attivo','Annullato','Completato'));
 
 /*Creazione delle tabelle*/
+
+-- L'attributo password è stato impostato con vincolo NOT NULL. 
+-- Se avessi permesso record con valore di questo attributo NULL, starei 
+-- consentendo a un utente di autenticarsi senza alcuna password o 
+-- registrare un proprio account senza la chiave di accesso. Questo 
+-- perché la database accetterà record dove il campo password 
+-- è vuoto o nullo.
 CREATE TABLE AEROPORTO."Generico" (
 	/*Definizione dei dati*/
 	"IdGenerico" INTEGER	 NOT NULL,
@@ -42,6 +49,12 @@ CREATE TABLE AEROPORTO."Generico" (
 		CHECK (LENGTH("Password") >= 6)
 );
 
+-- A differenza del passeggero (che è un cliente privato), l'amministratore 
+-- è un dipendente che compie azioni critiche. Se un domani si scopre che 
+-- un volo è stato cancellato per errore o per dolo, causando un danno 
+-- economico, bisogna poter dire: "È stato l'account ID 45 (Mario Rossi)", 
+-- anche se Mario Rossi si è licenziato due anni fa.
+-- Pertanto, ogni Amministratore deve rimanere nel sistema.
 CREATE TABLE AEROPORTO."Amministratore" (
 	/*Definizione dei dati*/
 	"IdAmministratore" INTEGER		NOT NULL,
@@ -111,6 +124,10 @@ CREATE TABLE AEROPORTO."Volo" (
 			-- Un volo non può esistere senza l'amministratore che lo
 			-- gestisce. L'azione RESTRICT impedisce di rimuovere
 			-- l'amministratore se è legata a un certo numero di voli.
+			
+			-- Se per ipotesi nessun volo viene eliminato dal sistema,
+			-- allora il vincolo ON DELETE RESTRICT garantisce che
+			-- anche gli amministratori non vengano eliminati.
 	CONSTRAINT "VoloChiaveEsternaCompagniaAerea"
 		FOREIGN KEY ("IdCompagnia")
 		REFERENCES AEROPORTO."CompagniaAerea" ("IdCompagnia")
@@ -144,14 +161,23 @@ CREATE TABLE AEROPORTO."Volo" (
 		CHECK ("OrarioArrivo" > "OrarioPartenza")
 );
 
+
+-- Per questo progetto si è deciso che quando una prenotazione 
+-- si trova nello stato di cancellata, i dati del passeggero 
+-- devono essere cancellati per questioni legate alla privacy
+-- ma la prenotazione deve comunque rimanere. Infatti, vengono
+-- memorizzate nello StoricoPrenotazione. Uno dei motivi per cui
+-- si intende mantenerle è per avanzare delle statistiche riguardanti 
+-- la compagnia aerea: numero di posti venduti, ecc.
+
 CREATE TABLE AEROPORTO."StoricoPrenotazione" (
 	"IdStoricoPrenotazione"	SERIAL 									NOT NULL,
 	"CodicePrenotazione"	INTEGER									NOT NULL,
 	"Stato"					AEROPORTO."StatoStoricoPrenotazione"	NOT NULL,	
 	"PostoAssegnato"		INTEGER									NOT NULL,
 	"NumeroBagagli"			INTEGER									NOT NULL,
-	"NumeroBiglietto"		INTEGER,							
-
+	"NumeroBiglietto"		INTEGER									NOT NULL,
+	
 	/*Definizione dei vincoli di partecipazione*/
 	"Codice"				INTEGER									NOT NULL,
 
@@ -188,12 +214,26 @@ CREATE TABLE AEROPORTO."Prenotazione" (
 	"Stato"				AEROPORTO."StatoPrenotazione"	DEFAULT 'InAttesa',	
 	"PostoAssegnato"	INTEGER							NOT NULL,
 	"NumeroBagagli"		INTEGER							NOT NULL,
-	"NumeroBiglietto"	INTEGER							NOT NULL,							
+	"NumeroBiglietto"	INTEGER,
+	-- NumeroBiglietto nel tipo di entità Prenotazione non può essere una 
+	-- chiave candidata, quindi essere specificata tramite UNIQUE("NumeroBiglietto").
+    -- Una chiave candidata non dovrebbe mai essere nulla. Se un utente può effettuare 
+	-- una prenotazione e "bloccare il posto" ma il biglietto viene emesso solo 
+	-- dopo il pagamento (magari giorni dopo), allora al momento della creazione 
+	-- della prenotazione il NumeroBiglietto non esiste ancora.
 	
 	/*Definizione dei vincoli di partecipazione*/
 	"IdGenerico"		INTEGER							NOT NULL,
 	"Codice"			INTEGER							NOT NULL,
-	"NumeroDocumento"	VARCHAR(20)						NOT NULL,
+	"NumeroDocumento"	VARCHAR(20)						NOT NULL, 
+	-- NOT NULL definisce un vincolo di partecipazione totale. Infatti, 
+	-- ogni occorrenza di Prenotazione per esistere deve partecipare ad almeno 
+	-- un'istanza di associazione (ovvero essere legata ad almeno un'occorrenza 
+	-- di Passeggero). Non possono esistere Prenotazioni non legate a nessuna 
+	-- occorrenza di Passeggero.
+	-- Questo vincolo viene confermato dall'azione referenziale innescata ON DELETE 
+	-- RESTRICT. Se un'occorrenza di Passeggero è legata a un'occorrenza di Prenotazione 
+	-- ma si tenta di eliminarla, il database blocca tale operazione.
 	
 	/*Definizione dei vincoli basati sullo schema*/
 	CONSTRAINT "PrenotazioneChiavePrimaria"
@@ -271,6 +311,20 @@ CREATE TABLE AEROPORTO."Assegnazione" (
 	CONSTRAINT "ControlloOrarioAssegnazione"
 		CHECK ("OrarioFineAssegnazione" > "OrarioInizioAssegnazione")
 );
+
+-- Attivo: Viene impostato poco prima dell'atterraggio o della partenza 
+-- di un aereo. Solo una tupla per Gate può avere questo stato nello stesso 
+-- momento.
+
+-- Pianificato: Sono i voli futuri prenotati per quel gate. Sono validi, 
+-- ma "dormienti" finché non tocca a loro.
+
+-- Annullato: Gate libero, volo mai arrivato. Quell'ora è tornata 
+-- vergine. È possibile inserire un altro volo proprio nell'orario 
+-- in cui doveva atterrare il volo annullato.
+
+-- Completato: Il volo ha liberato il Gate. Il gate è disponibile 
+-- per il prossimo volo.
 
 -- ============================================================
 -- 2. DEFINIZIONE DEI VINCOLI DI INTEGRITÀ SEMANTICI
@@ -378,7 +432,7 @@ ON AEROPORTO."Volo"
 FOR EACH ROW
 	EXECUTE FUNCTION AEROPORTO.partenzaArrivoNapoli();
 
--- controllo passeggeri
+-- Univocità del numero di documento in un volo.
 CREATE FUNCTION AEROPORTO.unicoDocumentoPerVolo()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -398,6 +452,27 @@ CREATE TRIGGER UnicoDocumentoPerVolo
 BEFORE INSERT ON AEROPORTO."Prenotazione"
 FOR EACH ROW
 	EXECUTE FUNCTION AEROPORTO.unicoDocumentoPerVolo();
+
+-- Univocità del numero di biglietto.
+CREATE FUNCTION AEROPORTO.unicoNumeroBiglietto()
+RETURNS TRIGGER AS $$
+BEGIN
+	IF EXISTS (
+		SELECT 1
+		FROM   AEROPORTO."Prenotazione"
+		WHERE  "NumeroBiglietto" = NEW."NumeroBiglietto")
+	THEN
+		RAISE EXCEPTION 'Numero biglietto già esistente!';
+	END IF;
+
+	RETURN NEW;
+END;
+$$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER UnicoNumeroBiglietto
+BEFORE INSERT ON AEROPORTO."Prenotazione"
+FOR EACH ROW
+	EXECUTE FUNCTION AEROPORTO.unicoNumeroBiglietto();
 
 -- Pulizia orfani (passeggeri) di prenotazione.
 CREATE FUNCTION AEROPORTO.puliziaOrfani()
@@ -710,6 +785,17 @@ FOR EACH ROW
 	EXECUTE FUNCTION AEROPORTO.assegnazioneGate();
 
 -- conflitto assegnazione
+-- Prima di inserire una tupla in Assegnazione il sistema 
+-- chiede: "Il Gate A è Libero dalle 10:00 alle 11:00?" Cioè il sistema 
+-- verifica che esista un riga nella tabella Assegnazione con quell'orario.
+
+-- Se esiste non viene creata nessuna tupla: "Conflitto di orario".
+-- Se non esiste il sistema crea una nuova riga nella tabella 
+-- Assegnazione e imposta lo stato a Pianificato. Lo stato Pianificato
+-- viene impostato automaticamente perché per impostazione predefinita
+-- ogni nuova tupla in Assegnazione ha per l'attributo StatoOccupazione
+-- il valore Pianificato.
+
 CREATE FUNCTION AEROPORTO.orarioConflittoAssegnazioneGate()
 RETURNS TRIGGER AS $$
 BEGIN
